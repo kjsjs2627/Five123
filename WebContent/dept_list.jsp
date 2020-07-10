@@ -1,5 +1,5 @@
 <%@page import="study.java.myschool.model.Department"%>
-
+<%@page import="java.util.List" %>
 <%@page import="study.java.myschool.service.impl.DepartmentServiceImpl"%>
 <%@page import="study.java.myschool.service.DepartmentService"%>
 <%@page import="study.java.myschool.MyBatisConnectionFactory"%>
