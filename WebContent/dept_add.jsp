@@ -28,6 +28,9 @@
 			<button type="submit" class="btn btn-primary btn-block">작성완료</button>
 		</form>
 	</div>
+	<div>
+	<h1>즐거웠습니다.</h1>
+	</div>
 
 </body>
 </html>
