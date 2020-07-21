@@ -19,18 +19,19 @@
 				<label for="dname">학과이름</label>
 				<input type="text" name="dname" id="dname" class="form-control" />
 			</div>
-			
+
 			<div class="form-group">
 				<label for="loc">위치</label>
 				<input type="text" name="loc" id="loc" class="form-control" />
 			</div>
-			
+
 			<button type="submit" class="btn btn-primary btn-block">작성완료</button>
 		</form>
 	</div>
 	<div>
 	<h1>즐거웠습니다. 거짓말</h1>
 	<h2>어떻게 알았지?</h2>
+    <h3>안됨</h3>
 	</div>
 
 </body>
