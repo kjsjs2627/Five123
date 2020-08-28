@@ -1,0 +1,224 @@
+@charset "utf-8";
+
+#content {
+	padding-top: 160px;
+}
+
+/* 배송지정보 체크박스 영역 */
+#deliveryLine {
+	font-size: 20px;
+	padding: 20px 20px 10px 20px;
+}
+
+#deliveryLine div:last-child {
+	padding-bottom: 15px;
+	border-bottom: 2px solid #ccc;
+}
+
+label {
+	margin-top: 5px;
+}
+
+.form-info ul {
+	width: 100%;
+}
+
+.form-info input {
+	width: 65%;
+}
+
+/* 내용 영역 패딩 */
+.form-info {
+	padding: 12px 20px;
+}
+
+/* form영역 input 크기 조절 */
+#deliveryInfo input {
+	height: 30px;
+}
+
+/*내용 영역 input 박스 정렬 */
+.form-info input {
+	margin-left: 40px;
+}
+/* 주소 우편번호 입력란 조절 */
+#addressDetail li:first-child input {
+	width: 30%;
+}
+
+#user_a_address, #user_b_address {
+	margin: 5px 0 0 97px;
+}
+
+/* 주소영역란 크기 조절 */
+.form-info button {
+	border: 0;
+	margin-bottom: 2px;
+	padding: 4px 12px;
+	height: 31px;
+}
+
+/* 우편번호 내용영역 위치 조절 */
+#user_address {
+	margin-left: 57px;
+}
+
+/* 주소 2영역 위치 조정 */
+.a-address {
+	margin-top: 5px;
+	margin-left: 39px;
+}
+/* 전화번호 영역 위치 조정 */
+#tel {
+	margin-left: 23px;
+}
+/* 이메일 아래 영역 보더 */
+#payEmail {
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 15px;
+}
+
+/* 할인정보 영역 */
+#saleInfo {
+	padding: 10px 22px 26px 22px;
+}
+
+#couponUse label:first-child {
+	margin-top: 45px;
+}
+
+#coupon {
+	border-top: 2px solid #ccc;
+	padding-top: 40px;
+}
+
+/* 할인정보 input 설정 */
+#sale {
+	border: 0;
+	background-color: #fff;
+	text-align: right;
+}
+
+/* 쿠폰적용 select 위치 조정 */
+#saleDetail select {
+	margin-left: 25px;
+	width: 58%;
+	height: 32px;
+}
+/* 쿠폰적용 라벨 중앙정렬 */
+#saleDetail label {
+	margin-top: 8px;
+}
+/*쿠폰 적용 버튼 설정*/
+#saleDetail button {
+	height: 32px;
+	border: 0;
+}
+
+/*적립금 input 크기 조절 */
+#savePossible {
+	width: 30%;
+	margin: 0;
+	border: 0;
+	background-color: #fff;
+	text-align: right;
+	color: #940A37;
+}
+/* 적립금 위치 조정을 위한 div 크기 조절 */
+#save div {
+	width: 80%;
+}
+
+#save label {
+	margin: 4px;
+}
+
+#save li:first-child text {
+	font-size: 13px;
+}
+
+#save li {
+	margin-left: 20px;
+}
+
+#save ul:last-child {
+	padding-bottom: 30px;
+}
+
+#saveUse {
+	text-align: right;
+	margin: 0 5px 0 0;
+	width: 78%;
+}
+
+input.sum {
+	border: 0;
+	margin-left: 50px;
+	text-align: right;
+}
+
+.sumLine {
+	margin-top: 3px;
+	background-color: #fff;
+}
+/** 금액 영역 구분선 */
+#totalMoney {
+	border-top: 2px solid #ccc;
+	margin: 0 20px 0 20px;
+	padding: 30px 0 10px 0;
+}
+#totalMoney input {
+	text-align: right;
+	border:0;
+	width: 65%;
+	margin-left: 50px;
+}
+
+#totalSum {
+	border-bottom: 2px solid #ccc;
+	margin: 0 20px 0 20px;
+	padding: 10px 0 30px 0;
+	
+}
+
+#totalSum input {
+	text-align: right;
+	border:0;
+	width: 65%;
+	
+}
+
+#totalMoney label, #totalMoney input, #totalMoney, #totalMoney div {
+	color: #07031A;
+	background-color: #fff;
+}
+
+#totalSale label, #totalSale input, #totalSale div, #totalSale {
+	color: #07031A;
+	background-color: #fff;
+}
+
+#totalSum input, #totalSum label, #totalSum div, #totalSum {
+	color: #F13B3B;
+	background-color: #fff;
+	font-size: 20px;
+}
+
+#sumT {
+	margin: 0;
+	width: 50%;
+}
+
+#sumT input {
+	margin-left: 20px;
+}
+
+#infoCheck {
+	font-size: 15px;
+	padding: 12px 20px;
+}
+
+#infoCheck button {
+	margin: 20px 0 30px 0;
+	width: 100%;
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PaymentMapper">
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+   <resultMap id="paymentMap" type="study.spring.withfivebird.model.Payment">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="payment_no" column="payment_no"/>
+      <result property="payment_total" column="payment_total"/>
+      <result property="payment_reg_date" column="payment_reg_date"/>
+      <result property="user_no" column="user_no"/>
+      <result property="basket_no" column="basket_no"/>
+     
+      
+   </resultMap>
+   
+   <!-- 단일행 조회를 위한 기능 정의 -->
+   <select id="selectItem" parameterType="study.spring.withfivebird.model.Payment" resultMap="paymentMap">
+   		SELECT * FROM payment WHERE payment_no=${payment_no};
+   </select>
+   <!-- 다중행 조회를 위한 기능 정의 -->
+   <select id="selectList" parameterType="study.spring.withfivebird.model.Payment" resultMap="paymentMap">
+   		SELECT * FROM payment
+   		
+   		<where>
+   			<if test="payment_total != null and payment_total != ''">
+   				payment_total LIKE concat('%',#{payment_total},'%')
+   			</if>
+   		</where>
+   		ORDER BY payment_no DESC
+   </select> 
+   
+   <!-- 데이터 저장을 위한 기능 정의 -->
+   <insert id="insertItem" parameterType="study.spring.withfivebird.model.Payment" useGeneratedKeys="true" keyProperty="payment_no">
+   		INSERT INTO payment (payment_total, payment_reg_date, user_no, basket_no) 
+   		VALUES (#{payment_total}, #{payment_reg_date}, #{user_no}, #{basket_no});
+   </insert> 
+   
+   <!-- 데이터 삭제를 위한 기능 정의 -->
+   <delete id="deleteItem" parameterType="study.spring.withfivebird.model.Payment">
+   		DELETE FROM payment WHERE payment_no=#{payment_no};
+   </delete>
+   
+   <!-- 데이터 수 조회하기 -->
+   <update id="updateItem" parameterType="study.spring.withfivebird.model.Payment">
+   		UPDATE payment SET payment_total=#{payment_total}, payment_reg_date=#{payment_reg_date}, user_no=#{user_no}, 
+   		basket_no=#{basket_no} 
+   		WHERE payment_no=#{payment_no};
+   </update> 
+   
+   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.Payment" resultType="int">
+   		SELECT COUNT(*) FROM payment
+   		
+   		<where>
+   			<if test="payment_total != null and payment_total != ''">
+   				payment_total LIKE concat('%',#{payment_total},'%')
+   			</if>
+   		</where>
+   </select>
+   
+   <!-- join -->
+   <select id="selectJoin" parameterType="study.spring.withfivebird.model.Payment" resultMap="paymentMap">
+<!--    SELECT * FROM payment as p INNER JOIN user as u ON p.user_no = u.user_no -->
+   SELECT * FROM payment as p INNER JOIN basket as b ON p.basket_no = b.basket_no
+   
+   		<where>
+   			<if test="payment_total != null and payment_total != ''">
+   				payment_total LIKE concat('%',#{payment_total},'%')
+   			</if>
+   		</where>
+   		
+   </select>
+</mapper>

@@ -1,0 +1,94 @@
+{
+
+ "item":[
+		{
+			"img":"assets/img/bottom/bottom1.gif",
+			"cname": "숏트레이닝",
+			"cdetail": "가볍게 입어주기 좋은 숏기장의 트레이닝 팬츠!",
+			"cprice": "24900",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/bottom/bottom2.gif",
+			"cname": "쿨 슬라브 데님",
+			"cdetail": "시원하고 청량한 연중청 컬러에 더운 여름에 입기 좋은 얇고 부드러운 데님",
+			"cprice": "25900",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/bottom/bottom3.gif",
+			"cname": "크림 린넨",
+			"cdetail": "여름에 입을 시원하고 부드러운 긴바지를 찾으셨다면 적극추천 :)",
+			"cprice": "24900",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/bottom/bottom4.gif",
+			"cname": "코지 파자마",
+			"cdetail": "오래 입고 있어도 가슬거림 없는 부드러운 소재로 제작했어요",
+			"cprice": "32200",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/bottom/bottom5.gif",
+			"cname": "리틀 cotton pants",
+			"cdetail": "지금부터 초가을까지 쭉 입기 좋은 깔끔한 무드로 완성된 코튼 팬츠",
+			"cprice": "39000"
+		},
+		{
+			"img": "assets/img/bottom/bottom6.gif",
+			"cname": "마운틴 데님",
+			"cdetail": "코디컷 마다 업뎃문의 폭주했던 딥한 생지컬러의 셀비지 데님",
+			"cprice": "34000"
+		},
+		{
+			"img": "assets/img/bottom/bottom7.gif",
+			"cname": "블루그레이 데님",
+			"cdetail": "블루와 그레이컬러가 오묘하게 섞여 흔치않은 매력이 돋보이는 슬림핏 데님",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/bottom/bottom8.gif",
+			"cname": "에브리데이 파자마",
+			"cdetail": "365일 #홈웨어 #데일리파자마 자체제작 했어요",
+			"cprice": "17900"
+		},
+		{
+			"img": "assets/img/bottom/bottom9.gif",
+			"cname": "밀크-peanut denim",
+			"cdetail": "핑크색 팬츠 탄탄하고 두께감 있는 부드러운 코튼소재로 만들었어요",
+			"cprice": "29000"
+		},
+		{
+			"img": "assets/img/bottom/bottom10.gif",
+			"cname": "그릿 short pants",
+			"cdetail": "은은한 그레이컬러 워싱이 매력적인 빈티지한 무드의 그레이 숏팬츠",
+			"cprice": "22000"
+		},
+		{
+			"img": "assets/img/bottom/bottom11.gif",
+			"cname": "하프 cotton slacks",
+			"cdetail": "코튼 100% 소재에 루즈한 핏이 돋보이는 반바지 기장의 코튼 슬렉스",
+			"cprice": "30000"
+		},
+		{
+			"img": "assets/img/bottom/bottom12.gif",
+			"cname": "타임핀턴 하프slacks",
+			"cdetail": "반바지 기장의 슬렉스 깔끔하고 가성비가 좋아 적극 추천드려요",
+			"cprice": "24000"
+		},
+		{
+			"img": "assets/img/bottom/bottom13.gif",
+			"cname": "라이닝 팬츠",
+			"cdetail": "스커트처럼 보이지만 낙낙한 통의 4부 팬츠 디자인이라 정말 편안해요",
+			"cprice": "9000"
+		},
+		{
+			"img": "assets/img/bottom/bottom14.gif",
+			"cname": "오르곤 데님",
+			"cdetail": "한여름에 입기 좋은 얇은 데님팬츠",
+			"cprice": "25000"
+		}
+	]
+
+}	

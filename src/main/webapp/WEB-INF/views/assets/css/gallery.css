@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+/** gallery img 크기 지정 */
+div.container{
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+body #content { 
+ 	padding-top: 140px; 
+ 	text-align: center; 
+ 	width:100%; 
+ }
+ 
+  /* 상품 갯수 css */
+  .clothscount { 
+ 	text-align: right; 
+ 	margin: auto; 
+ 	font-size: 14px; 
+ 	line-height: 200%; 
+ 	height: 30px; 
+ 	width: 100%; 
+ 	padding: 0 25px; 
+ 	border-bottom: 1px solid #ccc; 
+ } 
+  /* 검색창 */
+ #searchBox { 
+ 	width: 100%; 
+ 	padding: 15px 25px; 
+ 	margin-bottom: 10px;
+ } 
+/* 검색창 input */
+#searchBox input { 
+ 	width: 75%;
+ 	text-align: center; 
+ 	line-height: 30px;
+ 	border: 1px solid #940A37; 
+ } 
+ /* 검색 버튼 */
+ #searchBox>button { 
+ 	margin-left: 10px; 
+ 	width: 20%; 
+ 	height: 35px; 
+ 	border: 0; 
+ 	background-color: #940A37; 
+ 	color: #fff; 
+ }
+ #gallery{
+ 		padding: 0 10px;
+ 	
+ }
+#gallery li {
+    width: 50%;
+    float: left;
+   	min-height: 430px;   
+   	margin-top : 10px;
+	font-size: 13px;
+    
+}
+
+#gallery li a {
+    display: block;
+    width: auto;
+/*     margin-bottom : 40px; */
+}
+
+#gallery li a span {
+    overflow: hidden;
+    display: block;
+    width: 95%;
+    margin: auto;
+}
+
+#gallery .thumb img {
+    width: 100%;
+
+}
+/* 옷제목*/
+#gallery .text {
+    width: 90%;
+/*     margin-top: 10px; */
+/*     padding-top: 5px; */
+	padding: 10px 0;
+    
+    text-align: center;
+/*     font-size: 16px; */
+
+	font-size: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+	font-weight: bold;
+/*    	height: 35px;  */
+	min-height: 50px;
+   
+}
+
+#gallery .textdetail{
+	margin-top: 10px;
+	width: 90%;
+/* 	height: 40px; */
+	font-size: 10px;
+	color: #999;
+	line-height: 170%;
+	min-height: 40px;
+
+}
+#gallery .price{
+/* 	font-size: 15px; */
+	font-size: 13px;
+	color: #940A37;
+	font-weight: bold;
+/* 	height: 20px; */
+	margin-top: 15px;
+}
+/* 옷 설명 나오는 부분 */
+ #gallery .thumb .desc { 
+ 	margin: 15px 0; 
+ 
+ } /* 페이징 버튼 */
+.pagemove{
+	text-align: center;
+}
+
+ 
+#gallery:after {
+    content: '';
+    display: block;
+    float: none;
+    clear: both;
+}

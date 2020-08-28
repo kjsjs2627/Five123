@@ -1,0 +1,104 @@
+{
+	"item": [
+		{
+			"img": "assets/img/top/top3.gif",
+			"cname": "후르츠-made tee",
+			"cdetail": "화사한 색감의 넥라인 탄탄한 기본핏 라운드 티셔츠",
+			"cprice": "12500",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/top/top5.gif",
+			"cname": "빌리브blouse",
+			"cdetail": "단정하고 고급스러운 분위기의 블라우스",
+			"cprice": "38000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/top/top6.gif",
+			"cname": "잠봉blouse",
+			"cdetail": "편하게 즐기기 좋은 분위기 있는 블라우스",
+			"cprice": "34000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/top/top7.gif",
+			"cname": "크루tee",
+			"cdetail": "코튼 100%로 제작된 짧은 소매가 매력적인 루즈핏 티셔츠",
+			"cprice": "18000",
+			"sale" : "true"
+		},
+		{
+			"img":"assets/img/bottom/bottom1.gif",
+			"cname": "숏트레이닝",
+			"cdetail": "가볍게 입어주기 좋은 숏기장의 트레이닝 팬츠!",
+			"cprice": "24900",
+			"sale" : "true"
+			
+		},
+		{
+			"img": "assets/img/bottom/bottom2.gif",
+			"cname": "쿨 슬라브 데님",
+			"cdetail": "시원하고 청량한 연중청 컬러에 더운 여름에 입기 좋은 얇고 부드러운 데님",
+			"cprice": "25900",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/bottom/bottom3.gif",
+			"cname": "크림 린넨",
+			"cdetail": "여름에 입을 시원하고 부드러운 긴바지를 찾으셨다면 적극추천 :)",
+			"cprice": "24900",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/bottom/bottom4.gif",
+			"cname": "코지 파자마",
+			"cdetail": "오래 입고 있어도 가슬거림 없는 부드러운 소재로 제작했어요",
+			"cprice": "32200",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/dress/dress8.gif",
+			"cname": "애플 cotton ops",
+			"cdetail": "얇지 않고 톡톡한 두께, 포켓까지 더해져있는 코튼 롱 원피스",
+			"cprice": "34000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/dress/dress9.gif",
+			"cname": "베일ops",
+			"cdetail": "사랑스러운 셔링과 맥시한 기장이 포인트인 원피스",
+			"cprice": "43000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/dress/dress10.gif",
+			"cname": "페이드ops",
+			"cdetail": "일상룩 부터 휴가시즌에도 추천드리는 편안한 타입의 롱 원피스",
+			"cprice": "36000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/outer/outer5.gif",
+			"cname": "그로브cardigan",
+			"cdetail": "루즈한 핏에 라운드넥이 돋보이는 섬머 가디건",
+			"cprice": "34000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/outer/outer6.gif",
+			"cname": "시리얼 린넨하프 jacket",
+			"cdetail": "린넨 100% 하이퀄리티 하프 자켓",
+			"cprice": "82000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/outer/outer7.gif",
+			"cname": "마가렛 하프 jacket",
+			"cdetail": "시원하게 입기 좋은 텐셀, 린넨 혼방의 반팔 자켓",
+			"cprice": "53000",
+			"sale" : "true"
+		}
+	]
+}
+	

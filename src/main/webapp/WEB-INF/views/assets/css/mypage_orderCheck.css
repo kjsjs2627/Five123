@@ -1,0 +1,134 @@
+@charset "utf-8";
+	body #content {
+        padding-top: 132.5px;
+    }
+
+    /* 한번에 padding 처리 */
+    #content .padding {
+        padding: 5px 0;
+    }
+
+    /**-------주문조회 시작----------**/
+
+    /*** 주문내역 선택영역 시작***/
+    /* 박스여백을 주기위한 처리*/
+    #content #top {
+        padding: 20px 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* 문자영역 크기*/
+    #content .name {
+        width: 20%;
+        padding-top: 10px;
+    }
+
+    /* 선택영역 크기*/
+    #content .choice {
+        width: 80%;
+    }
+
+    /* 버튼항목들 크기 */
+    #content .choice button {
+        width: 23%;
+    }
+
+    /* 날짜 영역 전체 크기 */
+    #content #cal {
+        width: 80%;
+    }
+
+    /* 각 날짜 선택 영역 크기 */
+    #content #cal input {
+        width: 45%;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    /* 날짜 조회 버튼 크기 */
+    #content #calButton {
+        width: 20%;
+    }
+
+    /* 날짜 조회 버튼 디자인 */
+    #content #calButton button {
+        width: 100%;
+		padding: 0;
+   		height: 27px;
+    }
+
+    /*** 주문내역 선택영역 끝 ***/
+
+    /*** 주문내역 시작 ***/
+    #content .order {
+        padding: 20px 20px;
+        border-top: 3px solid #ccc;
+    }
+
+    /* 주문번호 보더 */
+    #content .order .orderInfo {
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* 주문상품 리스트 */
+    #content .order ul li {
+        padding-top: 10px;
+    }
+
+    /* 박스 영역안에 이미지를 숨기기위한 처리 */
+    .order .orderPic {
+        width: 30%;
+        height: 105px;
+        overflow: hidden;
+    }
+
+    /* 이미지 정사각형 크기 지정 */
+    .order .orderPic img {
+        width: 105px;
+    }
+
+    /* 이미지 설명 퍼센트 지정 */
+    .order .orderDesc {
+        width: 50%;
+    }
+
+    /* 주문 배송상태 */
+    .order .orderDesc .complete {
+        color: #3FBC75;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    /* 주문 상품 이름 */
+    .order .orderDesc .orderName {
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* 주문내역 버튼 영역 */
+    .order .orderBtn {
+        width: 20%;
+    }
+
+    /* 주문내역 버튼 디자인 */
+    .order .orderBtn button {
+        width: 100%;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    /*** 주문내역 끝 ***/
+    /*** 각 상태를 표현하기 위한 색깔 (jQuery에서 바꿔줌 )***/
+    .order .orderDesc .shipping {
+        color: #2E8CCC;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .order .orderDesc .exchange {
+        color: #F13B3B;
+        font-weight: bold;
+        font-size: 20px;
+    }

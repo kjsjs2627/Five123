@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+#content {
+	padding-top: 150px;
+}
+
+/* 상품명 수량 가격 윗줄 */
+#basketTop {
+	width:100%;
+	height: 50px;
+	text-align: center;
+	margin-bottom: 15px;
+	
+}
+
+
+/* 전체선택 */
+#basketTop button{
+	margin: 7px 27px 0 0;
+	font-weight: bold;
+}
+
+/* 사진 영역 조절 */
+#imgBox {
+	width: 30%;
+	height: 100px;
+	overflow: hidden;
+}
+/* 사진 크기 조절 */
+#imgBox img {
+	width: 100%;
+}
+
+/* 아이템 하나당 영역 설정 */
+#basketProduct{
+	border-bottom: 1px solid #ccc;
+/* 	border-top: 1px solid #ccc; */
+	padding: 20px 30px;
+}
+#basketForm div:first-child {
+	border-top: 1px solid #ccc;
+}
+
+/* 옷 이름 전체 div 영역 설정 */
+#clothesName {
+	width:70%;
+	padding-left: 15px;
+	font-weight: bold;
+}
+
+/* 옷 이름 영역 설정 */
+#clothesName input {
+	width:75%;
+	border:0;
+	background-color: #fff;
+}
+
+/* 제품 이름 옆 체크박스 */
+#clothesName input:last-child {
+	width:10%;
+}
+
+/* 수량 input 크기 조절 */
+#basketNum input:first-child {
+	width: 25%;
+	text-align: center;
+}
+
+/* 제품색상 input 영역 */
+#basketColor input {
+	width: 80%;
+	margin: 10px 0 0 2px;
+	text-align: left;	
+	background-color: #fff;
+	border : 0;
+	color: #6F6F6F;
+	
+	
+}
+
+/* 제품색상 lable 영역 */
+#basketColor label {
+	margin: 13px 0 0 15px;
+}
+/* 제품색상 div 영역 */
+#basketColor {
+	width: 66%;
+	
+}
+
+
+/* 가격 input 크기 조절 */
+#basketNum input:last-child {
+	width: 30%;
+	text-align: right;
+	border:0;
+	font-weight: bold;
+	margin-left: 3px;
+}
+
+/* +- 버튼 크기 조절 */
+#basketNum img {
+	width: 12%;
+	vertical-align: middle;
+	border: 0;
+	margin: 0;
+}
+
+/* 이름 수량 위치 조절 */
+#basketNum {
+	width: 70%;
+	padding: 15px 0 0 15px;
+	
+}
+/* 가격 부분 input 색지정 */
+#basketNum input:last-child {
+	margin-top: 4px;
+	background-color: #fff;
+}
+
+/* 전체가격 설정 */
+#basketTotal input{
+	width: 40%;
+	text-align: right;
+	background-color:#fff;
+	border:0;
+	color: #F13B3B;
+	font-weight: bold;
+	
+}
+
+/* 총결제금액 글자 위치 */
+#basketTotal label {
+	margin-top: 3px;
+	color: #F13B3B;
+	font-weight: bold;
+}
+
+/* 총결제금액 전체 padding */
+#basketTotal {
+	
+	padding: 35px 30px 55px 30px;
+	font-size: 22px;
+	color: #F13B3B;
+}
+
+/* 선택상품 주문 버튼 */
+#basketOrder button {
+	width: 86%;
+	margin-bottom: 20px;
+	margin-left: 30px;
+	font-weight: bold;
+	font-size: 22px;
+}
+.won {
+	margin-top:5px;
+}
+
+/* 전체삭제 후 알림 */
+.add {
+	padding: 40px 0 40px 0;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}

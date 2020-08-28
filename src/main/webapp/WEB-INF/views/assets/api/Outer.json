@@ -1,0 +1,92 @@
+{
+	"item": [
+		{
+			"img":"assets/img/outer/outer1.gif",
+			"cname": "데이블 cardigan tee",
+			"cdetail": "티셔츠로도 활용할 수 있는 웨어러블한 가디건",
+			"cprice": "18900"
+		},
+		{
+			"img": "assets/img/outer/outer2.gif",
+			"cname": "노엘 린넨하프",
+			"cdetail": "릴넨의 까슬거림 없이 부드럽게 가공된 혼방소재의 하프자켓",
+			"cprice": "45000"
+		},
+		{
+			"img": "assets/img/outer/outer3.gif",
+			"cname": "water cardigan",
+			"cdetail": "여리한 핏감의 크롭 가디건으로 단독이나 아우터로 활용하기 좋아요",
+			"cprice": "25500"
+		},
+		{
+			"img": "assets/img/outer/outer4.gif",
+			"cname": "베른cardigan",
+			"cdetail": "슬림핏에 부드럽게 촉촉한 터치감인 가디건",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/outer/outer5.gif",
+			"cname": "그로브cardigan",
+			"cdetail": "루즈한 핏에 라운드넥이 돋보이는 섬머 가디건",
+			"cprice": "34000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/outer/outer6.gif",
+			"cname": "시리얼 린넨하프 jacket",
+			"cdetail": "린넨 100% 하이퀄리티 하프 자켓",
+			"cprice": "82000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/outer/outer7.gif",
+			"cname": "마가렛 하프 jacket",
+			"cdetail": "시원하게 입기 좋은 텐셀, 린넨 혼방의 반팔 자켓",
+			"cprice": "53000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/outer/outer8.gif",
+			"cname": "워브 노카라 jacket",
+			"cdetail": "면처럼 부드럽게 가공된 린넨 100% 데일리룩까지 다양하게 입기 좋은 반팔 자켓",
+			"cprice": "59000"
+		},
+		{
+			"img": "assets/img/outer/outer9.gif",
+			"cname": "웨더 cardigan",
+			"cdetail": "소장가치 높은 린넨 반팔 가디건",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/outer/outer10.gif",
+			"cname": "블랭크 cardigan",
+			"cdetail": "블랭크sleeve와 세트로 구성된 여름원사로 제작된 시원한 니트가디건",
+			"cprice": "17000"
+		},
+		{
+			"img": "assets/img/outer/outer11.gif",
+			"cname": "노튼 linen jacket",
+			"cdetail": "시원한 린넨 100% 원단의 반팔자켓  블라우스로도 활용가능해요",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/outer/outer12.gif",
+			"cname": "소다 cardigan",
+			"cdetail": "레클런 라인에 라운드 넥으로 자연스러운 핏감이 연출되는 시원한 린넨 가디건",
+			"cprice": "36000"
+		},
+			{
+			"img": "assets/img/outer/outer13.gif",
+			"cname": "제니 cardigan",
+			"cdetail": "부드런 코튼 100% 소재로 제작된 심플한 반팔소매의 크롭 가디건",
+			"cprice": "24000"
+		},
+		{
+			"img": "assets/img/outer/outer14.gif",
+			"cname": "루즈매쉬 cardigan",
+			"cdetail": "3년째 진행하는 유행없는 아이템 가벼운 여름 원사로 짜여진 폭닥한 핏감의 가디건",
+			"cprice": "21000"
+		}
+	]
+}
+	

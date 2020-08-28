@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CategoryMapper">
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+   <resultMap id="CategoryMap" type="study.spring.withfivebird.model.Category">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="category_no" column="category_no"/> <!-- category_no라고컬럼 되어있음 -->
+      <result property="category_name" column="category_name"/>
+      
+     
+      
+   </resultMap>
+   
+   <!-- 단일행 조회를 위한 기능 정의 -->
+   <select id="selectItem" parameterType="study.spring.withfivebird.model.Category" resultMap="CategoryMap">
+   		SELECT * FROM category WHERE category_no=${category_no};
+   </select>
+   <!-- 다중행 조회를 위한 기능 정의 -->
+   <select id="selectList" parameterType="study.spring.withfivebird.model.Category" resultMap="CategoryMap">
+   		SELECT * FROM category
+   		
+   		<where>
+   			<if test="category_name != null and category_name != ''">
+   				category_name LIKE concat('%',#{category_name},'%')
+   			</if>
+   		</where>
+   		ORDER BY category_no DESC
+   </select> 
+   
+   <!-- 데이터 저장을 위한 기능 정의 -->
+   <insert id="insertItem" parameterType="study.spring.withfivebird.model.Category" useGeneratedKeys="true" keyProperty="category_no">
+   		INSERT INTO category (category_name) 
+   		VALUES (#{category_name});
+   </insert> 
+   
+   <!-- 데이터 삭제를 위한 기능 정의 -->
+   <delete id="deleteItem" parameterType="study.spring.withfivebird.model.Category">
+   		DELETE FROM category WHERE category_no=#{category_no};
+   </delete>
+   
+ 
+   <update id="updateItem" parameterType="study.spring.withfivebird.model.Category">
+   		UPDATE category SET category_name=#{category_name}
+   		WHERE category_no=#{category_no};
+   </update> 
+   <!-- 데이터 수 조회하기 -->
+   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.Category" resultType="int">
+   		SELECT COUNT(*) FROM category
+   		
+   		<where>
+   			<if test="category_name != null and category_name != ''">
+   				category_name LIKE concat('%',#{category_name},'%')
+   			</if>
+   		</where>
+   </select>
+   
+  
+</mapper>

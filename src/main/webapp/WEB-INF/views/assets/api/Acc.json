@@ -1,0 +1,89 @@
+{
+	"item": [
+		{
+			"img":"assets/img/acc/acc1.gif",
+			"cname": "morin barrette",
+			"cdetail": "반묶음을 하기에도, 올림머리를 하기에도 좋은 집게 헤어핀",
+			"cprice": "8500"
+		},
+		{
+			"img": "assets/img/acc/acc2.gif",
+			"cname": "pastel stone mix bracelet",
+			"cdetail": "은은하게 빛나는 실버볼과 담수진주가 더해진 파스텔톤의 원석 팔찌",
+			"cprice": "12500"
+		},
+		{
+			"img": "assets/img/acc/acc3.jpg",
+			"cname": "mini stone banding ring",
+			"cdetail": "비즈가 아닌 귀여운 원ㅅ꽈 실버볼로 제작한 아이템",
+			"cprice": "7000"
+		},
+		{
+			"img": "assets/img/acc/acc4.jpg",
+			"cname": "heart shell banding ring",
+			"cdetail": "귀엽게 포인트 주기 좋은 사랑스러운 하트 모양의 자개 반지",
+			"cprice": "10000"
+		},
+		{
+			"img": "assets/img/acc/acc5.jpg",
+			"cname": "pearl banding ring",
+			"cdetail": "자연스러운 모양과 은은한 색상의 담수 진주반지",
+			"cprice": "8000"
+		},
+		{
+			"img": "assets/img/acc/acc6.jpg",
+			"cname": "color stone banding ring",
+			"cdetail": "천연 원석으로 심플하게 제작된 포인트 주기 좋은 원석 반지",
+			"cprice": "6000"
+		},
+		{
+			"img": "assets/img/acc/acc7.jpg",
+			"cname": "matte twist ring",
+			"cdetail": "다양한 사이즈로 구성된 유니크한 디자인의 반지",
+			"cprice": "22000"
+		},
+		{
+			"img": "assets/img/acc/acc8.jpg",
+			"cname": "antique chain ring",
+			"cdetail": "다른 반지와 레이어드 하기 좋은 유니크한 체인 반지",
+			"cprice": "20000"
+		},
+		{
+			"img": "assets/img/acc/acc9.jpg",
+			"cname": "2mm basic ring",
+			"cdetail": "1mm 스키니 링만큼이나 활용도가 높은 매칭하기 좋은 심플한 링",
+			"cprice": "9000"
+		},
+		{
+			"img": "assets/img/acc/acc10.gif",
+			"cname": "1mm skinny ring",
+			"cdetail": "베이직한 디자인으로 다양하게 활용하기 좋은 실반지",
+			"cprice": "3500"
+		},
+		{
+			"img": "assets/img/acc/acc11.gif",
+			"cname": "see-through scrunchie",
+			"cdetail": "은은한 유광이 도는 시스루 소재로 완성한 유니크한 헤어끈",
+			"cprice": "6000"
+		},
+		{
+			"img": "assets/img/acc/acc12.gif",
+			"cname": "boweni barrette",
+			"cdetail": "적당한 미니 사이즈로 반묶음, 사이드에 하기 좋아요:)",
+			"cprice": "8000"
+		},
+			{
+			"img": "assets/img/acc/acc13.gif",
+			"cname": "vintage squrare necklace",
+			"cdetail": "무심한 듯 룩에 포인트 주기 좋은 빈티지한 무드의 스퀘어 넥크리스",
+			"cprice": "9000"
+		},
+		{
+			"img": "assets/img/acc/acc14.gif",
+			"cname": "untail hair pin",
+			"cdetail": "연연말룩에 포인트 줄 아이템으로 좋은 화사한 진주 헤어핀 세트",
+			"cprice": "12000"
+		}
+	]
+}
+	

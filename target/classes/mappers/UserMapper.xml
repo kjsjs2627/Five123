@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+   <resultMap id="UserMap" type="study.spring.withfivebird.model.User">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="user_no" column="user_no"/>
+      <result property="user_id" column="user_id"/>
+      <result property="user_pw" column="user_pw"/>
+      <result property="user_name" column="user_name"/>
+      <result property="user_tel" column="user_tel"/>
+      <result property="user_email" column="user_email"/>
+      <result property="user_postcode" column="user_postcode"/>
+      <result property="user_addr1" column="user_addr1"/>
+      <result property="user_addr2" column="user_addr2"/>
+      <result property="user_out" column="user_out"/>
+      <result property="level_no" column="level_no"/>
+      <result property="user_point" column="user_point"/>
+      
+   </resultMap>
+   
+   <!-- 단일행 조회를 위한 기능 정의 -->
+   <select id="selectItem" parameterType="study.spring.withfivebird.model.User" resultMap="UserMap">
+   		SELECT * FROM user WHERE user_no=${user_no};
+   </select>
+   <!-- 다중행 조회를 위한 기능 정의 -->
+   <select id="selectList" parameterType="study.spring.withfivebird.model.User" resultMap="UserMap">
+   		SELECT * FROM user
+   		
+   		<where>
+   			<if test="user_addr1 != null and user_addr1 != ''">
+   				user_addr1 LIKE concat('%',#{user_addr1},'%')
+   			</if>
+   			
+   			
+   		</where>
+   		ORDER BY user_no DESC
+   </select>
+   
+   <!-- 데이터 저장을 위한 기능 정의 -->
+   <insert id="insertItem" parameterType="study.spring.withfivebird.model.User" useGeneratedKeys="true" keyProperty="user_no">
+   		INSERT INTO user (user_id, user_pw, user_name, user_tel, user_email, user_postcode, user_addr1, user_addr2, user_out, level_no) 
+   		VALUES (#{user_id}, #{user_pw},#{user_name},#{user_tel},#{user_email},#{user_postcode},#{user_addr1},#{user_addr2},#{user_out},#{level_no});
+   </insert>
+   
+   <!-- 데이터 삭제를 위한 기능 정의 -->
+   <delete id="deleteItem" parameterType="study.spring.withfivebird.model.User">
+   		DELETE FROM user WHERE user_no=#{user_no};
+   </delete>
+   
+   <!-- 데이터 수 조회하기 -->
+   <update id="updateItem" parameterType="study.spring.withfivebird.model.User">
+   		UPDATE user SET user_id=#{user_id}, user_pw=#{user_pw}, user_name=#{user_name}, user_tel=#{user_tel}, user_email=#{user_email}, user_postcode=#{user_postcode}, user_addr1=#{user_addr1}, user_addr2=#{user_addr2}, user_out=#{user_out}, level_no=#{level_no}
+   		WHERE user_no=#{user_no};
+   </update>
+   
+   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.User" resultType="int">
+   		SELECT COUNT(*) FROM user
+   		
+   		<where>
+   			<if test="user_addr1 != null and user_addr1 != ''">
+   				user_addr1 LIKE concat('%',#{user_addr1},'%')
+   			</if>
+   		</where>
+   </select>
+   
+   <!-- join -->
+   <select id="selectJoin" parameterType="study.spring.withfivebird.model.User" resultMap="UserMap">
+   SELECT * FROM user as u INNER JOIN level as l ON u.level_no = l.level_no
+   
+   <where>
+   		<if test="user_addr1 != null and user_addr1 != ''">
+   				user_addr1 LIKE concat('%',#{user_addr1},'%')
+   		</if>
+   </where>
+   		
+   </select>
+</mapper>

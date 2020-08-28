@@ -1,0 +1,58 @@
+    @charset "utf-8";
+	/* 내용 영역 */
+
+	#content {
+    	padding-top: 180px;
+    }
+    
+	/* div 전체 패딩 값 */
+	.pointDiv {
+		padding: 20px 35px;
+	}
+	/* won 라벨 색상 위치 조절 */
+	#can label {
+		padding-top:2px;
+		color: #940A37;
+		font-weight: bold;
+	}
+	
+	#use label {
+		padding-top:2px;
+		color: #000;
+	}
+	
+	/* 적립금 불러올 영역 크기 조절 */
+	#can input  {
+		width: 40%;
+		text-align: right;
+		background-color: #fff;
+		color: #940A37;
+		border: 0;
+		font-weight: bold;
+	}
+	#use input {
+		width: 40%;
+		text-align: right;
+		background-color: #fff;
+		color: #000;
+		border: 0;
+	}
+	
+	/* 구분선 */
+	/* #content div:fitst-child {
+		border-top: 1px solid #ccc;
+		margin: 0 20px;
+		padding: 20px 15px;
+		background-color: #FFCB74;
+	}
+	#content div:last-chlid(2) {
+		border-bottom: 1px solid #ccc;
+		margin: 0 20px;
+		padding: 20px 15px;
+		background-color: #FFCB74;
+	} */
+	
+	/* 젤 밑 여백 */
+	#content div:last-child {
+		margin-bottom: 35px; 
+	}

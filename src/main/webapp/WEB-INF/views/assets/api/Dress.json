@@ -1,0 +1,92 @@
+{
+	"item": [
+		{
+			"img":"assets/img/dress/dress1.gif",
+			"cname": "돌체ops",
+			"cdetail": "인스타로 업뎃문의 폭주했던! 핏 너무 예쁜 섬머 롱 원피스",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/dress/dress2.gif",
+			"cname": "소피ops",
+			"cdetail": "코튼 100% 소재의 차분한 롱 원피스",
+			"cprice": "46500"
+		},
+		{
+			"img": "assets/img/dress/dress3.gif",
+			"cname": "콜린ops",
+			"cdetail": "무더운 여름 시원하게 즐기기 좋은 미니멀한 슬리브리스 원피스",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/dress/dress4.gif",
+			"cname": "수채화 - made ops",
+			"cdetail": "잔잔한 꽃패턴과 시원한 면소재의 롱 원피스",
+			"cprice": "44000"
+		},
+		{
+			"img": "assets/img/dress/dress5.gif",
+			"cname": "르풀ops",
+			"cdetail": "잔잔한 무드를 완성해주는 여유있는 사이즈의 롱 원피스",
+			"cprice": "27000"
+		},
+		{
+			"img": "assets/img/dress/dress6.gif",
+			"cname": "줄리 - made ops",
+			"cdetail": "편하게 즐기기 좋은 분위기 있는 블라우스",
+			"cprice": "34500"
+		},
+		{
+			"img": "assets/img/dress/dress7.gif",
+			"cname": "로제 - made ops",
+			"cdetail": "워싱 가미된 코든 100% 단정하고 포멀한 무드의 롱 원피스",
+			"cprice": "40000"
+		},
+		{
+			"img": "assets/img/dress/dress8.gif",
+			"cname": "애플 cotton ops",
+			"cdetail": "얇지 않고 톡톡한 두께, 포켓까지 더해져있는 코튼 롱 원피스",
+			"cprice": "34000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/dress/dress9.gif",
+			"cname": "베일ops",
+			"cdetail": "사랑스러운 셔링과 맥시한 기장이 포인트인 원피스",
+			"cprice": "43000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/dress/dress10.gif",
+			"cname": "페이드ops",
+			"cdetail": "일상룩 부터 휴가시즌에도 추천드리는 편안한 타입의 롱 원피스",
+			"cprice": "36000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/dress/dress11.gif",
+			"cname": "잔느ops",
+			"cdetail": "작고 귀여운 도트패턴으로 포인트를 준 사랑스런 분위기의 롱 원피스",
+			"cprice": "40000"
+		},
+			{
+			"img": "assets/img/dress/dress12.gif",
+			"cname": "핀턱ops",
+			"cdetail": "핀턱을 잡아 멋스럽고 세련도니 나시 원피스",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/dress/dress13.gif",
+			"cname": "브리스ops",
+			"cdetail": "깔끔하게 떨어지는 소매핏과 고급스러운 롱기장이 포인트인 원피스",
+			"cprice": "43000"
+		},
+		{
+			"img": "assets/img/dress/dress14.gif",
+			"cname": "린느ops",
+			"cdetail": "휴가때 너무 잘 어울리는 미니원피스",
+			"cprice": "42000"
+		}
+	]
+}
+	

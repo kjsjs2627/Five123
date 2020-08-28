@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* 내용 */
+#content {
+    padding-top: 145px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+/* qna게시판 전체 영역 */
+#qna {
+	width: 100%;
+}
+
+/* qna 관리자 목록 */
+#qna_notice {
+	width: 100%;
+}
+
+/* qna_notice ul 영역*/
+#qna_notice_list {
+	background-color: #eee;
+	border-top: 2px solid #ccc;
+}
+
+/* 각 li 하나당 영역 */
+#qna_notice_list > li {
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+
+/* qna 필독 */
+.dog {
+	color: #FF0000;
+}
+/* qna 제목 */
+.qna_title {
+	display: block;
+	width: 100%;
+	height: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0 30px;
+	margin-bottom: 15px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 작성자 , 작성일, 조회수 */
+.nada {
+	display: block;
+	width: 100%;
+	line-height: 14px;
+	height: 13px;
+	font-size: 14px;
+	padding-left: 30px;
+	overflow: hidden;
+}
+
+/* 작성자 */
+.qna_name {
+	display: inline-block;
+	padding-right: 10px;
+	border-right: 1px solid #ccc;
+}
+
+/* 작성일 */
+.qna_data {
+	display: inline-block;
+	padding: 0 10px;
+	border-right: 1px solid #ccc;
+}
+
+/* 조회수 */
+.qna_count {
+	display: inline-block;
+	padding-left: 10px;
+}
+
+/* 회원 각 하나당 */
+#qna_list li {
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+
+/* 회원 li 마지막 */
+#member_qna li:nth-last-child(1) {
+	border-bottom: 2px solid #ccc;
+}
+
+
+/* 회원 qna */
+#member_qna {
+	width: 100%;
+}
+
+/* 검색창, 글쓰기 부모 영역*/
+#search {
+	width: 90%;
+	margin: auto;
+}
+
+/* 검색창 크기*/
+.search_text {
+	width: 40%;
+	height: 34px;
+}
+
+/* 페이징 버튼 */
+.pagemove{
+	text-align: center;
+}

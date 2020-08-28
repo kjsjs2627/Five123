@@ -1,0 +1,67 @@
+@charset "utf-8";
+	/**---------문의하기 시작-----------*/
+    
+    /* 문의하기 영역 여백을 위한 처리 */
+    #content #problem {
+        padding: 20px 20px;
+    }
+
+    /* 제목 */
+    #problem #problemTitle {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 10px;
+        border-bottom: 2px solid #ccc;
+    }
+    
+    /*** 상품정보 시작 ***/
+
+    /* 주문상품 이름 */
+    .order .orderName {
+        width: 40%;
+    }
+
+    /* 주문상품 설명 퍼센트 지정 */
+    .order .orderDesc {
+        width: 30%;
+    }
+
+    /* 주문 배송상태 디자인 */
+    .order .orderDesc #complete {
+        color: #3FBC75;
+        font-weight: bold;
+    }
+    
+    /* 가격과 배송상태를 나누기 위한 처리 */
+    #content .orderDesc .orderMoney {
+        padding-top: 50px;
+    }
+    
+    /* 선택항목과 내용박스를 위한 처리 */
+    #problem .problemChoice {
+        margin: 5px 0;
+        width: 100%;
+    }
+    
+    /* 내용박스 입력설명 여백 */
+    #problem #textbox {
+    	padding: 10px 0;
+    }
+    /*** 상품정보 끝 ***/
+    
+    /*** 문의상품 버튼영역 디자인 시작 ***/
+    #problem button {
+    	padding: 10px 0;
+    	margin: 10px 0;
+    }
+    
+    #problem #submit {
+        width: 46%;
+        margin-right: 5%;
+    }
+
+    #problem #cancel {
+        width: 46%;
+    }
+    /*** 문의상품 버튼영역 디자인 끝 ***/
+    

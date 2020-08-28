@@ -1,0 +1,72 @@
+@charset "utf-8";
+	body #content {
+    	padding-top: 130px;
+        text-align: left;
+
+    }
+	/* 좌우 여백 설정 */
+    #content .agree p{
+    	margin: 0 25px;
+    	font-size: 11px;
+    	line-height: 120%;
+    }
+    /* 기본 정보 필수 영역 설정  */
+    #content .form-information{
+   		height: 50px;
+       	background-color: #FFCB74;
+       	margin-top: 10px;
+        padding:0 25px;
+       	line-height: 50px;
+        font-weight: bold;
+    }
+    /* '*' 변경 */
+    .identify {
+		font-size: 14px;
+		color: #f00;
+	}
+	/* 회원가입 영역 좌우 여백 */
+	.form-group{
+		margin:20px 25px;
+		
+   	}
+
+	/* 아이디, 비밀번호등 영역 설정 */
+	.user-form{
+        width: 25%;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 30px;
+    }
+    /* input 영역 크기 설정 */
+    .input-group{
+        width: 75%;
+    }
+    /* 우편번호 영역 크기 재설정 */
+    #postcode{
+   		width: 40%;
+    }
+
+	/* 주소, 상세주소 영역 */
+    .input-group .address{
+        margin-left: 33.2%;
+        margin-top: 10px;
+    }    
+	.agree_title{
+        font-size: 14px;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+    }
+	#update_ok{
+		width: 35%;
+		height: 40px;
+	}
+	#update_no{
+		width: 35%;
+		height: 40px;
+		margin-left: 5%;
+	}
+	#delete{
+		font-size: 10px;
+		margin-top: 3%;	
+	}

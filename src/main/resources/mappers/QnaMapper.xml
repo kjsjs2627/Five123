@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnaMapper">
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+   <resultMap id="QnaMap" type="study.spring.withfivebird.model.Qna">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="qna_no" column="qna_no"/>
+      <result property="qna_title" column="qna_title"/>
+      <result property="qna_content" column="qna_content"/>
+      <result property="qna_hit" column="qna_hit"/>
+      <result property="qna_reg_date" column="qna_reg_date"/>
+      <result property="qna_edit_date" column="qna_edit_date" />
+      <result property="user_no" column="user_no"/>
+      <result property="qna_reply" column="qna_reply"/>
+     
+      
+   </resultMap>
+   
+   <!-- 단일행 조회를 위한 기능 정의 -->
+   <select id="selectItem" parameterType="study.spring.withfivebird.model.Qna" resultMap="QnaMap">
+   		SELECT * FROM qna WHERE qna_no=${qna_no};
+   </select>
+   <!-- 다중행 조회를 위한 기능 정의 -->
+   <select id="selectList" parameterType="study.spring.withfivebird.model.Qna" resultMap="QnaMap">
+   		SELECT * FROM qna
+   		
+   		<where>
+   			<if test="qna_content != null and qna_content != ''">
+   				qna_content LIKE concat('%',#{qna_content},'%')
+   			</if>
+   			
+   			
+   		</where>
+   		ORDER BY qna_no DESC
+   </select> 
+   
+   <!-- 데이터 저장을 위한 기능 정의 -->
+   <insert id="insertItem" parameterType="study.spring.withfivebird.model.Qna" useGeneratedKeys="true" keyProperty="qna_no">
+   		INSERT INTO qna (qna_title, qna_content, qna_hit, qna_reg_date, qna_edit_date) 
+   		VALUES (#{qna_title}, #{qna_content},#{qna_hit},#{qna_reg_date},#{qna_edit_date});
+   </insert> 
+   
+   <!-- 데이터 삭제를 위한 기능 정의 -->
+   <delete id="deleteItem" parameterType="study.spring.withfivebird.model.Qna">
+   		DELETE FROM qna WHERE qna_no=#{qna_no};
+   </delete>
+   
+   <!-- 데이터 수 조회하기 -->
+   <update id="updateItem" parameterType="study.spring.withfivebird.model.Qna">
+   		UPDATE qna SET qna_title=#{qna_title}, qna_content=#{qna_content}, qna_hit=#{qna_hit}, 
+   		qna_reg_date=#{qna_reg_date}, qna_edit_date=#{qna_edit_date}
+   		WHERE qna_no=#{qna_no};
+   </update> 
+   
+   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.Qna" resultType="int">
+   		SELECT COUNT(*) FROM qna
+   		
+   		<where>
+   			<if test="qna_content != null and qna_content != ''">
+   				qna_content LIKE concat('%',#{qna_content},'%')
+   			</if>
+   		</where> 
+   </select>
+   
+   <!-- join -->
+   <select id="selectJoin" parameterType="study.spring.withfivebird.model.Qna" resultMap="QnaMap">
+   SELECT * FROM qna as q INNER JOIN user as u ON q.user_no = u.user_no
+   
+   <where>
+   		<if test="qna_content != null and qna_content != ''">
+   				qna_content LIKE concat('%',#{qna_content},'%')
+   		</if>
+   </where>
+   		
+   </select>
+</mapper>

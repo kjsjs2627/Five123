@@ -1,0 +1,169 @@
+ @charset "utf-8";
+/* 내용 */
+div#content {
+    padding-top: 120px;
+    width: 100%;
+}
+
+/* likelist 전체 영역 */
+#like_list {
+	width: 100%;
+	overflow: hidden;
+}
+/* 찜목록 하나당 영역 예상 */
+#like {
+	width: 100%;
+	padding: 30px;
+	border-bottom: 1px solid #ccc;
+}
+
+#like:nth-last-child(1) {
+	border-bottom: none;
+}
+
+/* 옷 상세 정보 */
+.details {
+	width: 100%;
+}
+
+/* 상세정보 이미지 영역 지정 */
+.details div.img_a.pull-left {
+	width: 30%;
+	height: 100px;
+	overflow: hidden;
+}
+
+/* 이미지 사이즈 */
+a.pull-left > img.pull-left {
+	width: 100px;
+	height: 100px;
+}
+
+/* 상세정보 상품명 영역 지정 */
+.details > div.name_a.pull-left {
+	width: 50%;
+	height: 100px;
+}
+
+/* checkbox */
+.chk.clearfix {
+	width: 20%;
+}
+
+/* 상품명 조절 */
+h3.title_name a.pull-left {	
+	width: 100%;
+}
+
+/* 상품명 글씨 지정 */
+.title_name > a{
+	display: block;
+	margin-top: 40px;
+	padding-left: 15px;
+	font-weight: bold;
+	color: #6F6F6F;
+}
+
+/* 가격 영역 지정 */
+.pic.clearfix {
+	width: 100%;
+	font-weight: bold;
+	overflow: hidden;
+	padding: 5px 0;
+}
+
+/* 버튼 부모 영역 지정 */
+#like .button.clearfix {
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+/* 삭제버튼 */
+.button.clearfix span.btn_left.pull-left {
+	width: 20%;
+	overflow: hidden;	
+}
+
+/* 삭제버튼 크기 */
+#select_delete {
+	width: 80%;
+	padding: 6px 0;
+}
+
+/* 장바구니 담기 버튼 */
+.button.clearfix span.btn_lf.pull-left {
+	width: 40%;
+	overflow: hidden;
+}
+
+
+/* 주문하기 버튼 */
+.button.clearfix span.btn_right.pull-right {
+	width: 40%;
+	overflow: hidden;
+}
+
+/* 찜목록 전체 버튼 */
+#select {
+	width: 100%;
+	padding: 15px 0;
+	overflow: hidden;
+}
+
+/* 전체 버튼 영역 */
+.btn_all.clearfix {
+	width: 100%;
+	padding: 15px 0;
+	overflow: hidden;
+	border-bottom: 2px solid #ccc;
+	
+}
+
+/* 전체 선택 */
+#all_select {
+	width: 31%;
+	margin-right: 30px;
+	margin-left: 10px;
+}
+
+/* 전체 삭제 */
+#all_delete {
+	width: 31%;
+	
+}
+
+/* 전체 주문하기 */
+.btn_all_order {
+	width: 100%;
+	padding: 20px;
+	border-top: 2px solid #ccc;
+}
+
+/* 전체주문하기 버튼 크기 */
+.all_order {
+	width: 100%;
+	height: 40px;
+	
+}
+
+#like_list li {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 15px 30px; 
+}
+
+#like_list li:nth-child(1) {
+	border-top: none;
+}
+
+#like_list li:nth-last-child(1) {
+	border-bottom: none;
+}
+
+/* 전체 삭제 시 나오는 공간*/
+.add {
+	height: 180px;
+	line-height: 180px;
+	text-align: center;
+	font-weight: bold;
+}

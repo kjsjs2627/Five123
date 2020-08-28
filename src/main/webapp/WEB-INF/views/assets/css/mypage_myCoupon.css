@@ -1,0 +1,166 @@
+@charset "utf-8";
+/* 내용 */
+div#content {
+    padding-top: 140px;
+    width: 100%;
+}
+
+/* 쿠폰등록 영역 지정 */
+div#coupon {
+    width: 100%;
+}
+
+
+
+/* 쿠폰인증번호 등록하기 텍스트 */
+#num {
+    display: inline-block;
+    width: 100%;
+    padding: 0 40px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 50px; 
+    overflow: hidden;
+}
+
+/* input, button 부모영역 */
+#coupon_form {
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+}
+
+/* 쿠폰번호 입력 요소 */
+#user_coupon {
+    display: inline-block;
+    width: 73%;
+    height: 45px;
+    overflow: hidden;  
+}
+
+/* 쿠폰 등록 버튼 */
+#ok {
+	width: 25%;
+    height: 45px;
+    overflow: hidden;
+}
+
+/* 안내메시지 부모영역 */
+#notice {
+	width: 100%;
+	padding: 30px 40px 60px 40px;
+	font-size: 12px;
+}
+
+/* 쿠폰 등록 안내메시지 */
+.warning {
+	width: 100%;
+    display: inline-block;
+    margin-bottom: 5px;
+    line-height: 30px;
+}
+.img_warning {
+	width: 30px;
+	padding: 8px;
+	line-height: 30px;
+}
+
+.notice {
+	width: 100%;
+    display: inline-block; 
+    padding-left: 30px; 
+}
+
+/* my_coupon 쿠폰리스트 */
+#my_coupon {
+	width: 100%;
+}
+
+/* 마이쿠폰목록 */
+.coupon_list {
+	width: 100%;
+	height: 55px;
+	background-color: #FFCB74; 
+	font-size: 18px;
+	line-height: 55px;
+	padding: 0 30px;
+	font-weight: bold;
+	overflow: hidden;
+}
+/* 쿠폰리스트 ul 부모영역 */
+#my_coupon_list {
+	width: 100%;
+	display: inline-block;
+	
+}
+
+/* ul 영역 */
+.mycoupon {
+	min-height: 196px;
+}
+
+/* ul */
+.mycoupon > li {
+	width: 100%;
+	border-bottom: 1px solid #ccc;	
+	padding: 15px 30px;
+}
+
+/* 기간 */
+.user_date {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 7px;
+	font-size: 15px;
+	font-weight: bold;
+	height: 15px;
+	line-height: 15px;
+}
+
+/* 쿠폰 영역 */
+.coupon_img {
+	display: block;
+	width: 100%;
+	height: 51px;
+}
+
+/* 쿠폰 이미지 */
+.img {
+	display: inline-block;
+	width: 20%;
+	height: 52px;
+}
+
+/* 쿠폰 설명 */
+.coupon_detail {
+	display: inline-block;
+	width: 80%;
+	font-size: 13px;
+	height: 25px;
+	padding-left: 10px;
+	line-height: 25px;
+	margin-bottom: 2px;
+}
+
+/* 쿠폰 사용 이상 */
+.coupon_up {
+	display: inline-block;
+	width: 80%;
+	height: 25px;
+	font-size: 13px;
+	line-height: 25px;
+	padding-left: 10px;
+}
+
+#my_coupon_list > #bin {
+	width: 100%;
+	height: 98px;
+	line-height: 98px;
+	text-align: center;	
+}
+
+.bin_aa {
+	width: 100%;
+	height: 98px;
+}

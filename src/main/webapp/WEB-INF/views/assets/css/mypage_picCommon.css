@@ -1,0 +1,35 @@
+@charset "utf-8";
+	/* ------------공통영역------------ */
+	body #content {
+        padding-top: 132.5px;
+    }
+
+    /* 한번에 padding 처리 */
+   #content .padding {
+        padding: 5px 0;
+    }
+    /*------------------------------*/
+	/* 박스영역안에 이미지를 숨기기위한 처리 */
+    .order .orderPic {
+        width: 30%;
+        height: 100px;
+        overflow: hidden;
+    }
+    
+    /* 이미지 정사각형 크기 지정 */
+    .order .orderPic img {
+        width: 100px;
+    }
+    
+    #content .order .orderName {
+    	padding-top: 30px;
+
+        font-weight: bold;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    
+    

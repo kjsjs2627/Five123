@@ -1,0 +1,87 @@
+  @charset "utf-8";
+  		body #content {
+            padding-top: 150px;
+            text-align: left;
+
+        }
+        /* 회원가입 약관 동의 부분 */
+        #content .agree {
+            overflow-y:auto;
+            width:100%;
+            max-height:150px;
+            text-align: left;
+        }
+        /* 좌우 여백 설정 */
+        #content .agree p{
+            margin: 0 25px;
+        }
+        .agree_title{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        /* 체크 박스 영역 */
+        .checkbox{
+            min-height: 50px;
+            font-size: 25px;
+            padding-top: 10px;
+            line-height: 33px;
+        }
+        /* 실제 체크박스 크기 설정 */
+        .checkbox #agree_check{
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+        }
+        .checkbox label{
+            font-weight: bold;
+        }
+
+        /* 기본 정보 필수 영역 설정  */
+        #content .form-information{
+            height: 50px;
+            background-color: #FFCB74;
+            margin-top: 10px;
+            padding:0 25px;
+            line-height: 50px;
+            font-weight: bold;
+        }
+        /* '*' 변경 */
+        .identify {
+            font-size: 14px;
+            color: #f00;
+        }
+        /* 회원가입 영역 좌우 여백 */
+        .form-group{
+            margin:20px 25px;
+        }
+        /* 아이디, 비밀번호등 영역 설정 */
+        .user-form{
+            width: 25%;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 30px;
+        }
+        /* input 영역 크기 설정 */
+        .input-group{
+            width: 75%;
+        }
+        /* 우편번호 영역 크기 재설정 */
+        #postcode{
+            width: 40%;
+        }
+
+        /* 주소, 상세주소 영역 */
+        .input-group .address{
+            margin-left: 33.2%;
+            margin-top: 10px;
+        }
+        /* 가입하기 버튼 */
+        #join_ok{
+            width: 100%;
+            font-weight: bold;
+            height: 45px;
+            font-size: 20px;
+            color: #fff;
+            margin: 10px 0;
+            
+        }

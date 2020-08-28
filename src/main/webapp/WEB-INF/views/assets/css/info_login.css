@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* 공통 속성 */
+ * {
+    margin: 0; padding: 0;
+ }
+
+
+/* 내용 */
+div#content {
+    padding-top: 100px;
+    width: 100%;
+}
+
+/* 로그인창 */
+form#login-form.form-inline {
+    padding-top: 70px;
+    width: 75%;
+    margin: auto;
+}
+
+#user_id {
+	margin-top: 15px;
+	height: 45px;
+	width: 100%;
+}
+
+#user_pw {
+	margin-top: 15px;
+	height: 45px;
+	width: 100%;
+}
+
+
+/* 로그인 버튼 */
+button.btn.btn-warning {
+    width: 100%;
+    height: 45px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* 비회원구매 버튼 */
+button#btn_N.btn.btn-light {
+    width: 100%;
+    height: 45px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/** 보안접속 */
+div.thumb.clearfix {
+    display: block;
+    font-size: 13px;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
+
+.thumb.pull-right {
+	height: 30%;
+	padding-left: 5px;
+}
+
+/* 경고 안내문 부모영역*/
+#notice_show {
+	width: 90%;
+	padding: 25px;
+	margin:auto;
+	
+}
+/* 경고안내문 */
+p#notice {
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;   
+}
+
+/* 회원가입, 아이디찾기, 비밀번호 찾기 */
+div#find {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 40px;
+    padding-top: 10px;
+}
+
+/* 회원가입 버튼 */
+.join{
+	width: 31%;	
+}
+
+/* 아이디찾기 버튼 */
+.ids {
+	width: 31%;
+}
+
+/* 비밀번호찾기 버튼*/
+.pws {
+	width: 35%;
+}

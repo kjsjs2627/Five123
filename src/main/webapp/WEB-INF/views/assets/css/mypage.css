@@ -1,0 +1,170 @@
+@charset "utf-8";
+   body #content {
+        padding-top: 132.5px;
+    }
+    
+    #content #divide {
+       height: 70px;
+       background-color: #FFCB74;
+    }
+    
+    #content #orderStatus {
+       border-top: 1px solid #07031A;
+       border-bottom: 1px solid #07031A;
+    }
+    
+    
+    /**-------마이페이지 시작 영역 ----------**/
+
+    #content #info {
+        padding: 30px 30px;
+    }
+
+    /*** 회원 등급 정보 시작 ***/
+    /* 등급 이미지 */
+    #content #info img {
+        width: 30px;
+    }
+
+    /* 등급 정보 글 */
+    #content #mylevel {
+        padding-left: 15px;
+        line-height: 20px;
+    }
+
+    /* 굵게표시할 회원정보 */
+    #content #mylevel span {
+        font-weight: bold;
+    }
+    
+    /* 등급 색깔 */
+    #content #mylevel .silver {
+       color: #ccc;
+    }
+    
+    #content #mylevel .gold {
+       color: #FFCB74;
+    }
+    
+    #content #mylevel .dia {
+       color: #6CCBFF;
+    }
+    
+    #content #mylevel .purplerose {
+       color: #830EFF;
+    }
+
+    /*** 회원 등급 정보 끝 ***/
+
+    /*** 적립금 쿠폰 정보 시작 ***/
+    #content #point {
+        background-color: #FFCB74;
+        padding: 35px 30px 20px 30px;
+    }
+    
+    /* 숫자만 색깔처리 */
+    #content #point span {
+        font-weight: bold;
+        color: #940A37;
+    }
+
+    /*** 적립금 쿠폰 정보 끝 ***/
+
+    /*** 주문처리 근황 시작 ***/
+    /* 제목 */
+    #content #orderStatus #statusTitle {
+        padding: 20px 30px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #orderStatus #statusTitle span {
+        font-weight: bold;
+    }
+
+    /* 정보 여백과 디자인 */
+    #orderStatus #infoBox {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    /** 각 박스 크기 **/
+    #infoBox .status {
+        width: 25%;
+    }
+
+    /** 보더와 텍스트 **/
+    #infoBox .statusBox {
+        text-align: center;
+        padding: 10px 0;
+        border-right: 1px solid #ccc;
+    }
+
+    #infoBox .status .last {
+        border-right: none;
+    }
+
+    /* 숫자만 크게 */
+    #infoBox .statusBox .number {
+        padding-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #4F8A8B;
+    }
+
+    /* 취소, 교환, 반품 */
+    #orderStatus #finished {
+       background-color: #eee;
+    }
+
+    /* 각 박스 크기 */
+    #finished .return {
+        width: 33.3%;
+    }
+
+    /* 보더 */
+    #finished .return .returnBox {
+        padding: 20px 30px;
+        border: 1px solid #ccc;
+        border-left: none;
+    }
+
+    #finished .return .last {
+        border-right: none;
+    }
+
+    /*** 주문 처리 근황 끝 ***/
+
+    /*** 마이페이지 버튼 부분 시작 ***/
+    /* 각 링크의 크기 */
+    #myButton ul li {
+        width: 50%;
+    }
+
+    /* 링크 태그 영역과 디자인*/
+    #myButton ul li a {
+        display: block;
+        width: 100%;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* 2의 배수만 오른쪽 보더 제거 */
+    #myButton ul li:nth-child(2n) a {
+        border-right: none;
+    }
+
+    #myButton ul a .buttons {
+        display: block;
+        padding: 30px 30px;
+    }
+
+    /* 이미지 크기 */
+    #myButton ul a img {
+        width: 35px;
+    }
+
+    /* 글씨를 아이콘의 가운데 정렬하기 */
+    #myButton ul a .btnInfo {
+        vertical-align: middle;
+        padding-right: 10px;
+    }

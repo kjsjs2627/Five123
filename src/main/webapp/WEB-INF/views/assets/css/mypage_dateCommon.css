@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+    /* 한번에 padding 처리 */
+    #content .padding {
+        padding: 5px 0;
+    }
+    
+    /** hidden 처리를 위해 */
+    #content .hidden {
+    	display: none;
+    }
+
+    /**-------주문조회, 내가 쓴 글 공통영역 시작----------**/
+
+    /*** 선택영역 시작***/
+    /* 박스여백을 주기위한 처리*/
+    #content #top {
+        padding: 20px 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* 문자영역 크기*/
+    #content .name {
+        width: 20%;
+        padding-top: 10px;
+    }
+
+    /* 선택영역 크기*/
+    #content .choice {
+        width: 80%;
+    }
+
+    /* 버튼항목들 크기 */
+    #content .choice button {
+        width: 23%;
+    }
+
+    /* 날짜 영역 전체 크기 */
+    #content #cal {
+        width: 80%;
+    }
+
+    /* 각 날짜 선택 영역 크기 */
+    #content #cal input {
+        width: 45%;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    /* 날짜 조회 버튼 크기 */
+    #content #calButton {
+        width: 18%;
+    }
+
+    /* 날짜 조회 버튼 디자인 */
+    #content #calButton button {
+        width: 100%;
+		padding: 0;
+   		height: 27px;
+    }
+
+    /*** 선택영역 끝 ***/

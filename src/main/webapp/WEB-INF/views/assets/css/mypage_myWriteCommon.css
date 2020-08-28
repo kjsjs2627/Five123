@@ -1,0 +1,25 @@
+@charset "utf-8";
+	#content .order, #problemTitle, #problemIs {
+    	padding: 20px 20px;
+    }
+    	
+    #content #update {
+    	width: 20%;
+    }
+    	
+    #content .orderName {
+    	width: 50%;
+    }
+    	
+    #content #problemTitle {
+    	font-size: 20px;
+    	font-weight: bold;
+    	background-color: #FFCB74;
+    	border-top: 2px solid #07031A;
+    }
+    	
+    #content #problemIs {
+    	font-size: 15px;
+    	word-wrap: break-word;
+    	min-height: 200px;
+    }

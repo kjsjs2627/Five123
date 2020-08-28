@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/* 헤더 공통 부분 */
+#header {
+    position: fixed;
+    background-color: rgba(254, 254, 254, 0.9);
+    width: 100%;
+    z-index: 100;
+}
+
+/* 리스트 가로 나열과 아이콘 영역 설정 */
+/*** 헤더와 섹션 공통 처리 ***/
+#header ul {
+    width: 100%;
+}
+
+#header li:first-child {
+    width: 20%;
+}
+
+/* 제목만 영역 설정 */
+#header li:nth-child(2) {
+    width: 60%;
+}
+
+#header li:last-child {
+    width: 20%;
+}
+
+#headerGallery li a img {
+    width: 30px;
+    margin: auto;
+}
+
+#headerGallery li a {
+    display: block;
+    padding: 20px 25px 10px 25px;
+    margin-bottom: 10px;
+}
+
+/**---------------------------*/
+
+#headerGallery ul li #title {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Crimson Text', serif;
+    color: #4F8A8B;
+}
+
+#headerGallery ul li #title .bold {
+    font-size: 35px;
+    color: #4F8A8B;
+
+    font-family: 'Lobster', cursive;
+
+}
+/** 섹션 **/
+/* height 회원가입 완료페이지 때문에 넣음 */
+#section {
+    background-color: #07031A;
+    margin-top : 79px;
+    position: fixed;
+    width:100%;
+ 	z-index:100;
+ 	height: 53px;
+}
+
+#section a {
+	display: block;
+	width: 20%;
+}
+
+#section a, .title {
+	padding: 15px 30px;
+}
+
+#section #back{
+   width: 100%;
+}
+
+#section img {
+	width: 20px;
+}
+
+#section .title {
+    font-size: 23px;
+    text-align: center;
+    color: #FFCB74;
+    font-weight: bold;
+    margin:auto;
+    width: 60%;
+}

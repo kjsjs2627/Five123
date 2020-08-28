@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* 내용 */
+div#content {
+    padding-top: 130px;
+    width: 100%;
+}
+
+/* qna 글쓰기 전체 영역 지정 */
+#qna_w {
+	width: 90%;
+	margin: auto;
+
+}
+/* qna 제목 부모요소 */
+#qna_title {
+	width: 100%;
+	display: block;
+	padding: 25px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+/* qna 제목 글씨 */
+.qna_w_title.pull-left {
+	display: inline-block;
+	font-size: 18px; 
+	height: 40px;
+	line-height: 40px;
+	width: 16%;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* qna 제목 input 요소 */
+.form-control.pull-left {
+	display: inline-block;
+	width: 80%;
+	height: 40px;
+}
+
+/* qna 내용 부모요소 */
+#qna_w_content {
+	padding-top: 25px;
+	width: 98%;
+	margin:auto;
+}
+
+#qna_w_btn {
+	height: 34px;
+	line-height: 34px;
+	margin: 20px 10px;
+}
+
+.btn.btn-warning {
+	width: 31%;
+	margin: auto;
+}
+
+.btn.btn-light {
+	display: inline-block;
+	width: 31%;
+	margin-left: 1.8%;
+}
+
+.btn.btn-danger {
+	width: 31%;
+	margin-left: 1.8%;
+}

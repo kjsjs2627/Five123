@@ -1,0 +1,93 @@
+{
+	"item": [
+		{
+			"img":"assets/img/top/top1.gif",
+			"cname": "스토리지-made tee",
+			"cdetail": "여리여리 루즈핏이 특징인 여름용 긴팔 티셔츠!",
+			"cprice": "18000"
+		},
+		{
+			"img": "assets/img/top/top2.gif",
+			"cname": "페이지크롭 tee",
+			"cdetail": "면 100% 원단의 크롭티 티셔츠",
+			"cprice": "13000"
+		},
+		{
+			"img": "assets/img/top/top3.gif",
+			"cname": "후르츠-made tee",
+			"cdetail": "화사한 색감의 넥라인 탄탄한 기본핏 라운드 티셔츠",
+			"cprice": "12500",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/top/top4.gif",
+			"cname": "오븐 blouse",
+			"cdetail": "단추 없이 자연스레 넥라인이 오픈되어 있는 코튼 100% 셔츠",
+			"cprice": "36000"
+		},
+		{
+			"img": "assets/img/top/top5.gif",
+			"cname": "빌리브blouse",
+			"cdetail": "단정하고 고급스러운 분위기의 블라우스",
+			"cprice": "38000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/top/top6.gif",
+			"cname": "잠봉blouse",
+			"cdetail": "편하게 즐기기 좋은 분위기 있는 블라우스",
+			"cprice": "34000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/top/top7.gif",
+			"cname": "크루tee",
+			"cdetail": "코튼 100%로 제작된 짧은 소매가 매력적인 루즈핏 티셔츠",
+			"cprice": "18000",
+			"sale" : "true"
+		},
+		{
+			"img": "assets/img/top/top8.gif",
+			"cname": "솔트shirt",
+			"cdetail": "셔츠처럼 입다가 아우터로도 걸치기 좋은 얇고 시원한 솔트셔츠",
+			"cprice": "40000"
+		},
+		{
+			"img": "assets/img/top/top9.gif",
+			"cname": "샌디에고mtm",
+			"cdetail": "키치한 나염이 돋보이는 박시한 맨투맨티",
+			"cprice": "29000"
+		},
+		{
+			"img": "assets/img/top/top10.gif",
+			"cname": "브루knit",
+			"cdetail": "노출없이도 여리여리한 핏을 만들어주는 라운드 니트",
+			"cprice": "34000"
+		},
+		{
+			"img": "assets/img/top/top11.gif",
+			"cname": "데이블tee",
+			"cdetail": "부드럽고 유연한 텍스쳐로 티셔츠로도 활용할 수 있는 웨어러블한 가디건",
+			"cprice": "18900"
+		},
+		{
+			"img": "assets/img/top/top12.gif",
+			"cname": "코지파자마 set",
+			"cdetail": "오래 입고 있어도 까슬거림 없는 부드럽게 제작한 파자마",
+			"cprice": "33900"
+		},
+			{
+			"img": "assets/img/top/top13.gif",
+			"cname": "베리스shirt",
+			"cdetail": "올 여름시즌 더욱 추천드리는 시원하게 입기 좋은 오픈카라 셔츠!",
+			"cprice": "38000"
+		},
+		{
+			"img": "assets/img/top/top14.gif",
+			"cname": "피아blouse",
+			"cdetail": "포멀하고 담백한 분위기의 블라우스",
+			"cprice": "34000"
+		}
+	]
+}
+	

@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* 내용 */
+#content {
+    padding-top: 145px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+/* 공지사항 목록 div */
+#notice {
+	width: 100%;
+}
+
+/* 공지사항 목록 영역 지정 */
+#ntc {
+	width: 100%;
+}
+
+/* 공지사항 ul */
+#ntc_list {
+	width: 100%;
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+}
+
+/* 공지사항 li */
+.notice_list {
+	width: 100%;
+	border-top: 1px solid #ccc;
+	padding: 20px 0;
+}
+
+.notice_list:nth-child(1) {
+	border-top: none;
+}
+
+/* qna 제목 */
+.notice_title {
+	display: block;
+	width: 100%;
+	height: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0 30px;
+	margin-bottom: 15px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 작성자 , 작성일, 조회수 */
+.nada {
+	display: block;
+	width: 100%;
+	line-height: 14px;
+	height: 13px;
+	font-size: 14px;
+	padding-left: 30px;
+	overflow: hidden;
+}
+
+/* 작성자 */
+.notice_name {
+	display: inline-block;
+	padding-right: 10px;
+	border-right: 1px solid #ccc;
+}
+
+/* 작성일 */
+.notice_data {
+	display: inline-block;
+	padding: 0 10px;
+	border-right: 1px solid #ccc;
+}
+
+/* 조회수 */
+.notice_count {
+	display: inline-block;
+	padding-left: 10px;
+}
+
+/* 회원 li 마지막 */
+.notice_list li:nth-last-child(1) {
+	border-bottom: 2px solid #ccc;
+}
+
+/* 페이징 버튼 */
+.pagemove{
+	text-align: center;
+}

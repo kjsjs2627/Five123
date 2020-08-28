@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Order_problemMapper">
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+   <resultMap id="Order_problemMap" type="study.spring.withfivebird.model.Order_problem">
+      <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+      <result property="order_problem_no" column="order_problem_no"/>
+      <result property="order_problem_option" column="order_problem_option"/>
+      <result property="order_problem_content" column="order_problem_content"/>
+      <result property="user_no" column="user_no"/>
+      <result property="order_check_no" column="order_check_no"/>
+     
+      
+   </resultMap>
+   
+   <!-- 단일행 조회를 위한 기능 정의 -->
+   <select id="selectItem" parameterType="study.spring.withfivebird.model.Order_problem" resultMap="Order_problemMap">
+   		SELECT * FROM order_problem WHERE order_problem_no=${order_problem_no};
+   </select>
+   <!-- 다중행 조회를 위한 기능 정의 -->
+   <select id="selectList" parameterType="study.spring.withfivebird.model.Order_problem" resultMap="Order_problemMap">
+   		SELECT * FROM order_problem
+   		
+   		<where>
+   			<if test="order_problem_option != null and order_problem_option != ''">
+   				order_problem_option LIKE concat('%',#{order_problem_option},'%')
+   			</if>
+   		</where>
+   		ORDER BY order_problem_no DESC
+   </select> 
+   
+   <!-- 데이터 저장을 위한 기능 정의 -->
+   <insert id="insertItem" parameterType="study.spring.withfivebird.model.Order_problem" useGeneratedKeys="true" keyProperty="order_problem_no">
+   		INSERT INTO order_problem (order_problem_option, order_problem_content, order_check_problem_reg_date,
+   		user_no, order_check_no) 
+   		VALUES (#{order_problem_option}, #{order_problem_content}, #{order_check_problem_reg_date}, #{user_no}, #{order_check_no});
+   </insert> 
+   
+   <!-- 데이터 삭제를 위한 기능 정의 -->
+   <delete id="deleteItem" parameterType="study.spring.withfivebird.model.Order_problem">
+   		DELETE FROM order_problem WHERE order_problem_no=#{order_problem_no};
+   </delete>
+   
+   <!-- 데이터 수 조회하기 -->
+   <update id="updateItem" parameterType="study.spring.withfivebird.model.Order_problem">
+   		UPDATE order_problem SET order_problem_option=#{order_problem_option}, order_problem_content=#{order_problem_content}, order_check_problem_reg_date=#{order_check_problem_reg_date},
+   		user_no=#{user_no}, order_check_no=#{order_check_no} 
+   		WHERE order_problem_no=#{order_problem_no};
+   </update> 
+   
+   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.Order_problem" resultType="int">
+   		SELECT COUNT(*) FROM order_problem
+   		
+   		<where>
+   			<if test="order_problem_option != null and order_problem_option != ''">
+   				order_problem_option LIKE concat('%',#{order_problem_option},'%')
+   			</if>
+   		</where>
+   </select>
+   
+   <!-- join -->
+   <select id="selectJoin" parameterType="study.spring.withfivebird.model.Order_problem" resultMap="Order_problemMap">
+   SELECT * FROM order_problem as o INNER JOIN user as u ON o.user_no = u.user_no
+   
+   		<where>
+   			<if test="order_problem_option != null and order_problem_option != ''">
+   				order_problem_option LIKE concat('%',#{order_problem_option},'%')
+   			</if>
+   		</where>
+   		
+   </select>
+</mapper>

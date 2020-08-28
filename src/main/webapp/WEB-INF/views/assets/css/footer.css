@@ -1,0 +1,59 @@
+@charset "utf-8";
+/** footer */
+
+#footer {
+    width: auto;
+    text-align: center;
+}
+
+/* 아이콘 위아래 선 표시 */
+#footer .icon {
+    border-top: 15px solid rgb(79, 138, 139);
+    /* border-bottom: 15px solid rgb(79, 138, 139); */
+
+}
+
+/* 아이콘 크기 설정 및 정렬 */
+#footer .icon li {
+    width: 25%;
+    float: left;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+/* 아이콘 이미지 크기 */
+/* 이미지 자체 padding값 없애고 padding값 다시 설정 */
+#footer .icon .thumb img {
+    width: 100%;
+    padding: 20% 32% 0 32%;
+	margin: auto;
+}
+
+
+/** 하단 공통 텍스트 */
+#footer .icon .text {
+    width: 80%;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+
+    
+}
+
+#footer .icon:after {
+    display: block;
+    content: '';
+    clear: both;
+    float: none;
+}
+
+#footer address {
+    width: 100%;
+    margin: auto;
+    height: 200px;
+    background: url(../img/icon/address.png) center center no-repeat;
+    background-size: 450px;
+    text-indent: -10000px;
+    background-color: rgb(79, 138, 139);
+
+}
