@@ -51,7 +51,7 @@ public class UserCouponTest {
 //	public void testB() { 
 //		// import study.spring.withfivebird.model.Department;
 //		UserCoupon input = new UserCoupon();
-//		input.setUser_coupon_userd("N");
+//		input.setUser_coupon_used("N");
 //		sqlSession.selectList("UserCouponMapper.selectList", input);
 //	}
 
@@ -59,7 +59,7 @@ public class UserCouponTest {
 //	@Test
 //	public void testC() { 
 //		UserCoupon input = new UserCoupon();
-//		input.setUser_coupon_userd("N");
+//		input.setUser_coupon_used("N");
 //		input.setUser_no(6);
 //		input.setCoupon_list_no(555);
 //		sqlSession.insert("UserCouponMapper.insertItem", input); 
@@ -80,7 +80,7 @@ public class UserCouponTest {
 //	 public void testE() { 
 //		 UserCoupon input = new UserCoupon();
 //		 input.setUser_coupon_no(1); 
-//		 input.setUser_coupon_userd("N"); 
+//		 input.setUser_coupon_used("N"); 
 //		 input.setUser_no(3);
 //		 input.setCoupon_list_no(555);
 //		 sqlSession.update("UserCouponMapper.updateItem", input); 
@@ -98,7 +98,7 @@ public class UserCouponTest {
 //	public void testG() {
 //		// import study.spring.withfivebird.model.UserCoupon;
 //		UserCoupon input = new UserCoupon();
-//		input.setUser_coupon_userd("N");
+//		input.setUser_coupon_used("N");
 //		int count = sqlSession.selectOne("UserCouponMapper.selectCountAll", input);
 //		log.debug("'N'을 포함하는 학과이름을 갖는 데이터 수: " + count);
 //	}

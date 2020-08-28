@@ -8,7 +8,7 @@
 		type="study.spring.withfivebird.model.UserCoupon">
 		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
 		<result property="user_coupon_no"          column="user_coupon_no" />
-		<result property="user_coupon_userd"       column="user_coupon_userd" />
+		<result property="user_coupon_used"       column="user_coupon_used" />
 		<result property="user_no"                 column="user_no" />
 		<result property="coupon_list_no"          column="coupon_list_no" />
 		<!-- 조인 검사용 <result property="user_name"               column="user_name" />-->
@@ -19,14 +19,14 @@
 			parameterType="study.spring.withfivebird.model.UserCoupon"
 			resultMap="userCouponMap">
 			SELECT
-				user_coupon_no, user_coupon_userd, u.user_no, coupon_list_no, user_name
+				user_coupon_no, user_coupon_used, u.user_no, coupon_list_no, user_name
 				FROM user as u
 				INNER JOIN user_coupon as c
 				ON u.user_no = c.user_no
 			
 			<where>
-				<if test="user_coupon_userd != null and user_coupon_userd != ''">
-				user_coupon_userd LIKE concat('%', #{user_coupon_userd}, '%')
+				<if test="user_coupon_used != null and user_coupon_used != ''">
+				user_coupon_used LIKE concat('%', #{user_coupon_used}, '%')
 			    </if>
 			
 				<if test="user_coupon_no != null and user_coupon_no != ''">
@@ -43,17 +43,17 @@
 	<!-- 단일행 조회를 위한 기능 정의 -->
 	<select id="selectItem" parameterType="study.spring.withfivebird.model.UserCoupon"
 		resultMap="userCouponMap">
-		SELECT user_coupon_no, user_coupon_userd, user_no, coupon_list_no FROM user_coupon WHERE user_coupon_no=#{user_coupon_no};
+		SELECT user_coupon_no, user_coupon_used, user_no, coupon_list_no FROM user_coupon WHERE user_coupon_no=#{user_coupon_no};
 	</select>
 	
 	<!--  다중행 조회를 위한 기능 정의 -->
 	<select id="selectList" parameterType="study.spring.withfivebird.model.UserCoupon" 
 		resultMap="userCouponMap">
-		SELECT user_coupon_no, user_coupon_userd, user_no, coupon_list_no FROM user_coupon
+		SELECT user_coupon_no, user_coupon_used, user_no, coupon_list_no FROM user_coupon
 		
 		<where>
-			<if test="user_coupon_userd != null and user_coupon_userd != ''">
-				user_coupon_userd LIKE concat('%', #{user_coupon_userd}, '%')
+			<if test="user_coupon_used != null and user_coupon_userd != ''">
+				user_coupon_used LIKE concat('%', #{user_coupon_used}, '%')
 			</if>
 			
 			<if test="user_no != null and user_no != ''">
@@ -73,7 +73,7 @@
 		parameterType="study.spring.withfivebird.model.UserCoupon"
 		useGeneratedKeys="true" 
 		keyProperty="user_coupon_no">		
-		INSERT INTO user_coupon (user_coupon_userd, user_no, coupon_list_no) VALUES (#{user_coupon_userd}, #{user_no}, #{coupon_list_no});	
+		INSERT INTO user_coupon (user_coupon_used, user_no, coupon_list_no) VALUES (#{user_coupon_used}, #{user_no}, #{coupon_list_no});	
 	</insert>
 	
 	<!--데이터 삭제를 위한 기능 정의 -->
@@ -83,7 +83,7 @@
 	
 	<!-- 데이터 갱신을 위한 기능 정의 -->
 	<update id="updateItem" parameterType="study.spring.withfivebird.model.UserCoupon">
-		UPDATE user_coupon SET user_coupon_userd=#{user_coupon_userd}, user_no=#{user_no}, coupon_list_no=#{coupon_list_no}
+		UPDATE user_coupon SET user_coupon_used=#{user_coupon_used}, user_no=#{user_no}, coupon_list_no=#{coupon_list_no}
 		WHERE user_coupon_no=#{user_coupon_no};
 	</update>
 	
@@ -98,8 +98,8 @@
 		SELECT COUNT(*) FROM user_coupon
 		
 		<where>
-			<if test="user_coupon_userd != null and user_coupon_userd != ''">
-				user_coupon_userd LIKE concat('%', #{user_coupon_userd}, '%')
+			<if test="user_coupon_used != null and user_coupon_used != ''">
+				user_coupon_used LIKE concat('%', #{user_coupon_used}, '%')
 			</if>
 			
 			<if test="coupon_list_no != null and coupon_list_no != ''">

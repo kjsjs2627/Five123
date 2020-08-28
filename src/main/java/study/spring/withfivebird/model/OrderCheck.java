@@ -11,7 +11,7 @@ public class OrderCheck {
 	private String order_check_add1;
 	private String order_check_add2;
 	private String order_check_tel;
-	private String order_check__email;
+	private String order_check_email;
 	private int payment_no;
 	private String order_check_number;
 	private String order_check_color;

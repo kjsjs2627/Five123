@@ -66,7 +66,7 @@ public class OrderCheckTest {
 //		input.setOrder_check_add1("서울시");
 //		input.setOrder_check_add2("5층");
 //		input.setOrder_check_tel("010-1234-5678");
-//		input.setOrder_check__email("den@naver.com");
+//		input.setOrder_check_email("den@naver.com");
 //		input.setPayment_no(1);
 //		input.setOrder_check_number("123456789");
 //		input.setOrder_check_color("아이보리");
@@ -97,7 +97,7 @@ public class OrderCheckTest {
 //			input.setOrder_check_add1("서울시");
 //			input.setOrder_check_add2("5층");
 //			input.setOrder_check_tel("010-1234-5678");
-//			input.setOrder_check__email("den@naver.com");
+//			input.setOrder_check_email("den@naver.com");
 //			input.setPayment_no(1);
 //			input.setOrder_check_number("123456789");
 //			input.setOrder_check_color("아이보리");

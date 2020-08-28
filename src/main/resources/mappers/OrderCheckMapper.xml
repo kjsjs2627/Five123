@@ -14,7 +14,7 @@
 		<result property="order_check_add1"           column="order_check_add1" />
 		<result property="order_check_add2"           column="order_check_add2" />
 		<result property="order_check_tel"            column="order_check_tel" />
-		<result property="order_check__email"         column="order_check__email" />
+		<result property="order_check_email"         column="order_check_email" />
 		<result property="payment_no"                 column="payment_no" />
 		<result property="order_check_number"         column="order_check_number" />
 		<result property="order_check_color"          column="order_check_color" />
@@ -29,7 +29,7 @@
 			resultMap="orderCheckMap">
 			SELECT
 				order_check_no, order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
-		 		order_check_add2, order_check_tel, order_check__email, p.payment_no, order_check_number, order_check_color, 
+		 		order_check_add2, order_check_tel, order_check_email, p.payment_no, order_check_number, order_check_color, 
 		 		order_check_size, order_check_amount, user_no
 				FROM payment as p
 				INNER JOIN order_check as o
@@ -64,8 +64,8 @@
 				order_check_tel LIKE concat('%', #{order_check_tel}, '%')
 			</if>
 			
-			<if test="order_check__email != null and order_check__email != ''">
-				order_check__email LIKE concat('%', #{order_check__email}, '%')
+			<if test="order_check_email != null and order_check_email != ''">
+				order_check_email LIKE concat('%', #{order_check_email}, '%')
 			</if>
 			
 			<if test="order_check_no != null and order_check_no != ''">
@@ -95,7 +95,7 @@
 	<select id="selectItem" parameterType="study.spring.withfivebird.model.OrderCheck"
 		resultMap="orderCheckMap">
 		SELECT order_check_no, order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
-		 order_check_add2, order_check_tel, order_check__email, payment_no, order_check_number, order_check_color, order_check_size, order_check_amount
+		 order_check_add2, order_check_tel, order_check_email, payment_no, order_check_number, order_check_color, order_check_size, order_check_amount
 		 FROM order_check WHERE order_check_no=#{order_check_no};
 	</select>
 	
@@ -103,7 +103,7 @@
 	<select id="selectList" parameterType="study.spring.withfivebird.model.OrderCheck" 
 		resultMap="orderCheckMap">
 		SELECT order_check_no, order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
-		 order_check_add2, order_check_tel, order_check__email, payment_no, order_check_number, order_check_color, order_check_size, order_check_amount
+		 order_check_add2, order_check_tel, order_check_email, payment_no, order_check_number, order_check_color, order_check_size, order_check_amount
 		 FROM order_check
 		
 		<where>		
@@ -135,8 +135,8 @@
 				order_check_tel LIKE concat('%', #{order_check_tel}, '%')
 			</if>
 			
-			<if test="order_check__email != null and order_check__email != ''">
-				order_check__email LIKE concat('%', #{order_check__email}, '%')
+			<if test="order_check_email != null and order_check_email != ''">
+				order_check_email LIKE concat('%', #{order_check_email}, '%')
 			</if>
 			
 			<if test="payment_no != null and payment_no != ''">
@@ -168,10 +168,10 @@
 		useGeneratedKeys="true" 
 		keyProperty="order_check_no">		
 		INSERT INTO order_check (order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
-		 order_check_add2, order_check_tel, order_check__email, payment_no, order_check_number, order_check_color, 
+		 order_check_add2, order_check_tel, order_check_email, payment_no, order_check_number, order_check_color, 
 		 order_check_size, order_check_amount) 
 		VALUES (#{order_check_delivery}, #{order_check_name}, #{order_check_postcode}, #{order_check_add1}, #{order_check_add2},
-		#{order_check_tel}, #{order_check__email}, #{payment_no}, #{order_check_number}, #{order_check_color}, #{order_check_size},
+		#{order_check_tel}, #{order_check_email}, #{payment_no}, #{order_check_number}, #{order_check_color}, #{order_check_size},
 		#{order_check_amount});	
 	</insert>
 	
@@ -184,7 +184,7 @@
 	<update id="updateItem" parameterType="study.spring.withfivebird.model.OrderCheck">
 		UPDATE order_check SET order_check_delivery=#{order_check_delivery}, order_check_name=#{order_check_name}, 
 		order_check_postcode=#{order_check_postcode}, order_check_add1=#{order_check_add1}, order_check_add2=#{order_check_add2},
-		order_check_tel=#{order_check_tel}, order_check__email=#{order_check__email}, payment_no=#{payment_no},
+		order_check_tel=#{order_check_tel}, order_check_email=#{order_check_email}, payment_no=#{payment_no},
 		order_check_number=#{order_check_number}, order_check_color=#{order_check_color}, order_check_size=#{order_check_size},
 		order_check_amount=#{order_check_amount}
 		WHERE order_check_no=#{order_check_no};
@@ -229,8 +229,8 @@
 				order_check_tel LIKE concat('%', #{order_check_tel}, '%')
 			</if>
 			
-			<if test="order_check__email != null and order_check__email != ''">
-				order_check__email LIKE concat('%', #{order_check__email}, '%')
+			<if test="order_check_email != null and order_check_email != ''">
+				order_check_email LIKE concat('%', #{order_check_email}, '%')
 			</if>
 			
 			<if test="payment_no != null and payment_no != ''">
