@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="OrderStatusMapper">
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+	<resultMap id="orderStatusMap" type="study.spring.withfivebird.model.OrderStatus">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="order_status_no" column="order_status_no"/>
+		<result property="order_status_delivery" column="order_status_delivery"/>
+		<result property="order_status_problem" column="order_status_problem"/>
+		<result property="user_no" column="user_no"/>
+		<result property="order_check_no" column="order_check_no"/>
+	</resultMap>
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" parameterType="study.spring.withfivebird.model.OrderStatus" resultMap="orderStatusMap">
+		SELECT order_status_no, order_status_delivery, order_status_problem, user_no, order_check_no FROM order_status WHERE order_status_no=#{order_status_no};
+	</select>
+	
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" parameterType="study.spring.withfivebird.model.OrderStatus" resultMap="orderStatusMap">
+		SELECT order_status_no, order_status_delivery, order_status_problem, user_no, order_check_no FROM order_status
+		<where>
+			<if test="order_status_delivery != null and order_status_delivery != ''">
+				order_status_delivery LIKE concat('%', #{order_status_delivery}, '%')
+			</if>
+			<if test="order_status_problem != null and order_status_problem != ''">
+				order_status_problem LIKE concat('%', #{order_status_problem}, '%')
+			</if>
+		</where>
+		
+		ORDER BY order_status_no DESC
+	</select>
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertItem" parameterType="study.spring.withfivebird.model.OrderStatus"
+		useGeneratedKeys="true" keyProperty="order_status_no">
+		INSERT INTO order_status (order_status_delivery, order_status_problem, user_no, order_check_no) VALUES (#{order_status_delivery}, #{order_status_problem}, #{user_no}, #{order_check_no});
+	</insert>
+	
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem" parameterType="study.spring.withfivebird.model.OrderStatus">
+		DELETE FROM order_status WHERE order_status_no=#{order_status_no};
+	</delete>
+	
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem" parameterType="study.spring.withfivebird.model.OrderStatus">
+		UPDATE order_status SET order_status_delivery=#{order_status_delivery}, order_status_problem=#{order_status_problem}, user_no=#{user_no}, order_check_no=#{order_check_no} WHERE order_status_no=#{order_status_no};
+	</update>
+	
+	<!-- 데이터 수 조회하기 -->
+	<!-- 
+		조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+		count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는 
+		resultMap이 아닌 resultType으로 반환한다.
+	 -->
+	<select id="selectCountAll" parameterType="study.spring.withfivebird.model.OrderStatus" resultType="int">
+		SELECT COUNT(*) FROM order_status
+		<where>
+			<if test="order_status_delivery != null and order_status_delivery != ''">
+				order_status_delivery LIKE concat('%', #{order_status_delivery}, '%')
+			</if>
+			<if test="order_status_problem != null and order_status_problem != ''">
+				order_status_problem LIKE concat('%', #{order_status_problem}, '%')
+			</if>
+		</where>
+	</select>
+</mapper>

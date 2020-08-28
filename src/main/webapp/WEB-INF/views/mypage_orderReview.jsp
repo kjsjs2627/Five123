@@ -96,7 +96,7 @@
                 <form role=form method="post">
                 	<textarea id="textbox" rows="10" class="problemChoice" placeholder="상세한 후기를 써주세요."></textarea>
                 	<button type="submit" id="submit" class="btn btn-warning">등록</button>
-                	<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='mypage_orderCheck.jsp'; return false;">취소</button>
+                	<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_orderCheck.do'; return false;">취소</button>
             	</form>
             </div>
         </div>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="ProductColorMapper">
+
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+	<resultMap id="productColorMap" type="study.spring.withfivebird.model.ProductColor">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="product_color_no" column="product_color_no" />
+		<result property="product_color_name" column="product_color_name" />
+	</resultMap>
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" parameterType="study.spring.withfivebird.model.ProductColor" resultMap="productColorMap">
+		SELECT product_color_no, product_color_name FROM product_color WHERE product_color_no=#{product_color_no};
+	</select>
+	
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" parameterType="study.spring.withfivebird.model.ProductColor" resultMap="productColorMap">
+		SELECT product_color_no, product_color_name FROM product_color
+		<where>
+			<if test="product_color_name != null and product_color_name != ''">
+				product_color_name LIKE concat('%', #{product_color_name}, '%')
+			</if>
+		</where>
+		
+		ORDER BY product_color_no DESC
+	</select>
+	
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertItem" parameterType="study.spring.withfivebird.model.ProductColor"
+		useGeneratedKeys="true" keyProperty="product_color_no">
+		INSERT INTO product_color (product_color_name) VALUES (#{product_color_name});
+	</insert>
+	
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem" parameterType="study.spring.withfivebird.model.ProductColor">
+		DELETE FROM product_color WHERE product_color_no=#{product_color_no};
+	</delete>
+	
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem" parameterType="study.spring.withfivebird.model.ProductColor">
+		UPDATE product_color SET product_color_name=#{product_color_name} WHERE product_color_no=#{product_color_no};
+	</update>
+	
+	<!-- 데이터 수 조회하기 -->
+	<!-- 
+		조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+		count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는 
+		resultMap이 아닌 resultType으로 반환한다.
+	 -->
+	<select id="selectCountAll" parameterType="study.spring.withfivebird.model.ProductColor" resultType="int">
+		SELECT COUNT(*) FROM product_color
+		<where>
+			<if test="product_color_name != null and product_color_name != ''">
+				product_color_name LIKE concat('%', #{product_color_name}, '%')
+			</if>
+		</where>
+	</select>
+</mapper>
+	

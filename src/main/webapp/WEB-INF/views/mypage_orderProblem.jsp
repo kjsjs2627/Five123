@@ -77,7 +77,7 @@
                 		</select>
                 		<textarea id="textbox" rows="10" class="problemChoice" placeholder="문의 내용을 입력해주세요."></textarea>
                 		<button type="submit" id="submit" class="btn btn-warning">등록</button>
-                		<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='mypage_orderCheck.jsp'; return false;">취소</button>
+                		<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_orderCheck.do'; return false;">취소</button>
                 	</fieldset>
                 </form>
             </div>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="ProductQnaMapper">
+
+	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
+	<resultMap id="productQnaMap" type="study.spring.withfivebird.model.ProductQna">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="product_qna_no" column="product_qna_no" />
+		<result property="product_qna_title" column="product_qna_title" />
+		<result property="product_qna_content" column="product_qna_content" />
+		<result property="product_qna_hit" column="product_qna_hit" />
+		<result property="product_qna_reg_date" column="product_qna_reg_date" />
+		<result property="product_no" column="product_no" />
+	</resultMap>
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" parameterType="study.spring.withfivebird.model.ProductQna"
+		resultMap="productQnaMap">
+		SELECT product_qna_no, product_qna_title, product_qna_content, product_qna_hit, product_qna_reg_date, product_no
+		FROM product_qna WHERE product_qna_no=#{product_qna_no};
+	</select>
+	
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList"
+		parameterType="study.spring.withfivebird.model.ProductQna"
+		resultMap="productQnaMap">
+		SELECT product_qna_no, product_qna_title, product_qna_content, product_qna_hit, product_qna_reg_date, 
+		product_no FROM product_qna
+		<where>
+			<if test="product_qna_title != null and product_qna_title != ''">
+				product_qna_title LIKE concat('%', #{product_qna_title}, '%')
+			</if>
+			
+			<if test="product_qna_content != null and product_qna_content != ''">
+				OR product_qna_content LIKE concat('%', #{product_qna_content}, '%')
+			</if>
+		</where>
+		
+		ORDER BY product_qna_no DESC
+	</select>
+	
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertItem"
+		parameterType="study.spring.withfivebird.model.ProductQna"
+		useGeneratedKeys="true"
+		keyProperty="product_qna_no">
+		INSERT INTO product_qna (product_qna_title, product_qna_content, product_qna_hit, product_qna_reg_date, product_no) 
+		VALUES (#{product_qna_title}, #{product_qna_content}, #{product_qna_hit}, #{product_qna_reg_date}, #{product_no});
+	</insert>
+	
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem" parameterType="study.spring.withfivebird.model.ProductQna">
+		DELETE FROM product_qna WHERE product_qna_no=#{product_qna_no};
+	</delete>
+	
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem" parameterType="study.spring.withfivebird.model.ProductQna">
+		UPDATE product_qna SET product_qna_title=#{product_qna_title}, product_qna_content=#{product_qna_content}, product_qna_hit=#{product_qna_hit}, product_qna_reg_date=#{product_qna_reg_date}, product_no=#{product_no}
+		WHERE product_qna_no=#{product_qna_no};
+	</update>
+	
+	<!-- 데이터 수 조회하기 -->
+	<!-- 
+		조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+		count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는 
+		resultMap이 아닌 resultType으로 반환한다.
+	 -->
+	 <select id="selectCountAll" parameterType="study.spring.withfivebird.model.ProductQna"
+	 	resultType="int">
+	 	
+	 	SELECT COUNT(*) FROM product_qna
+	 	
+	 	<where>
+			<if test="product_qna_title != null and product_qna_title != ''">
+				product_qna_title LIKE concat('%', #{product_qna_title}, '%')
+			</if>
+			
+			<if test="product_qna_content != null and product_qna_content != ''">
+				OR product_qna_content LIKE concat('%', #{product_qna_content}, '%')
+			</if>
+		</where>
+	 </select>
+	 
+</mapper>
