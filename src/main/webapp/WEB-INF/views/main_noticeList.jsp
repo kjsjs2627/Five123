@@ -75,7 +75,7 @@
 				var json = data.item;
 				$.each(json, function(index, entry) {
 					html += '<li class="notice_list">';
-					html += '<a href="main_noticeDetails.jsp">';
+					html += '<a href="${pageContext.request.contextPath}/main_noticeDetails.do">';
 					html += '<span class="notice_title">' + entry.title + '</span>';
 					html += '<span class="nada clearfix">';
 					html += '<span class="notice_name pull-left" title="작성자">' + entry.name + '</span>';

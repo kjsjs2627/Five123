@@ -77,7 +77,7 @@
     		</fieldset>
     		</form>
     		<div class="show_list clearfix">
-				<button type="button" class="show btn btn-light pull-right" onclick="location.href='main_qnaList.jsp'">목록</button>
+				<button type="button" class="show btn btn-light pull-right" onclick="location.href='${pageContext.request.contextPath}/main_qnaList.do'">목록</button>
 			</div>
    </div>
 <!-- 하단 영역 -->

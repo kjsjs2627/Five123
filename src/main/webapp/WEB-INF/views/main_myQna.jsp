@@ -56,7 +56,7 @@
 		            <div class="qna_top clearfix">
 						<div class="qna_title pull-left">플라워원피스 재입고 궁금해요</div>
 						<div class="update_top pull-right">
-							<input type="button" class="update btn btn-danger pull-right" onclick="location.href='main_myQnaUpdate.jsp'" value="수정">
+							<input type="button" class="update btn btn-danger pull-right" onclick="location.href='${pageContext.request.contextPath}/main_myQnaUpdate.do'" value="수정">
 						</div>
 					</div>
 					<div class="qna_ndc clearfix">
@@ -76,7 +76,7 @@
     		</fieldset>
     		</form>
     		<div class="show_list clearfix">
-				<button type="button" class="show btn btn-light pull-right" onclick="location.href='main_qnaList.jsp'">목록</button>
+				<button type="button" class="show btn btn-light pull-right" onclick="location.href='${pageContext.request.contextPath}/main_qnaList.do'">목록</button>
 			</div>
    </div>
 <!-- 하단 영역 -->

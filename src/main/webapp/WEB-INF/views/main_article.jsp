@@ -55,14 +55,14 @@
     <div id="content">
         <div id="article" class="clearfix">
                         <div id="notice_qna" class="notice pull-left">
-                            <a href="main_noticeList.jsp" class="a pull-left">
+                            <a href="${pageContext.request.contextPath}/main_noticeList.do" class="a pull-left">
                                 <img src="assets/img/icon/article_icon.png" class="img pull-left" alt="공지사항" />
                                 <span class="article_list_a pull-left">공지사항</span>
                                 <img src="assets/img/icon/next_icon.png"  class="next pull-right" />
                             </a>
                         </div>
                         <div id="notice_qna" class="notice pull-left">
-                            <a href="main_qnaList.jsp" class="a pull-left">
+                            <a href="${pageContext.request.contextPath}/main_qnaList.do" class="a pull-left">
                                 <img src="assets/img/icon/article_icon.png" class="img pull-left" alt="qna" />
                                 <span class="article_list_a pull-left">Q&amp;A</span>
                                 <img src="assets/img/icon/next_icon.png"  class="next pull-right" />

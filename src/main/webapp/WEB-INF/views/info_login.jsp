@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -68,7 +69,7 @@
             </div>
             
             <button type="submit" class="btn btn-warning" id="btn_login">로그인</button>
-            <button type="button" onclick="location.href='info_loginNo.jsp'" id="btn_N" class="btn btn-light">비회원</button>
+            <button type="button" onclick="location.href='${pageContext.request.contextPath}/info_loginNo.do'" id="btn_N" class="btn btn-light">비회원</button>
             
             <!-- 결과를 출력하기 위한 HTML -->
             <div id="result"></div>

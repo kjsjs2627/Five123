@@ -63,7 +63,7 @@
          	<div id="search" class="clearfix">
         		<input type="text" class="search_text pull-left" placeholder="   검색어 입력">
         		<button type="submit" class="search btn btn-warning pull-left">검색</button>
-        		<button class="write btn btn-warning pull-right" onclick="location.href='main_myQnaWrite.jsp'">글쓰기</button>
+        		<button class="write btn btn-warning pull-right" onclick="location.href='${pageContext.request.contextPath}/main_myQnaWrite.do'">글쓰기</button>
         	</div>
         </div>
 		<!-- 하단 영역 -->
@@ -84,7 +84,7 @@
 				var json = data.item;
 				$.each(json, function(index, entry) {
 					html += '<li class="qna_notice">';
-					html += '<a href="main_qnaDetails.jsp">';
+					html += '<a href="${pageContext.request.contextPath}/main_qnaDetails.do">';
 					html += '<span class="qna_title">';
 					html += '<strong class="dog">' + entry.dog + '</strong>';        
 					html +=  entry.title + '</span>';
@@ -109,7 +109,7 @@
 			var json = data.item;
 			$.each(json, function(index, entry) {
 				html += '<li>';
-				html += '<a href="main_myQna.jsp">';
+				html += '<a href="${pageContext.request.contextPath}/main_myQna.do">';
 				html += '<span class="qna_title">' + entry.title + '</span>';
 				html += '<span class="nada clearfix">';
 				html += '<span class="qna_name pull-left" title="작성자">' + entry.name + '</span>';

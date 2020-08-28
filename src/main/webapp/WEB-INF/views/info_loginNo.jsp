@@ -115,7 +115,7 @@
 				}
 				
 				swal("", "비회원로그인 되셨습니다.", "success").then(function(json) {
-					window.location = 'orderSearchN.jsp';
+					window.location = "${pageContext.request.contextPath}/orderSearchN.do";
 				});
 				
 			}
