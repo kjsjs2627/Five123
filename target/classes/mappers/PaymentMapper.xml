@@ -67,6 +67,9 @@
    			<if test="payment_total != null and payment_total != ''">
    				payment_total LIKE concat('%',#{payment_total},'%')
    			</if>
+   			<if test="payment_reg_date != null and payment_reg_date != ''">
+   				payment_reg_date LIKE concat('%',#{payment_reg_date},'%')
+   			</if>
    		</where>
    		
    </select>
