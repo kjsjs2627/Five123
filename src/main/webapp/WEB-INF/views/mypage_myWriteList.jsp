@@ -222,7 +222,7 @@
                 </div>
             </div>
             <div class="listSection">내가 쓴 문의 글</div>
-            	<a href="mypage_myWriteProblem.jsp">
+            	<a href="${pageContext.request.contextPath }/mypage_myWriteProblem.do">
             			<span class="order padding clearfix">
                     		<span class="orderNumber padding">
                     			<span class="orderDate pull-left">[2020-08-17]</span> &nbsp; 주문번호 - P237623646186
@@ -235,7 +235,7 @@
                     		</span>
                 		</span>
                 </a>
-                <a href="mypage_myWriteProblem.jsp">
+                <a href="${pageContext.request.contextPath }/mypage_myWriteProblem.do">
             			<span class="order padding clearfix">
                     		<span class="orderNumber padding">
                     			<span class="orderDate pull-left">[2020-05-14]</span> &nbsp; 주문번호 - P237623646186
@@ -249,7 +249,7 @@
                 		</span>
                 </a>
             <div class="listSection">내가 쓴 후기 글</div>
-            	<a href="mypage_myWriteReview.jsp">
+            	<a href="${pageContext.request.contextPath }/mypage_myWriteReview.do">
             			<span class="order padding clearfix">
 							<span class="orderNumber padding">
                     			<span class="orderDate pull-left">[2020-08-17]</span> &nbsp; 주문번호 - P237623646186
@@ -262,7 +262,7 @@
                     		</span>
                 		</span>
                 </a>
-                <a href="mypage_myWriteReview.jsp">
+                <a href="${pageContext.request.contextPath }/mypage_myWriteReview.do">
             			<span class="order padding clearfix">
 							<span class="orderNumber padding">
                     			<span class="orderDate pull-left">[2020-06-07]</span> &nbsp; 주문번호 - P237623646186
@@ -275,7 +275,7 @@
                     		</span>
                 		</span>
                 </a>
-                <a href="mypage_myWriteReview.jsp">
+                <a href="${pageContext.request.contextPath }/mypage_myWriteReview.do">
             			<span class="order padding clearfix">
                     		<span class="orderNumber padding">
                     			<span class="orderDate pull-left">[2020-02-25]</span> &nbsp; 주문번호 - P237623646186

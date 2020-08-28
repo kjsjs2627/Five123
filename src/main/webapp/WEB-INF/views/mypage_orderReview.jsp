@@ -14,7 +14,7 @@
 	<!--Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css"/>
 	<!-- Sweet Alert 플러그인 참조 -->
-    <link rel="stylesheet" href="assets/pulgins/sweetalert/sweetalert2.min.css" />
+    <link rel="stylesheet" href="assets/plugins/sweetalert/sweetalert2.min.css" />
     
 	<!-- 외부 CSS 받아오기 -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
@@ -111,7 +111,7 @@
     <script src="assets/js/scroll.js"></script>
 
 	<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="assets/pulgins/sweetalert/sweetalert2.min.js"></script>
+    <script src="assets/plugins/sweetalert/sweetalert2.min.js"></script>
     <script type="text/javascript">
     $(function() {
 		$("#content #submit").click(function(e) { //등록버튼 눌렀을 경우

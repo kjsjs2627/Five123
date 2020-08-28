@@ -206,7 +206,7 @@
     			}).then(function(result) { //버튼이 눌러졋을 경우의 콜백 연결
     				if(result.value) { //삭제확인 버튼이 눌러졌을 경우
     					swal("삭제", "성공적으로 삭제되었습니다.", "success").then(function(result){
-    						window.location = 'mypage_myWriteList.jsp'; //목록창으로 돌아가기
+    						window.location = '${pageContext.request.contextPath}/mypage_myWriteList.do'; //목록창으로 돌아가기
     					});
     				} else {
     					swal("취소", "삭제가 취소되었습니다.", "warning"); //삭제 취소버튼 눌렀을경우

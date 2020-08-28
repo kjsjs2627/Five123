@@ -211,7 +211,7 @@
 		<%@ include file = "assets/inc/header.jsp" %>
 		
 		<div id="section" class="clearfix">
-			<a href="mypage.jsp" class="pull-left"> 
+			<a href="${pageContext.request.contextPath }/mypage.do" class="pull-left"> 
 				<span id="back"><img src="assets/img/icon/back.png" /></span>
 			</a>
 			<div class="title pull-left">주문조회</div>	
@@ -256,7 +256,7 @@
 				<ul>
 					{{#orderList}}
                     <li class="orderList clearfix">
-                        <div class="orderPic pull-left" onclick="location.href='main_productDetails.jsp'; return false;">
+                        <div class="orderPic pull-left" onclick="location.href='${pageContext.request.contextPath}/main_productDetails.do'; return false;">
                             <img src="{{img}}" alt="cloth" />
                         </div>
                         <div class="orderDesc pull-left">
@@ -265,8 +265,8 @@
                             <div class="orderMoney padding">{{orderPrice}}</div>
                         </div>
                         <div class="orderBtn pull-left">
-                            <button value="help" class="help padding btn btn-warning" onclick="location.href='mypage_orderProblem.jsp'; return false;">문의하기</button>
-                            <button value="comment" class="comment padding btn btn-danger" onclick="location.href='mypage_orderReview.jsp'; return false;">후기작성</button>
+                            <button value="help" class="help padding btn btn-warning" onclick="location.href='${pageContext.request.contextPath}/mypage_orderProblem.do'; return false;">문의하기</button>
+                            <button value="comment" class="comment padding btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/mypage_orderReview.do'; return false;">후기작성</button>
                         </div>
                     </li>
 					{{/orderList}}

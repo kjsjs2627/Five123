@@ -75,7 +75,7 @@
                     <div class="orderName padding pull-left">
                         상품이름
                     </div>
-                    <button value="수정" id="update" class="btn btn-light" onclick="location.href='mypage_myWriteReviewUpdate.jsp'; return false;">수정</button>
+                    <button value="수정" id="update" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_myWriteReviewUpdate.do'; return false;">수정</button>
             </div>
             <div id="problemTitle">
             	친구들이 다 어디서 샀냐고 물어봐요.

@@ -183,7 +183,7 @@
             <div id="myButton" class="clearfix">
                 <ul>
                     <li class="pull-left">
-                        <a href="mypage_orderCheck.jsp">
+                        <a href="${pageContext.request.contextPath }/mypage_orderCheck.do">
                             <span class="buttons">
                                 <img class="btnInfo" src="assets/img/my/calendar.png" alt="주문조회">
                                 <span>주문조회</span>
@@ -199,7 +199,7 @@
                         </a>
                     </li>
                     <li class="pull-left">
-                        <a href="mypage_like.jsp">
+                        <a href="${pageContext.request.contextPath }/mypage_heart.do">
                             <span class="buttons">
                                 <img class="btnInfo" src="assets/img/my/heart.png" alt="주문조회">
                                 <span>찜목록</span>
@@ -207,7 +207,7 @@
                         </a>
                     </li>
                     <li class="pull-left">
-                        <a href="mypage_myPoint.jsp">
+                        <a href="${pageContext.request.contextPath }/mypage_myPoint.do">
                             <span class="buttons">
                                 <img class="btnInfo" src="assets/img/my/point.png" alt="주문조회">
                                 <span>적립금</span>
@@ -215,7 +215,7 @@
                         </a>
                     </li>
                     <li class="pull-left">
-                        <a href="mypage_myWriteList.jsp">
+                        <a href="${pageContext.request.contextPath }/mypage_myWriteList.do">
                             <span class="buttons">
                                 <img class="btnInfo" src="assets/img/my/write.png" alt="주문조회">
                                 <span>내가 쓴 글</span>
@@ -223,7 +223,7 @@
                         </a>
                     </li>
                     <li class="pull-left">
-                        <a href="mypage_myCoupon.jsp">
+                        <a href="${pageContext.request.contextPath }/mypage_myCoupon.do">
                             <span class="buttons">
                                 <img class="btnInfo" src="assets/img/my/coupon.png" alt="쿠폰">
                                 <span>쿠폰</span>
