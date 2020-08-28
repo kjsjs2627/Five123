@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Order_problemMapper">
+<mapper namespace="OrderProblemMapper">
 	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
-   <resultMap id="Order_problemMap" type="study.spring.withfivebird.model.Order_problem">
+   <resultMap id="orderProblemMap" type="study.spring.withfivebird.model.OrderProblem">
       <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
       <result property="order_problem_no" column="order_problem_no"/>
       <result property="order_problem_option" column="order_problem_option"/>
@@ -15,11 +15,11 @@
    </resultMap>
    
    <!-- 단일행 조회를 위한 기능 정의 -->
-   <select id="selectItem" parameterType="study.spring.withfivebird.model.Order_problem" resultMap="Order_problemMap">
+   <select id="selectItem" parameterType="study.spring.withfivebird.model.OrderProblem" resultMap="orderProblemMap">
    		SELECT * FROM order_problem WHERE order_problem_no=${order_problem_no};
    </select>
    <!-- 다중행 조회를 위한 기능 정의 -->
-   <select id="selectList" parameterType="study.spring.withfivebird.model.Order_problem" resultMap="Order_problemMap">
+   <select id="selectList" parameterType="study.spring.withfivebird.model.OrderProblem" resultMap="orderProblemMap">
    		SELECT * FROM order_problem
    		
    		<where>
@@ -31,25 +31,25 @@
    </select> 
    
    <!-- 데이터 저장을 위한 기능 정의 -->
-   <insert id="insertItem" parameterType="study.spring.withfivebird.model.Order_problem" useGeneratedKeys="true" keyProperty="order_problem_no">
+   <insert id="insertItem" parameterType="study.spring.withfivebird.model.OrderProblem" useGeneratedKeys="true" keyProperty="order_problem_no">
    		INSERT INTO order_problem (order_problem_option, order_problem_content, order_check_problem_reg_date,
    		user_no, order_check_no) 
    		VALUES (#{order_problem_option}, #{order_problem_content}, #{order_check_problem_reg_date}, #{user_no}, #{order_check_no});
    </insert> 
    
    <!-- 데이터 삭제를 위한 기능 정의 -->
-   <delete id="deleteItem" parameterType="study.spring.withfivebird.model.Order_problem">
+   <delete id="deleteItem" parameterType="study.spring.withfivebird.model.OrderProblem">
    		DELETE FROM order_problem WHERE order_problem_no=#{order_problem_no};
    </delete>
    
    <!-- 데이터 수 조회하기 -->
-   <update id="updateItem" parameterType="study.spring.withfivebird.model.Order_problem">
+   <update id="updateItem" parameterType="study.spring.withfivebird.model.OrderProblem">
    		UPDATE order_problem SET order_problem_option=#{order_problem_option}, order_problem_content=#{order_problem_content}, order_check_problem_reg_date=#{order_check_problem_reg_date},
    		user_no=#{user_no}, order_check_no=#{order_check_no} 
    		WHERE order_problem_no=#{order_problem_no};
    </update> 
    
-   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.Order_problem" resultType="int">
+   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.OrderProblem" resultType="int">
    		SELECT COUNT(*) FROM order_problem
    		
    		<where>
@@ -60,7 +60,7 @@
    </select>
    
    <!-- join -->
-   <select id="selectJoin" parameterType="study.spring.withfivebird.model.Order_problem" resultMap="Order_problemMap">
+   <select id="selectJoin" parameterType="study.spring.withfivebird.model.OrderProblem" resultMap="orderProblemMap">
    SELECT * FROM order_problem as o INNER JOIN user as u ON o.user_no = u.user_no
    
    		<where>

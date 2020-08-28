@@ -3,7 +3,7 @@ package study.spring.withfivebird.model;
 import lombok.Data;
 
 @Data
-public class Order_problem {
+public class OrderProblem {
 	private int order_problem_no;
 	private String order_problem_option;
 	private String order_problem_content;

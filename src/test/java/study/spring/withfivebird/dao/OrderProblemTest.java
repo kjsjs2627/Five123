@@ -10,90 +10,90 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
-import study.spring.withfivebird.model.Order_problem;
+import study.spring.withfivebird.model.OrderProblem;
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*-context.xml" })
 @WebAppConfiguration
 @FixMethodOrder
-public class Order_problemTest {
+public class OrderProblemTest {
 	@Autowired
 	private SqlSession sqlSession;
 
 	@Test
 	/** 단일 행 조회 테스트 */
 	public void testA() {
-		Order_problem input = new Order_problem();
+		OrderProblem input = new OrderProblem();
 		input.setOrder_problem_no(1);
-		sqlSession.selectOne("Order_problemMapper.selectItem", input);
+		sqlSession.selectOne("OrderProblemMapper.selectItem", input);
 
 	}
 
 	/** 다중행 조회 테스트 */
-//	@Test
-//	public void testB() {
-//		Order_problem input = new Order_problem();
-//		input.setOrder_problem_option("문의");
-//		sqlSession.selectList("Order_problemMapper.selectList", input);
-//	}
+	@Test
+	public void testB() {
+		OrderProblem input = new OrderProblem();
+		input.setOrder_problem_option("문의");
+		sqlSession.selectList("OrderProblemMapper.selectList", input);
+	}
 
 	/** insert 테스트 */
-//	@Test
-//	public void testC() {
-//		Order_problem input = new Order_problem();
-//		input.setOrder_problem_option("문의종류");
-//		input.setOrder_problem_content("안 이쁘네 사기치지 마세요.");
-//		input.setOrder_check_problem_reg_date("2020-08-26");
-//		input.setUser_no(3);
-//		input.setOrder_check_no(3);
-//
-//		sqlSession.selectList("Order_problemMapper.insertItem", input);
-//	}
+	@Test
+	public void testC() {
+		OrderProblem input = new OrderProblem();
+		input.setOrder_problem_option("문의종류");
+		input.setOrder_problem_content("안 이쁘네 사기치지 마세요.");
+		input.setOrder_check_problem_reg_date("2020-08-26");
+		input.setUser_no(3);
+		input.setOrder_check_no(3);
+
+		sqlSession.selectList("OrderProblemMapper.insertItem", input);
+	}
 
 	/** delete 테스트 */
-//	@Test
-//	public void testD() {
-//		Order_problem input = new Order_problem();
-//		input.setOrder_problem_no(7);
-//		sqlSession.selectList("Order_problemMapper.deleteItem", input);
-//	}
+	@Test
+	public void testD() {
+		OrderProblem input = new OrderProblem();
+		input.setOrder_problem_no(7);
+		sqlSession.selectList("OrderProblemMapper.deleteItem", input);
+	}
 
 	/** update 테스트 */
-//	@Test
-//	public void testE() {
-//		Order_problem input = new Order_problem();
-//		input.setOrder_problem_no(6);
-//		input.setOrder_problem_option("문의문의");
-//		input.setOrder_problem_content("안 이쁘네 사기치지 마세요!");
-//		input.setOrder_check_problem_reg_date("2020-08-26");
-//		input.setUser_no(3);
-//		input.setOrder_check_no(3);
-//
-//		sqlSession.update("Order_problemMapper.updateItem", input);
-//	}
+	@Test
+	public void testE() {
+		OrderProblem input = new OrderProblem();
+		input.setOrder_problem_no(6);
+		input.setOrder_problem_option("문의문의");
+		input.setOrder_problem_content("안 이쁘네 사기치지 마세요!");
+		input.setOrder_check_problem_reg_date("2020-08-26");
+		input.setUser_no(3);
+		input.setOrder_check_no(3);
+
+		sqlSession.update("OrderProblemMapper.updateItem", input);
+	}
 
 	/** 전체 데이터 수 조회 */
-//	@Test
-//	public void testF() {
-//		int count = sqlSession.selectOne("Order_problemMapper.selectCountAll", null);
-//		log.debug("전체데이터수 : " + count);
-//	}
+	@Test
+	public void testF() {
+		int count = sqlSession.selectOne("OrderProblemMapper.selectCountAll", null);
+		log.debug("전체데이터수 : " + count);
+	}
 
 	/** 조건에 따른 데이터 수 조회 */
-//	@Test
-//	public void testG() {
-//		Order_problem input = new Order_problem();
-//		input.setOrder_problem_option("송");
-//		int count=sqlSession.selectOne("Order_problemMapper.selectCountAll", input);
-//		log.debug("포함하는 데이터수 : " + count);
-//	}
+	@Test
+	public void testG() {
+		OrderProblem input = new OrderProblem();
+		input.setOrder_problem_option("송");
+		int count=sqlSession.selectOne("OrderProblemMapper.selectCountAll", input);
+		log.debug("포함하는 데이터수 : " + count);
+	}
 
 	/** join */
 	@Test
 	public void testH() {
-		Order_problem input = new Order_problem();
+		OrderProblem input = new OrderProblem();
 		input.setOrder_problem_option("문의");
-		sqlSession.selectList("Order_problemMapper.selectJoin", input);
+		sqlSession.selectList("OrderProblemMapper.selectJoin", input);
 	}
 }
