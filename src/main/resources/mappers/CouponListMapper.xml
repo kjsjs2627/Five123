@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CouponListMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="couponListMap"
+		type="study.spring.withfivebird.model.CouponList">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="coupon_list_no"       column="coupon_list_no" />
+		<result property="coupon_list_date"     column="coupon_list_date" />
+		<result property="coupon_list_img"      column="coupon_list_img" />
+		<result property="coupon_list_sale"     column="coupon_list_sale" />
+		<result property="coupon_list_id"       column="coupon_list_id" />
+	</resultMap>
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" parameterType="study.spring.withfivebird.model.CouponList"
+		resultMap="couponListMap">
+		SELECT coupon_list_no, coupon_list_date, coupon_list_img, coupon_list_sale, coupon_list_id
+		  FROM coupon_list WHERE coupon_list_no=#{coupon_list_no};
+	</select>
+	
+	<!--  다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" parameterType="study.spring.withfivebird.model.CouponList" 
+		resultMap="couponListMap">
+		SELECT coupon_list_no, coupon_list_date, coupon_list_img, coupon_list_sale, coupon_list_id
+		  FROM coupon_list
+		
+		<where>		
+			<if test="coupon_list_date != null and coupon_list_date != ''">
+				coupon_list_date LIKE concat('%', #{coupon_list_date}, '%')
+			</if>
+			
+			<if test="coupon_list_img != null and coupon_list_img != ''">
+				coupon_list_img LIKE concat('%', #{coupon_list_img}, '%')
+			</if>
+			
+			<if test="coupon_list_sale != null and coupon_list_sale != ''">
+				coupon_list_sale LIKE concat('%', #{coupon_list_sale}, '%')
+			</if>
+				
+			<if test="coupon_list_id != null and coupon_list_id != ''">
+				OR coupon_list_id LIKE concat('%', #{coupon_list_id}, '%')
+			</if>
+		</where>		
+		ORDER BY coupon_list_no DESC
+	</select>
+	
+	<!-- 데이터 저장을 위한 기능 정의  -->
+	<insert id="insertItem" 
+		parameterType="study.spring.withfivebird.model.Heart"
+		useGeneratedKeys="true" 
+		keyProperty="coupon_list_no">		
+		INSERT INTO coupon_list (coupon_list_date, coupon_list_img, coupon_list_sale, coupon_list_id) 
+		VALUES (#{coupon_list_date}, #{coupon_list_img}, #{coupon_list_sale}, #{coupon_list_id});	
+	</insert>
+	
+	<!--데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem" parameterType="study.spring.withfivebird.model.CouponList">
+		DELETE FROM coupon_list WHERE coupon_list_no=#{coupon_list_no};
+	</delete>
+	
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem" parameterType="study.spring.withfivebird.model.CouponList">
+		UPDATE coupon_list SET coupon_list_date=#{coupon_list_date}, coupon_list_img=#{coupon_list_img},
+		coupon_list_sale=#{coupon_list_sale}, coupon_list_id=#{coupon_list_id}
+		WHERE coupon_list_no=#{coupon_list_no};
+	</update>
+	
+	<!--
+		데이터 수 조회하기 	
+		조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+		count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는 
+		resultMap이 아닌 resultType으로 반환한다. -->
+	<select id="selectCountAll" parameterType="study.spring.withfivebird.model.CouponList"
+		resultType="int">
+		
+		SELECT COUNT(*) FROM coupon_list
+		
+		<where>		
+			<if test="coupon_list_date != null and coupon_list_date != ''">
+				coupon_list_date LIKE concat('%', #{coupon_list_date}, '%')
+			</if>
+			
+			<if test="coupon_list_img != null and coupon_list_img != ''">
+				coupon_list_img LIKE concat('%', #{coupon_list_img}, '%')
+			</if>
+			
+			<if test="coupon_list_sale != null and coupon_list_sale != ''">
+				coupon_list_sale LIKE concat('%', #{coupon_list_sale}, '%')
+			</if>
+				
+			<if test="coupon_list_id != null and coupon_list_id != ''">
+				OR coupon_list_id LIKE concat('%', #{coupon_list_id}, '%')
+			</if>
+		</where>
+		
+	</select>
+	
+</mapper>

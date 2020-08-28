@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="HeartMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="heartMap"
+		type="study.spring.withfivebird.model.Heart">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="heart_no"       column="heart_no" />
+		<result property="user_no"        column="user_no" />
+		<result property="product_no"     column="product_no" />
+		<!-- join 검사용  <result property="user_name"      column="user_name" /> -->
+	</resultMap>
+	
+	<!-- Join 결과를 반환 -->
+	<!-- <select id="selectJoin"
+			parameterType="study.spring.withfivebird.model.Heart"
+			resultMap="heartMap">
+			SELECT
+				heart_no, u.user_no, product_no, user_name
+				FROM user as u
+				INNER JOIN heart as h
+				ON u.user_no = h.user_no
+			<where>
+				<if test="heart_no != null and heart_no != ''">
+				heart_no LIKE concat('%', #{heart_no}, '%')
+				</if>
+				
+				<if test="product_no != null and product_no != ''">
+				OR product_no LIKE concat('%', #{product_no}, '%')
+				</if>
+				
+				<if test="user_name != null and user_name != ''">
+				OR user_name LIKE concat('%', #{user_name}, '%')
+				</if>
+			</where>
+	</select> -->
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" parameterType="study.spring.withfivebird.model.Heart"
+		resultMap="heartMap">
+		SELECT heart_no, user_no, product_no FROM heart WHERE heart_no=#{heart_no};
+	</select>
+	
+	<!--  다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" parameterType="study.spring.withfivebird.model.Heart" 
+		resultMap="heartMap">
+		SELECT heart_no, user_no, product_no FROM heart
+		
+		<where>		
+			<if test="user_no != null and user_no != ''">
+				user_no LIKE concat('%', #{user_no}, '%')
+			</if>
+				
+			<if test="product_no != null and product_no != ''">
+				OR product_no LIKE concat('%', #{product_no}, '%')
+			</if>
+		</where>		
+		ORDER BY heart_no DESC
+	</select>
+	
+	<!-- 데이터 저장을 위한 기능 정의  -->
+	<insert id="insertItem" 
+		parameterType="study.spring.withfivebird.model.Heart"
+		useGeneratedKeys="true" 
+		keyProperty="heart_no">		
+		INSERT INTO heart (user_no, product_no) 
+		VALUES (#{user_no}, #{product_no});	
+	</insert>
+	
+	<!--데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem" parameterType="study.spring.withfivebird.model.Heart">
+		DELETE FROM heart WHERE heart_no=#{heart_no};
+	</delete>
+	
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem" parameterType="study.spring.withfivebird.model.Heart">
+		UPDATE heart SET user_no=#{user_no},product_no=#{product_no}
+		WHERE heart_no=#{heart_no};
+	</update>
+	
+	<!--
+		데이터 수 조회하기 	
+		조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+		count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는 
+		resultMap이 아닌 resultType으로 반환한다. -->
+	<select id="selectCountAll" parameterType="study.spring.withfivebird.model.Heart"
+		resultType="int">
+		
+		SELECT COUNT(*) FROM heart
+		
+			<where>		
+			<if test="user_no != null and user_no != ''">
+				user_no LIKE concat('%', #{user_no}, '%')
+			</if>
+				
+			<if test="product_no != null and product_no != ''">
+				OR product_no LIKE concat('%', #{product_no}, '%')
+			</if>
+		</where>
+		
+	</select>
+	
+</mapper>

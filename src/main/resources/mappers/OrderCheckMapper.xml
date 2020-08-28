@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderCheckMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="orderCheckMap"
+		type="study.spring.withfivebird.model.OrderCheck">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="order_check_no"             column="order_check_no" />
+		<result property="order_check_delivery"       column="order_check_delivery" />
+		<result property="order_check_name"           column="order_check_name" />
+		<result property="order_check_postcode"       column="order_check_postcode" />
+		<result property="order_check_add1"           column="order_check_add1" />
+		<result property="order_check_add2"           column="order_check_add2" />
+		<result property="order_check_tel"            column="order_check_tel" />
+		<result property="order_check__email"         column="order_check__email" />
+		<result property="payment_no"                 column="payment_no" />
+		<result property="order_check_number"         column="order_check_number" />
+		<result property="order_check_color"          column="order_check_color" />
+		<result property="order_check_size"           column="order_check_size" />
+		<result property="order_check_amount"         column="order_check_amount" />
+		<!-- 조인 검사용 <result property="user_no"                    column="user_no" /> -->
+	</resultMap>
+	
+	<!-- Join 결과를 반환 -->
+	<!-- <select id="selectJoin"
+			parameterType="study.spring.withfivebird.model.OrderCheck"
+			resultMap="orderCheckMap">
+			SELECT
+				order_check_no, order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
+		 		order_check_add2, order_check_tel, order_check__email, p.payment_no, order_check_number, order_check_color, 
+		 		order_check_size, order_check_amount, user_no
+				FROM payment as p
+				INNER JOIN order_check as o
+				ON p.payment_no = o.payment_no
+			
+			<where>
+				<if test="order_check_delivery != null and order_check_delivery != ''">
+				order_check_delivery LIKE concat('%', #{order_check_delivery}, '%')
+			</if>
+			
+			<if test="order_check_name != null and order_check_name != ''">
+				order_check_name LIKE concat('%', #{order_check_name}, '%')
+			</if>
+			
+			<if test="order_check_postcode != null and order_check_postcode != ''">
+				order_check_postcode LIKE concat('%', #{order_check_postcode}, '%')
+			</if>
+			
+			<if test="order_check_add1 != null and order_check_add1 != ''">
+				order_check_add1 LIKE concat('%', #{order_check_add1}, '%')
+			</if>
+			
+			<if test="order_check_add1 != null and order_check_add1 != ''">
+				order_check_add1 LIKE concat('%', #{order_check_add1}, '%')
+			</if>
+			
+			<if test="order_check_add2 != null and order_check_add2 != ''">
+				order_check_add2 LIKE concat('%', #{order_check_add2}, '%')
+			</if>
+			
+			<if test="order_check_tel != null and order_check_tel != ''">
+				order_check_tel LIKE concat('%', #{order_check_tel}, '%')
+			</if>
+			
+			<if test="order_check__email != null and order_check__email != ''">
+				order_check__email LIKE concat('%', #{order_check__email}, '%')
+			</if>
+			
+			<if test="order_check_no != null and order_check_no != ''">
+				order_check_no LIKE concat('%', #{order_check_no}, '%')
+			</if>
+			
+			<if test="order_check_number != null and order_check_number != ''">
+				order_check_number LIKE concat('%', #{order_check_number}, '%')
+			</if>
+			
+			<if test="order_check_color != null and order_check_color != ''">
+				order_check_color LIKE concat('%', #{order_check_color}, '%')
+			</if>
+			
+			<if test="order_check_size != null and order_check_size != ''">
+				order_check_size LIKE concat('%', #{order_check_size}, '%')
+			</if>
+						
+			<if test="order_check_amount != null and order_check_amount != ''">
+				OR order_check_amount LIKE concat('%', #{order_check_amount}, '%')
+			</if>
+			</where>	
+				
+	</select>  -->
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" parameterType="study.spring.withfivebird.model.OrderCheck"
+		resultMap="orderCheckMap">
+		SELECT order_check_no, order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
+		 order_check_add2, order_check_tel, order_check__email, payment_no, order_check_number, order_check_color, order_check_size, order_check_amount
+		 FROM order_check WHERE order_check_no=#{order_check_no};
+	</select>
+	
+	<!--  다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" parameterType="study.spring.withfivebird.model.OrderCheck" 
+		resultMap="orderCheckMap">
+		SELECT order_check_no, order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
+		 order_check_add2, order_check_tel, order_check__email, payment_no, order_check_number, order_check_color, order_check_size, order_check_amount
+		 FROM order_check
+		
+		<where>		
+			<if test="order_check_delivery != null and order_check_delivery != ''">
+				order_check_delivery LIKE concat('%', #{order_check_delivery}, '%')
+			</if>
+			
+			<if test="order_check_name != null and order_check_name != ''">
+				order_check_name LIKE concat('%', #{order_check_name}, '%')
+			</if>
+			
+			<if test="order_check_postcode != null and order_check_postcode != ''">
+				order_check_postcode LIKE concat('%', #{order_check_postcode}, '%')
+			</if>
+			
+			<if test="order_check_add1 != null and order_check_add1 != ''">
+				order_check_add1 LIKE concat('%', #{order_check_add1}, '%')
+			</if>
+			
+			<if test="order_check_add1 != null and order_check_add1 != ''">
+				order_check_add1 LIKE concat('%', #{order_check_add1}, '%')
+			</if>
+			
+			<if test="order_check_add2 != null and order_check_add2 != ''">
+				order_check_add2 LIKE concat('%', #{order_check_add2}, '%')
+			</if>
+			
+			<if test="order_check_tel != null and order_check_tel != ''">
+				order_check_tel LIKE concat('%', #{order_check_tel}, '%')
+			</if>
+			
+			<if test="order_check__email != null and order_check__email != ''">
+				order_check__email LIKE concat('%', #{order_check__email}, '%')
+			</if>
+			
+			<if test="payment_no != null and payment_no != ''">
+				payment_no LIKE concat('%', #{payment_no}, '%')
+			</if>
+			
+			<if test="order_check_number != null and order_check_number != ''">
+				order_check_number LIKE concat('%', #{order_check_number}, '%')
+			</if>
+			
+			<if test="order_check_color != null and order_check_color != ''">
+				order_check_color LIKE concat('%', #{order_check_color}, '%')
+			</if>
+			
+			<if test="order_check_size != null and order_check_size != ''">
+				order_check_size LIKE concat('%', #{order_check_size}, '%')
+			</if>
+						
+			<if test="order_check_amount != null and order_check_amount != ''">
+				OR order_check_amount LIKE concat('%', #{order_check_amount}, '%')
+			</if>
+		</where>		
+		ORDER BY order_check_no DESC
+	</select>
+	
+	<!-- 데이터 저장을 위한 기능 정의  -->
+	<insert id="insertItem" 
+		parameterType="study.spring.withfivebird.model.OrderCheck"
+		useGeneratedKeys="true" 
+		keyProperty="order_check_no">		
+		INSERT INTO order_check (order_check_delivery, order_check_name, order_check_postcode, order_check_add1,
+		 order_check_add2, order_check_tel, order_check__email, payment_no, order_check_number, order_check_color, 
+		 order_check_size, order_check_amount) 
+		VALUES (#{order_check_delivery}, #{order_check_name}, #{order_check_postcode}, #{order_check_add1}, #{order_check_add2},
+		#{order_check_tel}, #{order_check__email}, #{payment_no}, #{order_check_number}, #{order_check_color}, #{order_check_size},
+		#{order_check_amount});	
+	</insert>
+	
+	<!--데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem" parameterType="study.spring.withfivebird.model.OrderCheck">
+		DELETE FROM order_check WHERE order_check_no=#{order_check_no};
+	</delete>
+	
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem" parameterType="study.spring.withfivebird.model.OrderCheck">
+		UPDATE order_check SET order_check_delivery=#{order_check_delivery}, order_check_name=#{order_check_name}, 
+		order_check_postcode=#{order_check_postcode}, order_check_add1=#{order_check_add1}, order_check_add2=#{order_check_add2},
+		order_check_tel=#{order_check_tel}, order_check__email=#{order_check__email}, payment_no=#{payment_no},
+		order_check_number=#{order_check_number}, order_check_color=#{order_check_color}, order_check_size=#{order_check_size},
+		order_check_amount=#{order_check_amount}
+		WHERE order_check_no=#{order_check_no};
+	</update>
+	
+	<!--
+		데이터 수 조회하기 	
+		조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+		count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는 
+		resultMap이 아닌 resultType으로 반환한다. -->
+	<select id="selectCountAll" parameterType="study.spring.withfivebird.model.OrderCheck"
+		resultType="int">
+		
+		SELECT COUNT(*) FROM order_check
+		
+			<where>		
+			<if test="order_check_delivery != null and order_check_delivery != ''">
+				order_check_delivery LIKE concat('%', #{order_check_delivery}, '%')
+			</if>
+			
+			<if test="order_check_name != null and order_check_name != ''">
+				order_check_name LIKE concat('%', #{order_check_name}, '%')
+			</if>
+			
+			<if test="order_check_postcode != null and order_check_postcode != ''">
+				order_check_postcode LIKE concat('%', #{order_check_postcode}, '%')
+			</if>
+			
+			<if test="order_check_add1 != null and order_check_add1 != ''">
+				order_check_add1 LIKE concat('%', #{order_check_add1}, '%')
+			</if>
+			
+			<if test="order_check_add1 != null and order_check_add1 != ''">
+				order_check_add1 LIKE concat('%', #{order_check_add1}, '%')
+			</if>
+			
+			<if test="order_check_add2 != null and order_check_add2 != ''">
+				order_check_add2 LIKE concat('%', #{order_check_add2}, '%')
+			</if>
+			
+			<if test="order_check_tel != null and order_check_tel != ''">
+				order_check_tel LIKE concat('%', #{order_check_tel}, '%')
+			</if>
+			
+			<if test="order_check__email != null and order_check__email != ''">
+				order_check__email LIKE concat('%', #{order_check__email}, '%')
+			</if>
+			
+			<if test="payment_no != null and payment_no != ''">
+				payment_no LIKE concat('%', #{payment_no}, '%')
+			</if>
+			
+			<if test="order_check_number != null and order_check_number != ''">
+				order_check_number LIKE concat('%', #{order_check_number}, '%')
+			</if>
+			
+			<if test="order_check_color != null and order_check_color != ''">
+				order_check_color LIKE concat('%', #{order_check_color}, '%')
+			</if>
+			
+			<if test="order_check_size != null and order_check_size != ''">
+				order_check_size LIKE concat('%', #{order_check_size}, '%')
+			</if>
+						
+			<if test="order_check_amount != null and order_check_amount != ''">
+				OR order_check_amount LIKE concat('%', #{order_check_amount}, '%')
+			</if>
+		</where>	
+		
+	</select>
+	
+</mapper>

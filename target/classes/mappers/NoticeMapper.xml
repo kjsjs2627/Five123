@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="NoticeMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="noticeMap"
+		type="study.spring.withfivebird.model.Notice">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="notice_no"          column="notice_no" />
+		<result property="notice_title"       column="notice_title" />
+		<result property="notice_content"     column="notice_content" />
+		<result property="notice_hit"         column="notice_hit" />
+		<result property="notice_reg_date"    column="notice_reg_date" />
+		<result property="user_no"            column="user_no" />
+		<!-- join 검사용 <result property="user_name"      column="user_name" /> -->
+	</resultMap>
+	
+	<!-- Join 결과를 반환 -->
+	<!-- <select id="selectJoin"
+			parameterType="study.spring.withfivebird.model.Notice"
+			resultMap="noticeMap">
+			SELECT
+				notice_no, notice_title, notice_content, notice_hit, notice_reg_date, u.user_no, user_name
+				FROM user as u
+				INNER JOIN notice as n
+				ON u.user_no = n.user_no
+			<where>
+				<if test="notice_no != null and notice_no != ''">
+				notice_no LIKE concat('%', #{notice_no}, '%')
+				</if>
+				
+				<if test="notice_title != null and notice_title != ''">
+				notice_title LIKE concat('%', #{notice_title}, '%')
+				</if>
+			
+				<if test="notice_content != null and notice_content != ''">
+				notice_content LIKE concat('%', #{notice_content}, '%')
+				</if>
+			
+				<if test="notice_hit != null and notice_hit != ''">
+				notice_hit LIKE concat('%', #{notice_hit}, '%')
+				</if>
+			
+				<if test="notice_reg_date != null and notice_reg_date != ''">
+				notice_reg_date LIKE concat('%', #{notice_reg_date}, '%')
+				</if>
+						
+				<if test="user_name != null and user_name != ''">
+				OR user_name LIKE concat('%', #{user_name}, '%')
+				</if>
+			</where>
+	</select>  -->
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" parameterType="study.spring.withfivebird.model.Notice"
+		resultMap="noticeMap">
+		SELECT notice_no, notice_title, notice_content, notice_hit, notice_reg_date, user_no FROM notice WHERE notice_no=#{notice_no};
+	</select>
+	
+	<!--  다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" parameterType="study.spring.withfivebird.model.Notice" 
+		resultMap="noticeMap">
+		SELECT notice_no, notice_title, notice_content, notice_hit, notice_reg_date, user_no FROM notice
+		
+		<where>		
+			<if test="notice_title != null and notice_title != ''">
+				notice_title LIKE concat('%', #{notice_title}, '%')
+			</if>
+			
+			<if test="notice_content != null and notice_content != ''">
+				notice_content LIKE concat('%', #{notice_content}, '%')
+			</if>
+			
+			<if test="notice_hit != null and notice_hit != ''">
+				notice_hit LIKE concat('%', #{notice_hit}, '%')
+			</if>
+			
+			<if test="notice_reg_date != null and notice_reg_date != ''">
+				notice_reg_date LIKE concat('%', #{notice_reg_date}, '%')
+			</if>
+						
+			<if test="user_no != null and user_no != ''">
+				OR user_no LIKE concat('%', #{user_no}, '%')
+			</if>
+		</where>		
+		ORDER BY notice_no DESC
+	</select>
+	
+	<!-- 데이터 저장을 위한 기능 정의  -->
+	<insert id="insertItem" 
+		parameterType="study.spring.withfivebird.model.Notice"
+		useGeneratedKeys="true" 
+		keyProperty="notice_no">		
+		INSERT INTO notice (notice_title, notice_content, notice_hit, notice_reg_date, user_no) 
+		VALUES (#{notice_title}, #{notice_content}, #{notice_hit}, #{notice_reg_date}, #{user_no});	
+	</insert>
+	
+	<!--데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem" parameterType="study.spring.withfivebird.model.Notice">
+		DELETE FROM notice WHERE notice_no=#{notice_no};
+	</delete>
+	
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem" parameterType="study.spring.withfivebird.model.Notice">
+		UPDATE notice SET notice_title=#{notice_title}, notice_content=#{notice_content}, notice_hit=#{notice_hit}, 
+		notice_reg_date=#{notice_reg_date}, user_no=#{user_no}
+		WHERE notice_no=#{notice_no};
+	</update>
+	
+	<!--
+		데이터 수 조회하기 	
+		조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다.
+		count, max, min, sum, avg 함수를 사용한 경우 Mapper에서는 
+		resultMap이 아닌 resultType으로 반환한다. -->
+	<select id="selectCountAll" parameterType="study.spring.withfivebird.model.Notice"
+		resultType="int">
+		
+		SELECT COUNT(*) FROM notice
+		
+			<where>		
+			<if test="notice_title != null and notice_title != ''">
+				notice_title LIKE concat('%', #{notice_title}, '%')
+			</if>
+			
+			<if test="notice_content != null and notice_content != ''">
+				notice_content LIKE concat('%', #{notice_content}, '%')
+			</if>
+			
+			<if test="notice_hit != null and notice_hit != ''">
+				notice_hit LIKE concat('%', #{notice_hit}, '%')
+			</if>
+			
+			<if test="notice_reg_date != null and notice_reg_date != ''">
+				notice_reg_date LIKE concat('%', #{notice_reg_date}, '%')
+			</if>
+						
+			<if test="user_no != null and user_no != ''">
+				OR user_no LIKE concat('%', #{user_no}, '%')
+			</if>
+		</where>
+		
+	</select>
+	
+</mapper>
