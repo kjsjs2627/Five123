@@ -52,7 +52,7 @@
 		SELECT user_coupon_no, user_coupon_used, user_no, coupon_list_no FROM user_coupon
 		
 		<where>
-			<if test="user_coupon_used != null and user_coupon_userd != ''">
+			<if test="user_coupon_used != null and user_coupon_used != ''">
 				user_coupon_used LIKE concat('%', #{user_coupon_used}, '%')
 			</if>
 			

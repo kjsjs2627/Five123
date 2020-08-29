@@ -37,13 +37,13 @@ public class UserCouponTest {
 	private SqlSession sqlSession;
 
 	/** 단일행 조회 테스트 */
-//	  @Test 
-//	  public void testA() { 
-//		  // import study.spring.withfivebird.model.UserCoupon; 
-//		  UserCoupon input = new UserCoupon(); 
-//		  input.setUser_coupon_no(1);
-//		  sqlSession.selectOne("UserCouponMapper.selectItem", input); 
-//	  }
+	  @Test 
+	  public void testA() { 
+		  // import study.spring.withfivebird.model.UserCoupon; 
+		  UserCoupon input = new UserCoupon(); 
+		  input.setUser_coupon_no(1);
+		  sqlSession.selectOne("UserCouponMapper.selectItem", input); 
+	  }
 	 
 
 	/** 다중행 조회 테스트 */
