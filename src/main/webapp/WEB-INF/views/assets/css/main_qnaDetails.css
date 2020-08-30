@@ -73,6 +73,7 @@
 	width: 100%;
 	padding: 20px 30px;
 	line-height: 30px;
+	min-height: 250px;
 }
 
 .show_list {
@@ -84,3 +85,4 @@
 .show {
 	width: 20%;
 }
+

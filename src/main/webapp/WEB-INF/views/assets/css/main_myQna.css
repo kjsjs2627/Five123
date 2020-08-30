@@ -73,6 +73,8 @@
 	padding: 20px 30px;
 	line-height: 30px;
 	font-size: 15px;
+	min-height: 250px;
+	border-bottom: 1px solid #ccc;
 }
 
 .show_list {
@@ -83,4 +85,67 @@
 
 .show {
 	width: 20%;
+}
+
+/* 답변하기 form */
+#qna_reply {
+	width: 100%;
+}
+
+/* 답변하기 부모영역 */
+#reply {
+	width: 100%;
+	padding: 20px 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+/* 답변 input */
+#q_reply {
+	width: 75%;
+	height: 50px;	
+}
+
+/* 답변 button */
+.q_reply {
+	width: 23%;
+	height: 50px;
+}
+
+#comment {
+	width: 100%;
+}
+
+.comment_reply {
+	width: 100%;
+	border-top: 1px solid #ccc;
+	line-height: 30px;
+	font-size: 15px;
+}
+
+.teay {
+	width: 100%;
+	font-size: 13px;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 5px;
+	background-color: #ddd;
+	padding-left: 10px;
+}
+
+.dap {
+	padding-right: 5px;
+}
+.team {
+	padding-right: 10px;
+	border-right: 1px solid #ccc;
+	
+}
+
+.day {
+	padding-left: 10px;	
+}
+
+.reply_comment {
+	width: 100%;
+	padding: 0 10px;
 }

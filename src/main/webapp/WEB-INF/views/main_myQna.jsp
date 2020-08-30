@@ -75,6 +75,26 @@
 			</div>
     		</fieldset>
     		</form>
+    		<form id="qna_reply" name="reply-form">
+    			<fieldset>
+    				<div id="reply">
+    					<input type="text" id="q_reply"  placeholder="답변을 달아주세요." />
+    					<button type="submit" class="q_reply btn btn-warning">답변하기</button>
+    				</div>
+    				<div id="comment">
+    					<ul class="comment clearfix">
+    						<li class="comment_reply pull-left">
+    						<span class="teay pull-left">
+    							<span class="dap pull-left">[ 답변 ] </span>
+    							<span class="team pull-left">CS-5팀</span>
+    							<span class="day pull-left">2020-08-30</span>
+    						</span>
+    							<div class="reply_comment pull-left">죄송합니다. 고객님이 구매하신 상품 9월 2일 재입고예정입니다.</div>
+    						</li>
+    					</ul>
+    				</div>
+    			</fieldset>
+    		</form>
     		<div class="show_list clearfix">
 				<button type="button" class="show btn btn-light pull-right" onclick="location.href='${pageContext.request.contextPath}/main_qnaList.do'">목록</button>
 			</div>
