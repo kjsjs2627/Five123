@@ -12,7 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
 import study.spring.withfivebird.model.Product;
-import study.spring.withfivebird.model.Product_review;
+
 
 /** Lombok의 Log4j 객체 */
 // import lombok.extern.slf4j.Slf4j;

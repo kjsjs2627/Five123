@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Product_reviewMapper">
+<mapper namespace="ProductReviewMapper">
 	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
-	<resultMap id="product_reviewMap"
+	<resultMap id="productReviewMap"
 		type="study.spring.withfivebird.model.ProductReview">
 		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
 		<result property="product_review_no" column="product_review_no" />
@@ -23,7 +23,7 @@
 	<!-- 단일행 조회를 위한 기능 정의 -->
 	<select id="selectItem"
 		parameterType="study.spring.withfivebird.model.ProductReview"
-		resultMap="product_reviewMap">
+		resultMap="productReviewMap">
 		SELECT product_review_no, product_review_title,
 		product_review_content, product_review_hit, product_review_reg_date,
 		order_check_no, user_no FROM product_review WHERE
@@ -32,7 +32,7 @@
 	<!-- 다중행 조회를 위한 기능 정의 -->
 	<select id="selectList"
 		parameterType="study.spring.withfivebird.model.ProductReview"
-		resultMap="product_reviewMap">
+		resultMap="productReviewMap">
 		SELECT product_review_no, product_review_title,
 		product_review_content, product_review_hit, product_review_reg_date,
 		order_check_no, user_no FROM product_review
@@ -61,8 +61,8 @@
 		INSERT INTO product_review
 		(product_review_title, product_review_content, product_review_hit,
 		product_review_reg_date,
-		order_check_no) VALUES
-		(#{product_review_title},#{product_review_content},#{product_review_hit},#{product_review_reg_date},#{order_check_no});
+		order_check_no, user_no) VALUES
+		(#{product_review_title},#{product_review_content},#{product_review_hit},#{product_review_reg_date},#{order_check_no},#{user_no});
 	</insert>
 	<!-- 데이터 삭제를 위한 기능 정의 -->
 	<delete id="deleteItem"
