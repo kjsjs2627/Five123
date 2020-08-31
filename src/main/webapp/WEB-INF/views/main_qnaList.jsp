@@ -60,11 +60,13 @@
 
 				</ul>
 		    </nav>
-         	<div id="search" class="clearfix">
-        		<input type="text" class="search_text pull-left" placeholder="   검색어 입력">
+		    <!-- 검색폼  -->
+         	<form method="get" id="search" class="clearfix" >
+         		<label for="keyword"></label>
+        		<input type="search" name="keyword" id="keyword" class="search_text pull-left" placeholder="  검색어 입력" >
         		<button type="submit" class="search btn btn-warning pull-left">검색</button>
-        		<button class="write btn btn-warning pull-right" onclick="location.href='${pageContext.request.contextPath}/main_myQnaWrite.do'">글쓰기</button>
-        	</div>
+        	</form>
+        		<button class="write btn btn-warning pull-right" onclick="location.href='${pageContext.request.contextPath}/main_myQnaWrite.do'">글쓰기</button>        	
         </div>
 		<!-- 하단 영역 -->
 		<%@ include file = "assets/inc/footer.jsp" %>
