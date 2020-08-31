@@ -4,7 +4,7 @@ import lombok.Data;
 
 /** 테이블 구조에 맞춘 Java Beans 생성 */
 @Data
-public class Product_review {
+public class ProductReview {
 	private int product_review_no;
 	private String product_review_title;
 	private String product_review_content;
