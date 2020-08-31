@@ -101,7 +101,7 @@ public class OrderCheckServiceTest {
 		
 		try {
 			count = orderCheckService.getOrderCheckCount(input);
-			log.debug("공학을 포함하는 학과이름을 갖는 데이터 수: " + count);
+			log.debug("아이보리를 포함하는 색깔이름을 갖는 데이터 수: " + count);
 		} catch (Exception e) {
 			log.error(e.getLocalizedMessage());
 			e.printStackTrace();

@@ -99,7 +99,7 @@ public class OrderStatusServiceTest {
 		
 		try {
 			count = orderStatusService.getOrderStatusCount(input);
-			log.debug("공학을 포함하는 학과이름을 갖는 데이터 수: " + count);
+			log.debug("B을 포함하는 배송현황을 갖는 데이터 수: " + count);
 		} catch (Exception e) {
 			log.error(e.getLocalizedMessage());
 			e.printStackTrace();
