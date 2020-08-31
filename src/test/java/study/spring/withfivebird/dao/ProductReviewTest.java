@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
-import study.spring.withfivebird.model.Product_review;
+import study.spring.withfivebird.model.ProductReview;
 
 /** Lombok의 Log4j 객체 */
 // import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ import study.spring.withfivebird.model.Product_review;
 /** 메서드 이름순서로 실행하도록 설정 (설정하지 않을 경우 무작위 순서로 실행됨) */
 // import org.junit.FixMethodOrder;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Product_reviewTest {
+public class ProductReviewTest {
 
 	/** MyBatis의 SQL세션 주입 설정 */
 	// import org.springframework.beans.factory.annotation.Autowired;
