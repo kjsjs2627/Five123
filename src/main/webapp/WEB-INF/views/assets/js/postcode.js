@@ -41,14 +41,14 @@ var element_wrap = document.getElementById('wrap');
 	                
 	                
 	                } else {
-	                    document.getElementById("postcode").value = '';
+	                    document.getElementById("user_postcode").value = '';
 	                }
 
 	                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-	                document.getElementById('postcode').value = data.zonecode;
-	                document.getElementById("addr1").value = addr;
+	                document.getElementById('user_postcode').value = data.zonecode;
+	                document.getElementById("user_addr1").value = addr;
 	                // 커서를 상세주소 필드로 이동한다.
-	                document.getElementById("addr2").focus();
+	                document.getElementById("user_addr2").focus();
 
 	                // iframe을 넣은 element를 안보이게 한다.
 	                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)

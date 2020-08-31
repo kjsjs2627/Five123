@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -109,7 +111,7 @@
 			<div class="pull-right identify fontbold">필수*</div>
 
 		</div>
-		<form role="form" id="join_form" method="post" action='${pageContext.request.contextPath}/info_joinC.do'>
+		<form role="form" id="join_form" method="post" action='${pageContext.request.contextPath}/info_joinOk.do'>
 			<fieldset>
 				<div class="form-group clearfix">
 					<div>
@@ -166,24 +168,24 @@
 
 				<div class="form-group clearfix">
 					<div>
-						<label for="tel" class="user-form pull-left">연락처<span
+						<label for="user_tel" class="user-form pull-left">연락처<span
 							class="identify">*</span></label>
 					</div>
 
 					<div class="input-group pull-left">
-						<input type="text" name="tel" id="tel" class="form-control"
+						<input type="text" name="user_tel" id="user_tel" class="form-control"
 							placeholder="'-'없이 숫자만 입력하세요." />
 					</div>
 				</div>
 
 				<div class="form-group clearfix">
 					<div>
-						<label for="email" class="user-form pull-left">이메일<span
+						<label for="user_email" class="user-form pull-left">이메일<span
 							class="identify">*</span></label>
 					</div>
 
 					<div class="input-group pull-left">
-						<input type="text" name="email" id="email" class="form-control"
+						<input type="text" name="user_email" id="user_email" class="form-control"
 							placeholder="이메일을 입력하세요." />
 						
 					</div>
@@ -191,29 +193,29 @@
 
 				<div class="form-group clearfix">
 					<div>
-						<label for="postcode" class="user-form pull-left">주소<span
+						<label for="user_postcode" class="user-form pull-left">주소<span
 							class="identify">*</span></label>
 					</div>
 
 					<div class="input-group">
 						<div class="clearfix">
-							<input type="text" name="postcode" id="postcode"
+							<input type="text" name="user_postcode" id="user_postcode"
 								class="form-control pull-left" readonly /> <span
 								class="input-group-btn">
 								<button type="button" id="postnum"
 									class="btn btn-warning pull-left "
-									 data-addr1="#addr1"
-									data-addr2="#addr2" onclick="post()">우편번호</button>
+									 data-addr1="#user_addr1"
+									data-addr2="#user_addr2" onclick="post()">우편번호</button>
 							</span>
 						</div>
 					</div>
 					<div class="input-group">
-						<input type="text" name="addr1" class="form-control address"
-							id="addr1" readonly />
+						<input type="text" name="user_addr1" class="form-control address"
+							id="user_addr1" readonly />
 					</div>
 					<div class="input-group">
-						<input type="text" name="addr2" class="form-control address"
-							id="addr2" />
+						<input type="text" name="user_addr2" class="form-control address"
+							id="user_addr2" />
 					</div>
 					<div id="wrap" >
 							<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
@@ -391,9 +393,9 @@
 		        return $(form).valid();
 		    },
 		    success: function(json) {
-		    	if(!check){
-		        	swal('에러', '중복검사를 해주세요.', 'error');
-		        }
+// 		    	if(!check){ // 중복검사 안하고 누르면 alert나오는데 db저장됨 (문제)
+// 		        	swal('에러', '중복검사를 해주세요.', 'error');
+// 		        }
 		        else{
 			 		var dataArr = new Array();
 		        	
@@ -422,11 +424,11 @@
 					}); // end swal
 		        }
 		            
-		     }
+// 		     }
 		}); // end ajaxForm
 			
 	
-		/** 버튼 클릭시 이벤트 */
+		/** 버튼 클릭시 이벤트(중복검사 수정해야 함) */
 		 
 		$("#id_unique_check").click(function(){
 			// 입력값을 취득하고, 내용의 존재여부를 검사한다.
