@@ -27,7 +27,7 @@ public interface OrderStatusService {
 	 * @return int
 	 * @throws Exception
 	 */
-	public int OrderStatusCount(OrderStatus input) throws Exception;
+	public int getOrderStatusCount(OrderStatus input) throws Exception;
 	
 	/**
 	 * 주문현황 데이터 등록하기

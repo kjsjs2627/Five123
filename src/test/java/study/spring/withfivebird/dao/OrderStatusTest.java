@@ -34,6 +34,22 @@ public class OrderStatusTest {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	/** 단일행 조회 테스트 */
+	@Test
+	public void testA() {
+		OrderStatus input = new OrderStatus();
+		input.setOrder_status_no(2);
+		sqlSession.selectOne("OrderStatusMapper.selectItem", input);
+	}
+	
+	/** 다중행 조회 테스트 */
+	@Test
+	public void testB() {
+		OrderStatus input = new OrderStatus();
+		input.setOrder_status_delivery('B');
+		sqlSession.selectList("OrderStatusMapper.selectList", input);
+	}
+	
 	/** 데이터 저장 테스트 */
 	@Test
 	public void testC() {

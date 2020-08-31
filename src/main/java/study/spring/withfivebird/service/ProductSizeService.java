@@ -50,3 +50,4 @@ public interface ProductSizeService {
 	 */
 	public int deleteProductSize(ProductSize input) throws Exception;
 }
+

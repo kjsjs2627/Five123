@@ -75,7 +75,7 @@ public class OrderStatusServiceImpl implements OrderStatusService {
 	 * @return int
 	 * @throws Exception
 	 */
-	public int OrderStatusCount(OrderStatus input) throws Exception {
+	public int getOrderStatusCount(OrderStatus input) throws Exception {
 		int result = 0;
 		
 		try {

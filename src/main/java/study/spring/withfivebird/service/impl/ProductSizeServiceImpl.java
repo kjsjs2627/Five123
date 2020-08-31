@@ -8,11 +8,12 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import study.spring.withfivebird.model.ProductSize;
+import study.spring.withfivebird.service.ProductSizeService;
 
 /** 사이즈 데이터 관리 기능을 제공하기 위한 Service 계층 */
 @Slf4j
 @Service // --> import org.springframework.stereotype.Service
-public class ProductSizeServiceImpl {
+public class ProductSizeServiceImpl implements ProductSizeService{
 
 	/** MyBatis 세션 객체 주입 설정 */
 	@Autowired
