@@ -98,7 +98,7 @@
 				<div id="newGallery">
 					  <ul id="gallery">
                         <li>
-                            <a href="${pageContext.request.contextPath}/main_productDetails.do?ans=Bottom&index=3">
+                            <a href="${pageContext.request.contextPath}/main_productDetails.do?index=68">
                                 <span class="thumb"><img src="assets/img/new/new1.gif" alt="이미지1" /></span>
                                 <span class="text">코지 파자마</span>
                                 <span class="textdetail">오래 입고 있어도 가슬거림 없는 부드러운 소재로 제작했어요</span>
@@ -106,7 +106,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/main_productDetails.do?ans=Outer&index=1">
+                            <a href="${pageContext.request.contextPath}/main_productDetails.do?index=1">
                                 <span class="thumb"><img src="assets/img/new/new2.gif" alt="이미지2" /></span>
                                 <span class="text">노엘 린넨하프</span>
                                 <span class="textdetail">린넨의 까슬거림 없이 부드럽게 가공된 린넨 + 코튼 혼방소재의 메이드 하프자켓</span>
@@ -115,7 +115,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/main_productDetails.do?ans=Bottom&index=2">
+                            <a href="${pageContext.request.contextPath}/main_productDetails.do?index=2">
                                 <span class="thumb"><img src="assets/img/new/new3.gif" alt="이미지3" /></span>
                                 <span class="text">크림 린넨</span>
                                 <span class="textdetail">여름에 입을 시원하고 부드러운 긴바지를 찾으셨다면, 적극추천 :)</span>
@@ -123,7 +123,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/main_productDetails.do?ans=Bottom&index=1">
+                            <a href="${pageContext.request.contextPath}/main_productDetails.do?index=1">
                                 <span class="thumb"><img src="assets/img/new/new4.gif" alt="이미지4" /></span>
                                 <span class="text">콜 슬라브 데님</span>
                                 <span class="textdetail">시원하고 청량한 연중청 컬러에 더운 여름에 입기 좋은 얇고 부드러운 데님</span>

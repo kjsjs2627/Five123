@@ -41,7 +41,9 @@
 		product_price, product_best, product_new,
 		product_img, product_sale,category_no,product_size_no1,product_size_no2,product_size_no3, 
 		product_color_no1,product_color_no2,product_color_no3,product_detail_img1,product_detail_img2,product_detail_img3,product_detail_img4,product_detail_content 
-		FROM product WHERE
+		FROM product p
+		
+		WHERE
 		product_no=#{product_no};
 	</select>
 	<!-- 다중행 조회를 위한 기능 정의 -->
@@ -124,5 +126,18 @@
 		</where>
 
 
+	</select>
+	
+	<select id="selectJoin"
+		parameterType="study.spring.withfivebird.model.Product"
+		resultMap="productMap">
+		SELECT product_name, product_content,
+		product_price, product_best, product_new,
+		product_img, product_sale,category_no,product_size_no1,product_size_no2,product_size_no3, 
+		product_color_no1,product_color_name,product_color_no2,product_color_name,product_color_no3,product_color_name,product_detail_img1,product_detail_img2,product_detail_img3,product_detail_img4,product_detail_content 
+		FROM product p
+		INNER JOIN product_color c ON p.product_color_no1 = c.product_color_no
+		WHERE product_color_no
+		product_no=#{product_no}
 	</select>
 </mapper>

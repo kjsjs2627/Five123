@@ -396,7 +396,7 @@
 // 		    	if(!check){ // 중복검사 안하고 누르면 alert나오는데 db저장됨 (문제)
 // 		        	swal('에러', '중복검사를 해주세요.', 'error');
 // 		        }
-		        else{
+//		        else{
 			 		var dataArr = new Array();
 		        	
 		        	var dataObj = new Object();

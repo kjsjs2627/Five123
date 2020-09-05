@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ProductCategoryMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="productCategoryMap" type="study.spring.withfivebird.model.ProductCategory" >
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="product_no" column="product_no" />
+		<result property="product_name" column="product_name" />
+		<result property="product_content" column="product_content" />
+		<result property="product_price" column="product_price" />
+		<result property="product_best" column="product_best" />
+		<result property="product_new" column="product_new" />
+		<result property="product_img" column="product_img" />
+		<result property="product_sale" column="product_sale" />
+		<result property="category_no" column="category_no" />
+		<result property="product_size_no1" column="product_size_no1" />
+		<result property="product_size_no2" column="product_size_no2" />
+		<result property="product_size_no3" column="product_size_no3" />
+		<result property="product_color_no1" column="product_color_no1" />
+		<result property="product_color_no2" column="product_color_no2" />
+		<result property="product_color_no3" column="product_color_no3" />
+		<result property="product_detail_img1"
+			column="product_detail_img1" />
+		<result property="product_detail_img2"
+			column="product_detail_img2" />
+		<result property="product_detail_img3"
+			column="product_detail_img3" />
+		<result property="product_detail_img4"
+			column="product_detail_img4" />
+		<result property="product_detail_content" column="product_detail_content" />
+		<result property="category_name" column="category_name" />
+		
+	</resultMap>
+	<!-- Join 결과를 반환 -->
+	<select id="selectList" parameterType="study.spring.withfivebird.model.ProductCategory" resultMap="productCategoryMap">
+		SELECT product_no, product_name, product_content, product_price, product_img, category_name, product_sale
+		FROM product as p INNER JOIN category as c
+		ON p.category_no = c.category_no
+		<where>
+			<if test="product_name != null and product_name != ''">
+				product_name LIKE concat ('%', #{product_name}, '%')
+			</if>
+		</where>
+		
+		ORDER BY product_no DESC
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+	
+	<!-- Join 결과를 반환 -->
+	<select id="selectJoin" parameterType="study.spring.withfivebird.model.ProductCategory" resultMap="productCategoryMap">
+		SELECT product_no, product_name, product_content, product_price, product_img, category_name, product_sale
+		FROM product as p INNER JOIN category as c
+		ON p.category_no = c.category_no
+		<where>
+			<if test="category_name != null and category_name != ''">
+				category_name LIKE concat (#{category_name})
+			</if>
+<!-- 			<if test="product_content != null and product_content != ''"> -->
+<!-- 				product_content LIKE concat('%',#{product_content}, '%') -->
+<!-- 			</if> -->
+			
+		</where>
+		
+		ORDER BY product_no DESC
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+	
+	<select id="selectNew" parameterType="study.spring.withfivebird.model.ProductCategory" resultMap="productCategoryMap">
+		SELECT product_no, product_name, product_content, product_price, product_img, product_new, product_sale
+   		FROM product where product_new='Y'
+   		
+   		ORDER BY product_no DESC
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if> 		
+	</select>
+	
+	<select id="selectBest" parameterType="study.spring.withfivebird.model.ProductCategory" resultMap="productCategoryMap">
+		SELECT product_no, product_name, product_content, product_price, product_img, product_best, product_sale
+   		FROM product where product_best='Y'
+   		
+   		ORDER BY product_no DESC
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>		
+	</select>
+	
+	<select id="selectSale" parameterType="study.spring.withfivebird.model.ProductCategory" resultMap="productCategoryMap">
+		SELECT product_no, product_name, product_content, product_price, product_img, product_sale
+   		FROM product where product_sale is not null
+		
+		ORDER BY product_no DESC
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+	
+	<select id="selectCountAll" parameterType="study.spring.withfivebird.model.ProductCategory" resultType="int">
+		SELECT COUNT(*) FROM product as p INNER JOIN category as c
+		ON p.category_no = c.category_no
+		<where>
+			<if test="category_name != null and category_name != ''">
+				category_name LIKE concat (#{category_name})
+			</if>
+			<if test="product_name != null and product_name != ''">
+				OR product_name LIKE concat ('%', #{product_name}, '%')
+			</if>		
+		</where>
+	</select>
+	
+	<select id="selectCountNew" parameterType="study.spring.withfivebird.model.ProductCategory" resultType="int">
+		SELECT COUNT(*) FROM product as p INNER JOIN category as c
+		ON p.category_no = c.category_no
+		<where>
+
+			<if test="product_new != null and product_new != ''">
+				product_new = (#{product_new})
+			</if>
+			
+		</where>
+	</select>
+	
+	<select id="selectCountBest" parameterType="study.spring.withfivebird.model.ProductCategory" resultType="int">
+		SELECT COUNT(*) FROM product as p INNER JOIN category as c
+		ON p.category_no = c.category_no
+		<where>
+
+			<if test="product_best != null and product_best != ''">
+				product_best = (#{product_best})
+			</if>
+			
+		</where>
+	</select>
+	
+	<select id="selectCountSale" parameterType="study.spring.withfivebird.model.ProductCategory" resultType="int">
+		SELECT COUNT(*) FROM product as p INNER JOIN category as c
+		ON p.category_no = c.category_no
+		<where>
+			product_sale IS NOT NULL <!-- if문에 집어넣으면 에러나서 뺌 -->
+			
+		</where>
+	</select>
+</mapper>

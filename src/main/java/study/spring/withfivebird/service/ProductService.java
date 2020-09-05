@@ -13,7 +13,7 @@ public interface ProductService {
 	 * @throws Exception
 	 */
 	public Product getProductItem(Product input) throws Exception;
-	
+	public Product getProductJoin(Product input) throws Exception;
 	/** 제품 데이터 목록 조회
 	 * @return 조회 결과에 대한 컬렉션
 	 * @throws Exception

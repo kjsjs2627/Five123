@@ -5,7 +5,7 @@
 	<!-- Beans 클래스의 객체이름(id)와 클래스이름(type)을 명시한다. -->
    <resultMap id="CategoryMap" type="study.spring.withfivebird.model.Category">
       <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
-      <result property="category_no" column="category_no"/> <!-- category_no라고컬럼 되어있음 -->
+      <result property="category_no" column="category_no"/> 
       <result property="category_name" column="category_name"/>
       
      
@@ -44,16 +44,8 @@
    		UPDATE category SET category_name=#{category_name}
    		WHERE category_no=#{category_no};
    </update> 
-   <!-- 데이터 수 조회하기 -->
-   <select id="selectCountAll" parameterType="study.spring.withfivebird.model.Category" resultType="int">
-   		SELECT COUNT(*) FROM category
-   		
-   		<where>
-   			<if test="category_name != null and category_name != ''">
-   				category_name LIKE concat('%',#{category_name},'%')
-   			</if>
-   		</where>
-   </select>
+   
+  
    
   
 </mapper>

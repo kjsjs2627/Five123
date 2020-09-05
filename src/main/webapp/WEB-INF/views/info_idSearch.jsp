@@ -53,7 +53,7 @@
         <div class="title pull-left">아이디 찾기</div>
     </div>
 	<div id="content">
-		<form role="form" id="info_idSearch" method="post" action="${pageContext.request.contextPath}/api/search.do">
+		<form role="form" id="info_idSearch" method="post" action="${pageContext.request.contextPath}/search.do">
 			<fieldset>
 				<div class="form-group clearfix">
 					<div>
@@ -99,43 +99,43 @@
 
 	<script type="text/javascript">
 	$(function(){
-		$("#search_ok").click(function(e){
-			e.preventDefault();
-			var name = $("#name_search").val();
-			var email =$("#email_search").val();
-			if(!name){
-				swal({
-					title: '에러',
-					type : 'error',
-					text : '이름을 입력해주세요.'
-				});
-				return false;
-			}else if(!email){
-				swal({
-					title: '에러',
-					type : 'error',
-					text : '이메일을 입력해주세요.'
-				});
-				return false;
-			}
-			$.post("assets/api/search.do",{name_search: name, email_search : email}, function(req){
-				if(req.result=='Ok'){
+// 		$("#search_ok").click(function(e){
+// 			e.preventDefault();
+// 			var name = $("#name_search").val();
+// 			var email =$("#email_search").val();
+// 			if(!name){
+// 				swal({
+// 					title: '에러',
+// 					type : 'error',
+// 					text : '이름을 입력해주세요.'
+// 				});
+// 				return false;
+// 			}else if(!email){
+// 				swal({
+// 					title: '에러',
+// 					type : 'error',
+// 					text : '이메일을 입력해주세요.'
+// 				});
+// 				return false;
+// 			}
+// 			$.post("assets/api/search.do",{name_search: name, email_search : email}, function(req){
+// 				if(req.result=='Ok'){
 				
-					swal({
-						type: 'success',
-						text : '가입하신 아이디는 '+req.value+ ' 입니다.'
-					});
-					$("#name_search").val("");
-					$("#email_search").val("");
-	                //location.href = 'info_idOk.jsp';
-				}else{
+// 					swal({
+// 						type: 'success',
+// 						text : '가입하신 아이디는 '+req.value+ ' 입니다.'
+// 					});
+// 					$("#name_search").val("");
+// 					$("#email_search").val("");
+// 	                //location.href = 'info_idOk.jsp';
+// 				}else{
 					
-					swal('에러', '등록된 아이디가 없습니다.', 'error');
-					$("#name_search").val("");
-					$("#email_search").val("");
-				} 
-			});
-		});
+// 					swal('에러', '등록된 아이디가 없습니다.', 'error');
+// 					$("#name_search").val("");
+// 					$("#email_search").val("");
+// 				} 
+// 			});
+// 		});
 		
 
 	});

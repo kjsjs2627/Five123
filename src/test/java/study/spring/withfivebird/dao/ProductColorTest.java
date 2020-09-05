@@ -32,59 +32,59 @@ public class ProductColorTest {
 	private SqlSession sqlSession;
 	
 	/** 단일행 조회 테스트 */
-	@Test
-	public void testA() {
-		ProductColor input = new ProductColor();
-		input.setProduct_color_no(2);
-		sqlSession.selectOne("ProductColorMapper.selectItem", input);
-	}
-	
-	/** 다중행 조회 테스트 */
-	@Test
-	public void testB() {
-		ProductColor input = new ProductColor();
-		input.setProduct_color_name("이");
-		sqlSession.selectList("ProductColorMapper.selectList", input);
-	}
-	
-	/** 데이터 저장 테스트 */
-	@Test
-	public void testC() {
-		ProductColor input = new ProductColor();
-		input.setProduct_color_name("블랙");
-		sqlSession.insert("ProductColorMapper.insertItem", input);
-	}
-	
-	/** 데이터 삭제 테스트 */
-	@Test
-	public void testD() {
-		ProductColor input = new ProductColor();
-		input.setProduct_color_no(17);
-		sqlSession.delete("ProductColorMapper.deleteItem", input);
-	}
-	
-	/** 데이터 수정 테스트 */
-	@Test
-	public void testE() {
-		ProductColor input = new ProductColor();
-		input.setProduct_color_no(12);
-		input.setProduct_color_name("화이트");
-		sqlSession.update("ProductColorMapper.updateItem", input);
-	}
-	
-	/** 전체 데이터 수 조회 */
-	@Test
-	public void testF() {
-		int count = sqlSession.selectOne("ProductColorMapper.selectCountAll", null);
-		log.debug("전체 데이터 수: " + count);
-	}
-	
-	/** 조건에 따른 데이터 수 조회 */
-	@Test
-	public void testG() {
-		ProductColor input = new ProductColor();
-		input.setProduct_color_name("이");
-		int count = sqlSession.selectOne("ProductColorMapper.selectCountAll", input);
-		log.debug("이를 포함하는 색상이름을 갖는 데이터 수: " + count);
-	}
+//	@Test
+//	public void testA() {
+//		ProductColor input = new ProductColor();
+//		input.setProduct_color_no(2);
+//		sqlSession.selectOne("ProductColorMapper.selectItem", input);
+//	}
+//	
+//	/** 다중행 조회 테스트 */
+//	@Test
+//	public void testB() {
+//		ProductColor input = new ProductColor();
+//		input.setProduct_color_name("이");
+//		sqlSession.selectList("ProductColorMapper.selectList", input);
+//	}
+//	
+//	/** 데이터 저장 테스트 */
+//	@Test
+//	public void testC() {
+//		ProductColor input = new ProductColor();
+//		input.setProduct_color_name("블랙");
+//		sqlSession.insert("ProductColorMapper.insertItem", input);
+//	}
+//	
+//	/** 데이터 삭제 테스트 */
+//	@Test
+//	public void testD() {
+//		ProductColor input = new ProductColor();
+//		input.setProduct_color_no(17);
+//		sqlSession.delete("ProductColorMapper.deleteItem", input);
+//	}
+//	
+//	/** 데이터 수정 테스트 */
+//	@Test
+//	public void testE() {
+//		ProductColor input = new ProductColor();
+//		input.setProduct_color_no(12);
+//		input.setProduct_color_name("화이트");
+//		sqlSession.update("ProductColorMapper.updateItem", input);
+//	}
+//	
+//	/** 전체 데이터 수 조회 */
+//	@Test
+//	public void testF() {
+//		int count = sqlSession.selectOne("ProductColorMapper.selectCountAll", null);
+//		log.debug("전체 데이터 수: " + count);
+//	}
+//	
+//	/** 조건에 따른 데이터 수 조회 */
+//	@Test
+//	public void testG() {
+//		ProductColor input = new ProductColor();
+//		input.setProduct_color_name("이");
+//		int count = sqlSession.selectOne("ProductColorMapper.selectCountAll", input);
+//		log.debug("이를 포함하는 색상이름을 갖는 데이터 수: " + count);
+//	}
 }

@@ -51,4 +51,6 @@ public interface UserService {
 	 * @throws Exception
 	 */
 	public int deleteUser(User input) throws Exception;
+	
+	public User getUserId(User input) throws Exception;
 }
