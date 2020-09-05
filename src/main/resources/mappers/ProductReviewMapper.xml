@@ -33,25 +33,14 @@
 	<select id="selectList"
 		parameterType="study.spring.withfivebird.model.ProductReview"
 		resultMap="productReviewMap">
-		SELECT product_review_no, product_review_title,
-		product_review_content, product_review_hit, product_review_reg_date,
-		order_check_no, user_no FROM product_review
-
-		<where>
-			<if
-				test="product_review_title != null and product_review_title != ''">
-				product_review_title LIKE concat('%', #{product_review_title},
-				'%')
-			</if>
-
-			<if
-				test="product_review_content != null and product_review_content != ''">
-				OR product_review_content LIKE concat('%',
-				#{product_review_content}, '%')
-			</if>
-		</where>
-
-		ORDER BY product_review_no DESC
+		SELECT * FROM product_review
+   		
+   		<where>
+   			<if test="user_no != null and user_no != ''">
+   				user_no LIKE concat('%',#{user_no},'%')
+   			</if>
+   		</where>
+   		ORDER BY product_review_no DESC
 	</select>
 
 	<!-- 데이터 저장을 위한 기능 정의 -->

@@ -36,13 +36,15 @@ public class MyWriteController {
 		
 		OrderProblem input = new OrderProblem();
 		input.setUser_no(5);
+		ProductReview input2 = new ProductReview();
+		input2.setUser_no(5);
 		
 		List<OrderProblem> output = null;
 		List<ProductReview> output2 = null;
 		
 		try {
 			output = orderProblemService.getOrderProblemList(input);
-			output2 = productReviewService.getProductReviewList(null);
+			output2 = productReviewService.getProductReviewList(input2);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
