@@ -1,10 +1,9 @@
 package study.spring.withfivebird.model;
 
 import lombok.Data;
-
-/** 테이블 구조에 맞춘 Java Beans 생성 */
+/** Join문 구조에 맞춘 Java Beans 생성 */
 @Data
-public class Product {
+public class ProductCategory {
 	private int product_no;
 	private String product_name;
 	private String product_content;
@@ -25,6 +24,25 @@ public class Product {
 	private String product_detail_img3;
 	private String product_detail_img4;
 	private String product_detail_content;
-	private String product_color_name;
+	private String category_name;
 	
+	/** 페이지 구현이 필요한 경우 아래 속성들을 추가한다. (static) */
+	private static int offset;     // LIMIT 절에서 사용할 검색 시작 위치
+	private static int listCount;  // LIMIT 절에서 사용할 검색할 데이터 수
+	
+	public static int getOffset() {
+		return offset;
+	}
+	
+	public static void setOffset(int offset) {
+		ProductCategory.offset = offset;
+	}
+	
+	public static int getListCount() {
+		return listCount;
+	}
+	
+	public static void setListCount(int listCount) {
+		ProductCategory.listCount = listCount;
+	}
 }

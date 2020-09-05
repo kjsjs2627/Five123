@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
-	request.setCharacterEncoding("UTF-8");
-	String ans = request.getParameter("ans");
+// 	request.setCharacterEncoding("UTF-8");
+// 	String ans = request.getParameter("ans");
 	
-	if(ans == null || ans.equals("") || !ans.equals("Top") && !ans.equals("Bottom") && !ans.equals("Dress") && !ans.equals("Outer") && !ans.equals("Acc")&& !ans.equals("Best") && !ans.equals("Sale") && !ans.equals("New") ){
-		String script="<script>";
-		script += "alert('값이 없습니다.');";
-		script += "history.back();";
-		script += "</script>";
+// 	if(ans == null || ans.equals("") || !ans.equals("Top") && !ans.equals("Bottom") && !ans.equals("Dress") && !ans.equals("Outer") && !ans.equals("Acc")&& !ans.equals("Best") && !ans.equals("Sale") && !ans.equals("New") ){
+// 		String script="<script>";
+// 		script += "alert('값이 없습니다.');";
+// 		script += "history.back();";
+// 		script += "</script>";
 		
-		out.print(script);
-		return; //현재 페이지 강제 종료
-	}
+// 		out.print(script);
+// 		return; //현재 페이지 강제 종료
+// 	}
 	
 	//String index = request.getParameter("index");
 	
@@ -187,13 +189,30 @@
 			</div>
 			<div id="body">
 				<!-- 제품이름 설정 -->
+				
+				<c:set var="product_name" value="${output.product_name}" />
+				<c:set var="product_content" value="${output.product_content}" />
+				<c:set var="product_price" value="${output.product_price}" />
+				<c:set var="product_sale" value="${output.product_sale}" />
+				<fmt:formatNumber value="${product_price}" type="number" var="number1" pattern="#,###" />
+				<fmt:formatNumber value="${product_price-product_price/product_sale}" type="number" var="number2" pattern="#,###"/>
+				
 				<div id="productName">
 					<div>
-						<!-- [재입고/누적판매수량6,000장]<br /> 베일ops -->
-					</div>
+						${product_name}
+					</div><br />
 					<p>
-						<br />new ! 내츄럴베이지 추가<br /> 핀턱이 잡혀있어 허리라인이 뜨지 않아요<br /> 3년째
-						사랑받는 기획특가 원피스
+						${product_content}
+					</p><br/>
+					<p>
+						<c:choose>
+							<c:when test="${product_sale>0}">
+								${number2}원
+							</c:when>
+							<c:otherwise>
+								${number1}원
+							</c:otherwise>
+						</c:choose>
 					</p>
 				</div>
 				<!-- 제품 상세 설정 (색상) -->
@@ -203,9 +222,9 @@
 							name="productColor" id="productColor" required="required"
 							class="dropdown pull-right">
 							<option value="0">&nbsp;&nbsp;[필수] 컬러선택</option>
-							<option value="Red">Red</option>
-							<option value="Blue">Blue</option>
-							<option value="Purple">Purple</option>
+							<option value="Red">${output.product_color_no1}</option>
+							<option value="Blue">${output.product_color_no2}</option>
+							<option value="Purple">${output.product_color_no3}</option>
 						</select>
 					</div>
 
@@ -284,19 +303,19 @@
 							<div id="newGallery">
 								<ul id="gallery">
 									<li><span class="thumb"><img
-												src="assets/img/bottom/bottom2.jpg" alt="이미지1" /></span> <span
+												src="${output.product_detail_img1}" alt="이미지1" /></span> <span
 											class="text">세련된 디자인</span>
 									</li>
 									<li><span class="thumb"><img
-												src="assets/img/bottom/bottom3.jpg" alt="이미지2" /></span> <span
+												src="${output.product_detail_img2}" alt="이미지2" /></span> <span
 											class="text">강렬한 디자인</span>
 									</li>
 									<li><span class="thumb"><img
-												src="assets/img/bottom/bottom4.jpg" alt="이미지3" /></span> <span
+												src="${output.product_detail_img3}" alt="이미지3" /></span> <span
 											class="text">차분한 디자인</span>
 									</li>
 									<li> <span class="thumb"><img
-												src="assets/img/bottom/bottom5.jpg" alt="이미지4" /></span> <span
+												src="${output.product_detail_img4}" alt="이미지4" /></span> <span
 											class="text">격식있는 디자인</span>
 									</li>
 								</ul>

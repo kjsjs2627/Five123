@@ -24,6 +24,11 @@
    <select id="selectItem" parameterType="study.spring.withfivebird.model.User" resultMap="UserMap">
    		SELECT * FROM user WHERE user_no=${user_no};
    </select>
+   
+   <select id="selectId" parameterType="study.spring.withfivebird.model.User" resultMap="UserMap">
+   		SELECT user_id FROM user WHERE user_name=#{user_name} AND user_email=#{user_email};
+   </select>
+   
    <!-- 다중행 조회를 위한 기능 정의 -->
    <select id="selectList" parameterType="study.spring.withfivebird.model.User" resultMap="UserMap">
    		SELECT * FROM user

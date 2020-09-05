@@ -11,6 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
 import study.spring.withfivebird.model.Category;
+import study.spring.withfivebird.model.ProductCategory;
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -82,5 +83,19 @@ public class CategoryTest {
 //		log.debug("포함하는 데이터수 : " + count);
 //	}
 	
+	/** Join을 활용한 데이터 수  조회 */
+//	@Test
+//	public void testH() {
+//		ProductCategory input = new ProductCategory();
+//		input.setCategory_name("Top");
+//		sqlSession.selectList("ProductCategoryMapper.selectJoin", input);
+//	}
+	
+	@Test
+	public void testI() {
+		ProductCategory input = new ProductCategory();
+		input.setCategory_name("Top");
+		sqlSession.selectList("ProductCategoryMapper.selectCountAll", input);
+	}
 	
 }

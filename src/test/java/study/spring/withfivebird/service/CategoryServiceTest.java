@@ -1,7 +1,9 @@
 package study.spring.withfivebird.service;
 
+
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
-import study.spring.withfivebird.model.Category;
+import study.spring.withfivebird.model.ProductCategory;
 
 /** Lombok의 log4j 객체 */
 //import lombok.extern.slf4j.Slf4j;
@@ -27,6 +29,10 @@ import study.spring.withfivebird.model.Category;
 public class CategoryServiceTest {
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	private SqlSession sqlSession;
+	@Autowired
+	private ProductCategoryService productCategoryService;
 	
 	/** 단일행 조회 테스트 */
 //	@Test
@@ -153,4 +159,53 @@ public class CategoryServiceTest {
 //			e.printStackTrace();
 //		}
 //	}
+	@Test
+	public void testH() {
+		ProductCategory input = new ProductCategory();
+		input.setCategory_name("Top");
+		
+		List<ProductCategory> output = null;
+		
+		try {
+			output = productCategoryService.getProductCategoryList(input);
+			
+			for(ProductCategory item : output) {
+				log.debug(item.toString());
+			}
+		}catch(Exception e) {
+			log.error(e.getLocalizedMessage());
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void testI() {
+		int count = 0;
+		
+		try{
+			count = productCategoryService.getProductCategoryCount(null);
+			log.debug("전체데이터수 : " + count);
+		}catch(Exception e) {
+			log.error(e.getLocalizedMessage());
+			e.printStackTrace();
+		}
+		
+		
+	}
+	@Test
+	public void testJ() {
+		int count = 0;
+		
+		ProductCategory input = new ProductCategory();
+		input.setCategory_name("Bottom");
+		
+		try{
+			count = productCategoryService.getProductCategoryCount(input);
+			log.debug("데이터수 : " + count);
+		}catch(Exception e) {
+			log.error(e.getLocalizedMessage());
+			e.printStackTrace();
+		}
+		
+		
+	}
 }
