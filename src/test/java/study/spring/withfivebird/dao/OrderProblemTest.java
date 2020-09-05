@@ -44,7 +44,7 @@ public class OrderProblemTest {
 		OrderProblem input = new OrderProblem();
 		input.setOrder_problem_option("문의종류");
 		input.setOrder_problem_content("안 이쁘네 사기치지 마세요.");
-		input.setOrder_check_problem_reg_date("2020-08-26");
+		input.setOrder_problem_reg_date("2020-08-26");
 		input.setUser_no(3);
 		input.setOrder_check_no(3);
 
@@ -66,7 +66,7 @@ public class OrderProblemTest {
 		input.setOrder_problem_no(6);
 		input.setOrder_problem_option("문의문의");
 		input.setOrder_problem_content("안 이쁘네 사기치지 마세요!");
-		input.setOrder_check_problem_reg_date("2020-08-26");
+		input.setOrder_problem_reg_date("2020-08-26");
 		input.setUser_no(3);
 		input.setOrder_check_no(3);
 

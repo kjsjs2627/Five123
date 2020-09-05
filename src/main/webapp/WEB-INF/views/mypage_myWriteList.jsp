@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!doctype html>
 <html>
 
 <head>
@@ -222,32 +224,37 @@
                 </div>
             </div>
             <div class="listSection">내가 쓴 문의 글</div>
-            	<a href="${pageContext.request.contextPath }/mypage_myWriteProblem.do">
-            			<span class="order padding clearfix">
-                    		<span class="orderNumber padding">
-                    			<span class="orderDate pull-left">[2020-08-17]</span> &nbsp; 주문번호 - P237623646186
-                    		</span>
-                    		<span class="orderPic pull-left">
-                        		<img src="assets/img/clothings/4.jpg" alt="cloth" />
-                    		</span>
-                    		<span class="orderName padding pull-left">
-                        		[교환문의] 색깔이 안 맞아요.
-                    		</span>
-                		</span>
-                </a>
-                <a href="${pageContext.request.contextPath }/mypage_myWriteProblem.do">
-            			<span class="order padding clearfix">
-                    		<span class="orderNumber padding">
-                    			<span class="orderDate pull-left">[2020-05-14]</span> &nbsp; 주문번호 - P237623646186
-                    		</span>
-                    		<span class="orderPic pull-left">
-                        		<img src="assets/img/clothings/4.jpg" alt="cloth" />
-                    		</span>
-                    		<span class="orderName padding pull-left">
-                        		[교환문의] 색깔이 안 맞아요.
-                    		</span>
-                		</span>
-                </a>
+            	<c:choose>
+            		<c:when test="${output == null || fn:length(output) == 0}">
+            			<div>
+            				문의 글이 없습니다.
+            			</div>
+            		</c:when>
+            		<c:otherwise>
+            			<c:forEach var="problem" items="${output }" varStatus="status">
+            				<c:set var="title" value="${problem.order_problem_option }" />
+            				<c:set var="date" value="${problem.order_problem_reg_date }" />
+            				
+            				<c:url value="/mypage_myWriteProblem.do" var="viewUrl">
+            					<c:param name="order_problem_no" value="${problem.order_problem_no }" />
+            				</c:url>
+            				
+            				<a href="${viewUrl }">
+            					<span class="order padding clearfix">
+            						<span class="orderNumber padding">
+            							<span class="orderDate pull-left">[${date }]</span> &nbsp; 주문번호 - P237623646186
+            						</span>
+            						<span class="orderPic pull-left">
+            							<img src="assets/img/clothings/4.jpg" alt="cloth" />
+            						</span>
+            						<span class="orderName padding pull-left">
+            							[${title }]
+            						</span>
+            					</span>
+            				</a>
+            			</c:forEach>
+            		</c:otherwise>
+            	</c:choose>
             <div class="listSection">내가 쓴 후기 글</div>
             	<a href="${pageContext.request.contextPath }/mypage_myWriteReview.do">
             			<span class="order padding clearfix">

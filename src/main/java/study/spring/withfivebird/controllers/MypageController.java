@@ -32,11 +32,6 @@ public class MypageController {
 		return "mypage_myPoint";
 	}
 
-	@RequestMapping(value = "/mypage_myWriteList.do", method = RequestMethod.GET)
-	public String writeList(Model model) {
-		return "mypage_myWriteList";
-	}
-
 	@RequestMapping(value = "/mypage_myCoupon.do", method = RequestMethod.GET)
 	public String coupon(Model model) {
 		return "mypage_myCoupon";

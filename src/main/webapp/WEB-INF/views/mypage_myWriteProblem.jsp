@@ -56,7 +56,7 @@
 		<div id="content">
         	
         	<div class="order clearfix">
-        	<div class="orderNumber padding">[2020-06-19] 주문번호 - P237623646186</div>
+        	<div class="orderNumber padding">[${output.order_problem_reg_date }] 주문번호 - P237623646186</div>
                     <div class="orderPic pull-left">
                         <img src="assets/img/clothings/4.jpg" alt="cloth" />
                     </div>
@@ -66,10 +66,10 @@
                     <button value="수정" id="update" class="btn btn-info">수정</button>
             </div>
             <div id="problemTitle">
-            	[교환문의] 색깔이 안 맞아요.
+            	[${output.order_problem_option }]
             </div>
             <div id="problemIs">
-            	쇼핑몰 사진 색깔이랑 달라서 다른 색깔로 교환합니다.
+            	${output.order_problem_content }
             </div>
         </div>
         

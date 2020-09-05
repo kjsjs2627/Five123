@@ -23,8 +23,8 @@
    		SELECT * FROM order_problem
    		
    		<where>
-   			<if test="order_problem_option != null and order_problem_option != ''">
-   				order_problem_option LIKE concat('%',#{order_problem_option},'%')
+   			<if test="user_no != null and user_no != ''">
+   				user_no LIKE concat('%',#{user_no},'%')
    			</if>
    		</where>
    		ORDER BY order_problem_no DESC
@@ -32,9 +32,9 @@
    
    <!-- 데이터 저장을 위한 기능 정의 -->
    <insert id="insertItem" parameterType="study.spring.withfivebird.model.OrderProblem" useGeneratedKeys="true" keyProperty="order_problem_no">
-   		INSERT INTO order_problem (order_problem_option, order_problem_content, order_check_problem_reg_date,
+   		INSERT INTO order_problem (order_problem_option, order_problem_content, order_problem_reg_date,
    		user_no, order_check_no) 
-   		VALUES (#{order_problem_option}, #{order_problem_content}, #{order_check_problem_reg_date}, #{user_no}, #{order_check_no});
+   		VALUES (#{order_problem_option}, #{order_problem_content}, #{order_problem_reg_date}, #{user_no}, #{order_check_no});
    </insert> 
    
    <!-- 데이터 삭제를 위한 기능 정의 -->
@@ -44,7 +44,7 @@
    
    <!-- 데이터 수 조회하기 -->
    <update id="updateItem" parameterType="study.spring.withfivebird.model.OrderProblem">
-   		UPDATE order_problem SET order_problem_option=#{order_problem_option}, order_problem_content=#{order_problem_content}, order_check_problem_reg_date=#{order_check_problem_reg_date},
+   		UPDATE order_problem SET order_problem_option=#{order_problem_option}, order_problem_content=#{order_problem_content}, order_problem_reg_date=#{order_problem_reg_date},
    		user_no=#{user_no}, order_check_no=#{order_check_no} 
    		WHERE order_problem_no=#{order_problem_no};
    </update> 

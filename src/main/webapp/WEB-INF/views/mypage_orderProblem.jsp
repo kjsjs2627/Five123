@@ -67,15 +67,15 @@
                         <div class="orderMoney padding">50,000 원</div>
                     </div>
                 </div>
-                <form id="frm" role="form" method="post">
+                <form method="post" action="${pageContext.request.contextPath }/mypage_orderProblem_ok.do">
                 	<fieldset>
-                		<select id="selectBox" class="problemChoice padding">
+                		<select id="selectBox" name="selectBox" class="problemChoice padding">
                     		<option value="">--- 선택하세요 ---</option>
-                    		<option value="exchange">교환문의</option>
-                    		<option value="return">반품문의</option>
-                    		<option value="else">취소문의</option>
+                    		<option value="교환문의">교환문의</option>
+                    		<option value="반품문의">반품문의</option>
+                    		<option value="취소문의">취소문의</option>
                 		</select>
-                		<textarea id="textbox" rows="10" class="problemChoice" placeholder="문의 내용을 입력해주세요."></textarea>
+                		<textarea id="textbox" name="textbox" rows="10" class="problemChoice" placeholder="문의 내용을 입력해주세요."></textarea>
                 		<button type="submit" id="submit" class="btn btn-warning">등록</button>
                 		<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_orderCheck.do'; return false;">취소</button>
                 	</fieldset>
@@ -96,33 +96,7 @@
     <script src="assets/plugins/sweetalert/sweetalert2.min.js"></script>
     <script type="text/javascript">
     	$(function() {
-    		$("#content #submit").click(function(e) { //등록버튼 눌렀을 경우
-    			e.preventDefault();
-    			var isSelected = $("#content #selectBox option:selected").val();
-    			
-    			if(!isSelected) { //선택사항 없을시 예외처리
-    				swal("선택사항 없음", "문의 종류를 선택해주세요.", "error").then(function(result) {
-    					$("#content #selectBox").focus(); //포커스처리
-    				});
-    				return;
-    			}else { 
-    				var hasText = $("#content #textbox").val();
-    				if(!hasText) { //내용 없을시 예외처리
-    					swal("내용 없음", "내용을 입력해주세요.", "error").then(function(result) {
-    						$("#content #textbox").focus(); //포커스처리
-    					});
-    					return;
-    				}else if(hasText.length < 10) { //내용 10자 미만일시 예외처리
-    					swal("", "내용은 10자 이상 입력해주세요.", "warning").then(function(result) {
-    						$("#content #textbox").focus(); //포커스처리
-    					});
-    					return;
-    				} //end else if
-    			} //end if
-    			swal("문의가 등록되었습니다.", "" ,"success").then(function(result){
-    				history.back(); //등록 후 전페이지로
-    			});
-    		}); //end click
+    		
     	});
     </script>
 </body>
