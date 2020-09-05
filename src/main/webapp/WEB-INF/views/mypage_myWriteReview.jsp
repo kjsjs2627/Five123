@@ -68,7 +68,7 @@
 		<div id="content">
         
         	<div class="order clearfix">
-        			<div class="orderNumber padding">[2020-06-19] 주문번호 - P237623646186</div>
+        			<div class="orderNumber padding">[${output.product_review_reg_date }] 주문번호 - P237623646186</div>
                     <div class="orderPic pull-left">
                         <img src="assets/img/clothings/4.jpg" alt="cloth" />
                     </div>
@@ -78,14 +78,14 @@
                     <button value="수정" id="update" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_myWriteReviewUpdate.do'; return false;">수정</button>
             </div>
             <div id="problemTitle">
-            	친구들이 다 어디서 샀냐고 물어봐요.
+            	${output.product_review_title }
             </div>
             
             <div id="problemIs">
             	<span>
             		<img src="assets/img/clothings/4.jpg" alt="reviewCloth" />
             	</span>
-            	진짜 너무너무 마음에 들어요. 요새 맨날 이거만 입고 입을때마다 기분좋아요. 모두들 사세요!! 후회안합니다.
+            	${output.product_review_content }
             </div>
         </div>
         

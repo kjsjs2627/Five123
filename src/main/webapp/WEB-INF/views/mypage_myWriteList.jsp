@@ -236,7 +236,7 @@
             				<c:set var="date" value="${problem.order_problem_reg_date }" />
             				
             				<c:url value="/mypage_myWriteProblem.do" var="viewUrl">
-            					<c:param name="order_problem_no" value="${problem.order_problem_no }" />
+            					<c:param name="problemNo" value="${problem.order_problem_no }" />
             				</c:url>
             				
             				<a href="${viewUrl }">
@@ -256,45 +256,37 @@
             		</c:otherwise>
             	</c:choose>
             <div class="listSection">내가 쓴 후기 글</div>
-            	<a href="${pageContext.request.contextPath }/mypage_myWriteReview.do">
-            			<span class="order padding clearfix">
-							<span class="orderNumber padding">
-                    			<span class="orderDate pull-left">[2020-08-17]</span> &nbsp; 주문번호 - P237623646186
-                    		</span>                    		
-                    		<span class="orderPic pull-left">
-                        		<img src="assets/img/clothings/4.jpg" alt="cloth" />
-                    		</span>
-                    		<span class="orderName padding pull-left">
-                        		제 사이즈랑 딱 맞고 색깔도 너무 이쁜거 같아서 맨날 입어요.
-                    		</span>
-                		</span>
-                </a>
-                <a href="${pageContext.request.contextPath }/mypage_myWriteReview.do">
-            			<span class="order padding clearfix">
-							<span class="orderNumber padding">
-                    			<span class="orderDate pull-left">[2020-06-07]</span> &nbsp; 주문번호 - P237623646186
-                    		</span>                    		
-                    		<span class="orderPic pull-left">
-                        		<img src="assets/img/clothings/4.jpg" alt="cloth" />
-                    		</span>
-                    		<span class="orderName padding pull-left">
-                        		허리가 너무 커요.
-                    		</span>
-                		</span>
-                </a>
-                <a href="${pageContext.request.contextPath }/mypage_myWriteReview.do">
-            			<span class="order padding clearfix">
-                    		<span class="orderNumber padding">
-                    			<span class="orderDate pull-left">[2020-02-25]</span> &nbsp; 주문번호 - P237623646186
-                    		</span>
-                    		<span class="orderPic pull-left">
-                        		<img src="assets/img/clothings/4.jpg" alt="cloth" />
-                    		</span>
-                    		<span class="orderName padding pull-left">
-                        		친구들이 다 어디서 샀냐고 물어봐요.
-                    		</span>
-                		</span>
-                </a>
+            	<c:choose>
+            		<c:when test="${output2 == null || fn:length(output2) == 0}">
+            			<div>
+            				문의 글이 없습니다.
+            			</div>
+            		</c:when>
+            		<c:otherwise>
+            			<c:forEach var="review" items="${output2 }" varStatus="status">
+            				<c:set var="title" value="${review.product_review_title }" />
+            				<c:set var="date" value="${review.product_review_reg_date }" />
+            				
+            				<c:url value="/mypage_myWriteReview.do" var="viewUrl">
+            					<c:param name="reviewNo" value="${review.product_review_no }" />
+            				</c:url>
+            				
+            				<a href="${viewUrl }">
+            					<span class="order padding clearfix">
+            						<span class="orderNumber padding">
+            							<span class="orderDate pull-left">[${date }]</span> &nbsp; 주문번호 - P237623646186
+            						</span>
+            						<span class="orderPic pull-left">
+            							<img src="assets/img/clothings/4.jpg" alt="cloth" />
+            						</span>
+            						<span class="orderName padding pull-left">
+            							${title }
+            						</span>
+            					</span>
+            				</a>
+            			</c:forEach>
+            		</c:otherwise>
+            	</c:choose>         	
         </div>
         
         <%@ include file ="assets/inc/footer.jsp" %>

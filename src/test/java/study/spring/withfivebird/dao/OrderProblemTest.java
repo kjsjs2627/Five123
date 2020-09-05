@@ -31,7 +31,6 @@ public class OrderProblemTest {
 	}
 
 	/** 다중행 조회 테스트 */
-<<<<<<< HEAD
 	@Test
 	public void testB() {
 		OrderProblem input = new OrderProblem();
@@ -97,7 +96,7 @@ public class OrderProblemTest {
 		input.setOrder_problem_option("문의");
 		sqlSession.selectList("OrderProblemMapper.selectJoin", input);
 	}
-=======
+
 //	@Test
 //	public void testB() {
 //		OrderProblem input = new OrderProblem();
@@ -163,5 +162,4 @@ public class OrderProblemTest {
 //		input.setOrder_problem_option("문의");
 //		sqlSession.selectList("OrderProblemMapper.selectJoin", input);
 //	}
->>>>>>> 8bb50af9e24efe53abe32d3697b2eca1084cdafc
 }

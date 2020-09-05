@@ -57,6 +57,20 @@
     #problem #cancel {
         width: 46%;
     }
+    
+    #problem form {
+    	border-top: 1px solid #ccc;
+    	padding: 10px 0;
+    }
+    
+    #problem form span {
+    	line-height: 40px;
+    }
+    
+    #problem .reviewTitle {
+    	width: 80%;
+    	margin: 10px 0;
+    }
     /*** 문의상품 버튼영역 디자인 끝 ***/
     
     </style>
@@ -93,8 +107,10 @@
                     </div>
                 </div>
                 <div id="reviewWrite">후기쓰기</div>
-                <form role=form method="post">
-                	<textarea id="textbox" rows="10" class="problemChoice" placeholder="상세한 후기를 써주세요."></textarea>
+                <form method="post" action="${pageContext.request.contextPath }/mypage_orderReview_ok.do">
+                	<span>&nbsp; 제목: </span> 
+                	<input type="text" name="title" class="reviewTitle pull-right" placeholder="후기제목을 써주세요."/>
+                	<textarea id="textbox" name="textbox" rows="10" class="problemChoice" placeholder="상세한 후기를 써주세요."></textarea>
                 	<button type="submit" id="submit" class="btn btn-warning">등록</button>
                 	<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_orderCheck.do'; return false;">취소</button>
             	</form>
@@ -114,25 +130,7 @@
     <script src="assets/plugins/sweetalert/sweetalert2.min.js"></script>
     <script type="text/javascript">
     $(function() {
-		$("#content #submit").click(function(e) { //등록버튼 눌렀을 경우
-			e.preventDefault();
-			var hasText = $("#content #textbox").val();
-			if(!hasText) { //내용없을시 예외처리
-				swal("후기 없음", "후기를 입력해주세요.", "error").then(function(result) {
-					$("#content #textbox").focus(); //포커스처리
-				});
-				return;
-			}else if(hasText.length < 10) { //내용 10자 미만일시 예외처리
-				swal("", "후기는 10자 이상 입력해주세요.", "warning").then(function(result) {
-					$("#content #textbox").focus(); //포커스처리
-				});
-				return;
-			} //end if
-			
-			swal("후기가 등록되었습니다.", "" ,"success").then(function(result){
-				history.back(); //등록 후 전페이지로 
-			});
-		}); //end click
+		
 	});
     </script>
 </body>
