@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!doctype html>
 <html>
@@ -87,10 +90,24 @@
     	font-weight: bold;
     }
     
-    #content .frm p {
+    #content form p {
     	padding-top: 5px;
     	line-height: 20px;
     	font-size: 12px;
+    }
+    
+    #problem form {
+    	border-top: 1px solid #ccc;
+    	padding: 10px 0;
+    }
+    
+    #problem form span {
+    	line-height: 40px;
+    }
+    
+    #problem .reviewTitle {
+    	width: 80%;
+    	margin: 10px 0;
     }
     
     </style>
@@ -127,8 +144,12 @@
                     </div>
                 </div>
                 <div id="reviewWrite">후기쓰기</div>
-                <form class="frm" enctype="multipart/form-data" method="post">
-                	<textarea id="textbox" rows="10" class="problemChoice" placeholder="상세한 후기를 써주세요."></textarea>
+                <form method="post" action="${pageContext.request.contextPath }/mypage_myWriteReviewUpdate_edit.do">
+                	<% /* action 페이지에서 사용할 WHERE 조건값을 hidden 필드로 숨겨서 전송한다. */ %>
+                	<input type="hidden" name="reviewNo" value="${output.product_review_no }" />
+                	<span>&nbsp; 제목: </span> 
+                	<input type="text" name="title" class="reviewTitle pull-right" value="${output.product_review_title }" placeholder="후기제목을 써주세요."/>
+                	<textarea id="textbox" name="content" class="problemChoice" value="${output.product_review_content }" rows="10" placeholder="상세한 후기를 써주세요."></textarea>
                 	<div id="upload" class="clearfix">
                 		<span class="bold pull-left">사진첨부</span>
                 		<input type="file" id="file" class="pull-left"/>
@@ -139,9 +160,9 @@
                 	2. 등록된 리뷰는 <span class="bold">한달 후에 삭제</span> 가능합니다. <br/>
                 	3. 동일 상품에 대해 포인트 지급은 <span class="bold">1회</span>로 한정 됩니다. <br/>
                 	</p>
-                	<button value="submit" id="submit" class="btn btn-warning">수정</button>
-                	<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='mypage_myWriteReview.jsp'; return false;">취소</button>
-                	<button value="delete" id="delete" class="btn btn-danger">삭제</button>
+                	<button type="submit" id="submit" class="btn btn-warning">수정</button>
+                	<button value="cancel" id="cancel" class="btn btn-light" onclick="location.href='mypage_myWriteReview.do'; return false;">취소</button>
+                	<button type="button" id="delete" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/mypage_myWriteReviewUpdate_delete.do?reviewNo=${output.product_review_no }'; return false;">삭제</button>
                 	
                 </form>
             </div>
@@ -160,59 +181,7 @@
     <script src="assets/plugins/sweetalert/sweetalert2.min.js"></script>
     <script type="text/javascript">
     	$(function() {
-    		$("#content #submit").click(function(e) { //수정버튼 클릭했을경우
-    			e.preventDefault();
-    			var hasText = $("#content #textbox").val();
-    			if(!hasText) {  //내용 없을시 예외처리
-    				swal("후기 없음", "후기를 입력해주세요.", "error").then(function(result) {
-    					$("#content #textbox").focus(); //포커스처리
-    				});
-    				return;
-    			}else if(hasText.length < 10) { //내용 10자 미만일시 예외처리
-    				swal("", "후기는 10자 이상 입력해주세요.", "warning").then(function(result) {
-    					$("#content #textbox").focus(); //포커스처리
-    				});
-    				return;
-    			}else {
-    				var hasFile = $("#content #file").val();
-    				if(!hasFile) { //파일첨부 안됐을때 예외처리
-    					swal("사진을 첨부해주세요.", "", "error").then(function(result) {
-    						$("#content #file").focus(); //포커스처리
-    					});
-    					return;
-    				}else if(hasFile.indexOf(".jpg") == -1 && hasFile.indexOf(".png") == -1) {
-    					//jpg나 png파일 아닐시 예외처리
-    					swal("", "사진은 jpg나 png파일로 첨부해주세요.", "warning").then(function(result) {
-    						$("#content #file").focus(); //포커스처리
-    					});
-    					return;
-    				} //end else if
-    			} //end if
-    			
-    			swal("후기가 수정되었습니다.", "" ,"success").then(function(result){
-    				history.back(); //수정 후 전페이지로
-    			});
-    		}); //end click
     		
-    		$("#content #delete").click(function(e){ //삭제버튼 눌렀을 경우
-    			e.preventDefault();
-    			swal({
-    				title: "삭제 확인",
-    				text: "정말 후기를 삭제하시겠습니까?",
-    				type: "warning",
-    				confirmButtonText: "삭제", //삭제확인버튼 표시 문구
-    				showCancelButton: true, //취소버튼 표시 여부
-    				cancelButtonText: "취소" //취소버튼 표시 문구
-    			}).then(function(result) { //버튼이 눌러졋을 경우의 콜백 연결
-    				if(result.value) { //삭제확인 버튼이 눌러졌을 경우
-    					swal("삭제", "성공적으로 삭제되었습니다.", "success").then(function(result){
-    						window.location = '${pageContext.request.contextPath}/mypage_myWriteList.do'; //목록창으로 돌아가기
-    					});
-    				} else {
-    					swal("취소", "삭제가 취소되었습니다.", "warning"); //삭제 취소버튼 눌렀을경우
-    				} //end if
-    			}); //end swal
-    		}); //end click
     	});
     </script>
 </body>

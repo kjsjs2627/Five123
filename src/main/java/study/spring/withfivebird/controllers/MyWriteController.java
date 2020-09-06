@@ -86,10 +86,8 @@ public class MyWriteController {
 			e.printStackTrace();
 		}
 		
-		String redirectUrl = contextPath + "/mypage_myWriteProblem.do?order_problem_no=" + input.getOrder_problem_no();
-		
 		try {
-			response.sendRedirect(redirectUrl);
+			response.sendRedirect(contextPath + "/mypage_orderCheck.do");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -118,10 +116,8 @@ public class MyWriteController {
 			e.printStackTrace();
 		}
 		
-		String redirectUrl = contextPath + "/mypage_myWriteReview.do?product_review_no=" + input.getProduct_review_no();
-		
 		try {
-			response.sendRedirect(redirectUrl);
+			response.sendRedirect(contextPath + "/mypage_orderCheck.do");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -167,8 +163,70 @@ public class MyWriteController {
 		return "mypage_myWriteReview";
 	}
 	
+	/** 수정 폼 페이지 */
 	@RequestMapping(value = "/mypage_myWriteReviewUpdate.do", method = RequestMethod.GET)
-	public String writeReviewUpdate(Model model) {
+	public String writeReviewUpdate(Model model, HttpServletResponse response, 
+			@RequestParam(value="reviewNo") int reviewNo) {
+		
+		ProductReview input = new ProductReview();
+		input.setProduct_review_no(reviewNo);
+		
+		ProductReview output = null;
+		
+		try {
+			output = productReviewService.getProductReviewItem(input);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("output", output);
+		
 		return "mypage_myWriteReviewUpdate";
 	}
+
+	@RequestMapping(value = "/mypage_myWriteReviewUpdate_delete.do", method = RequestMethod.GET)
+	public void writeReviewUpdateDelete(Model model, HttpServletResponse response,
+			@RequestParam(value="reviewNo") int reviewNo) {
+
+		ProductReview input = new ProductReview();
+		input.setProduct_review_no(reviewNo);
+		
+		try {
+			productReviewService.deleteProductReview(input);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			response.sendRedirect(contextPath + "/mypage_myWriteList.do");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	@RequestMapping(value = "/mypage_myWriteReviewUpdate_edit.do", method = RequestMethod.POST)
+	public void writeReviewUpdateEdit(Model model, HttpServletResponse response, 
+			@RequestParam(value="reviewNo") int reviewNo,
+			@RequestParam(value="title") String title,
+			@RequestParam(value="content") String content) {
+		
+		ProductReview input = new ProductReview();
+		input.setProduct_review_no(reviewNo);
+		input.setProduct_review_title(title);
+		input.setProduct_review_content(content);
+		
+		try {
+			productReviewService.editProductReview(input);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		String redirectUrl = contextPath + "/mypage_myWriteReview.do?reviewNo=" + input.getProduct_review_no();
+		try {
+			response.sendRedirect(redirectUrl);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

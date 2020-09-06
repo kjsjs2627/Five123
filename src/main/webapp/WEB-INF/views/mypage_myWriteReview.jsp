@@ -68,6 +68,7 @@
 		<div id="content">
         
         	<div class="order clearfix">
+        	
         			<div class="orderNumber padding">[${output.product_review_reg_date }] 주문번호 - P237623646186</div>
                     <div class="orderPic pull-left">
                         <img src="assets/img/clothings/4.jpg" alt="cloth" />
@@ -75,7 +76,8 @@
                     <div class="orderName padding pull-left">
                         상품이름
                     </div>
-                    <button value="수정" id="update" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_myWriteReviewUpdate.do'; return false;">수정</button>
+                    
+                    <button value="수정" id="update" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/mypage_myWriteReviewUpdate.do?reviewNo=${output.product_review_no }'; return false;">수정</button>
             </div>
             <div id="problemTitle">
             	${output.product_review_title }
