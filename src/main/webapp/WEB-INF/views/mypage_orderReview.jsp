@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div id="reviewWrite">후기쓰기</div>
-                <form method="post" action="${pageContext.request.contextPath }/mypage_orderReview_ok.do">
+                <form method="post" action="${pageContext.request.contextPath }/mypage_orderReview_add.do">
                 	<span>&nbsp; 제목: </span> 
                 	<input type="text" name="title" class="reviewTitle pull-right" placeholder="후기제목을 써주세요."/>
                 	<textarea id="textbox" name="textbox" rows="10" class="problemChoice" placeholder="상세한 후기를 써주세요."></textarea>

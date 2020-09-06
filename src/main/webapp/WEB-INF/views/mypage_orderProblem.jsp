@@ -67,7 +67,7 @@
                         <div class="orderMoney padding">50,000 원</div>
                     </div>
                 </div>
-                <form method="post" action="${pageContext.request.contextPath }/mypage_orderProblem_ok.do">
+                <form method="post" action="${pageContext.request.contextPath }/mypage_orderProblem_add.do">
                 	<fieldset>
                 		<select id="selectBox" name="selectBox" class="problemChoice padding">
                     		<option value="">--- 선택하세요 ---</option>

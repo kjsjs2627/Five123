@@ -225,16 +225,21 @@
             </div>
             <div class="listSection">내가 쓴 문의 글</div>
             	<c:choose>
+            		<%-- 조회결과가 없는 경우 --%>
             		<c:when test="${output == null || fn:length(output) == 0}">
             			<div>
             				문의 글이 없습니다.
             			</div>
             		</c:when>
+            		<%-- 조회결과가 있는 경우 --%>
             		<c:otherwise>
+            			<%-- 조회 결과에 따른 반복 처리 --%>
             			<c:forEach var="problem" items="${output }" varStatus="status">
+            				<%-- 출력을 위해 준비한 학과이름과 위치 --%>
             				<c:set var="title" value="${problem.order_problem_option }" />
             				<c:set var="date" value="${problem.order_problem_reg_date }" />
             				
+            				<%-- 상세페이지로 이동하기 위한 URL --%>
             				<c:url value="/mypage_myWriteProblem.do" var="viewUrl">
             					<c:param name="problemNo" value="${problem.order_problem_no }" />
             				</c:url>
