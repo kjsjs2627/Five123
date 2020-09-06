@@ -7,13 +7,11 @@ div#content {
 
 /* qna 글쓰기 전체 영역 지정 */
 #qna_w {
-	width: 90%;
-	margin: auto;
-
+	width: 100%;
 }
 
 /* qna 제목 부모요소 */
-#qna_title {
+#user_title {
 	width: 100%;
 	display: block;
 	padding: 25px 0;
@@ -40,9 +38,9 @@ div#content {
 
 /* qna 내용 부모요소 */
 #qna_w_content {
-	padding-top: 25px;
-	width: 98%;
-	margin:auto;
+	padding-top: 10px;
+	width: 100%;
+	padding: 0 20px 10px 15px;
 }
 
 #qna_w_btn {
@@ -64,5 +62,10 @@ div#content {
 	margin:auto;
 }
 
+/* qna_content */
+#qna_content {
+	width: 100%;
+	line-height: 20px;
+}
 
 

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -51,23 +54,30 @@
       </div>
  	<!-- 내용영역 -->
     <div id="content">
-    	<form  name = "myqna_form" method="post" id="myqna_form">
-    	<fieldset>
-      		<div id="qna_w">
-      			<div id="qna_title" class="qna_title clearfix">
-      				<label for="user_title" class="qna_w_title pull-left">제목</label>
-      				<input type="text" name="user_title" id="user_title" class="form-control pull-left" value="플라워원피스 재입고 궁금해요"/>
-      		    </div>
-      		<div id="qna_w_content">
-      			<textarea rows="10" name="user_content" id="user_content" class="form-control" placeholder="내용을 입력하세요."></textarea>
-      		</div>
-      		<div id="qna_w_btn">
-      			<input type="submit" class="btn btn-warning" id="update" value="수정">
-      			<button type="button" class="btn btn-light" id="cancel" onclick="history.go(-1); return false;">취소</button>
-      			<button type="button" class="btn btn-danger" id="w_delete">삭제</button>
-      		</div>
-      		</div>
-      	</fieldset>
+      	<form method="post" action="${pageContext.request.contextPath}/main_myQnaUpdate_ok.do" id="myqna_form">
+        		<% /* action 페이지에서 사용할 WHERE 조건값을 hidden 필드로 숨겨서 전송한다. */ %>
+        		<input type="hidden" name="qna_no" value="${output.qna_no}" />
+        		<div id="user_title" class="clearfix">
+            		<label for="qna_title" class="qna_w_title pull-left">제목</label>
+            		<input type="text" name="qna_title" id="qna_title" class="pull-left" value="${output.qna_title}" />
+        		</div>
+        		<div id="qna_w_content">
+            		<label for="qna_content"></label>
+            		<textarea name="qna_content" id="qna_content" value="${output.qna_content}" rows=10></textarea>
+        		</div>
+        				<label for="user_no"></label>
+      					<input type="hidden" id="user_no" name="user_no" value="${output.user_no}" />
+        				<label for="qna_reg_date"></label>
+      					<input type="hidden" id="qna_reg_date" name="qna_reg_date" value="${output.qna_reg_date}" />
+      					<label for="qna_edit_date"></label>
+      					<input type="hidden" id="qna_edit_date" name="qna_edit_date" value="${output.qna_edit_date}" />
+      					<label for="qna_hit"></label>
+      					<input type="hidden" id="qna_hit" name="qna_hit" value="${output.qna_hit}" />  
+        		<div id="btn">
+        			<button type="submit" class="btn btn-warning">수정</button>
+        			<button type="button" class="btn btn-light" id="cancel" onclick="history.go(-1); return false;">취소</button>
+      				<a href="${pageContext.request.contextPath}/delete_ok.do?qna_no=${output.qna_no}" id="#delete" class="btn btn-danger">삭제</a>
+      			</div>
       	</form>
    </div>
 <!-- 하단 영역 -->
@@ -81,7 +91,7 @@
 <!--     <script src="//cdn.ckeditor.com/4.12.1/basic/ckeditor.js"></script> -->
     <script type="text/javascript">   
     $(function() {  	
-			$('#w_delete').click(function(e){
+			$('#delete').click(function(e){
 				e.preventDefault();
     			swal({
     				title: "삭제 확인",
@@ -93,7 +103,7 @@
     			}).then(function(result) { //버튼이 눌러졋을 경우의 콜백 연결
     				if(result.value) { //삭제확인 버튼이 눌러졌을 경우
     					swal("삭제", "성공적으로 삭제되었습니다.", "success").then(function(result) {
-    				        	window.location = 'main_qnaList.jsp';
+    				        	window.location = 'main_qnaList.do';
     				    });
     				} else {
     					swal("취소", "삭제가 취소되었습니다.", "warning");
@@ -103,35 +113,33 @@
 
 	    		$("#content #update").click(function(e) {
 	    			e.preventDefault();
-	    			var hasText = $("#content #user_title").val();
+	    			var hasText = $("#content #qna_title").val();
 	    			if(!hasText) {
 	    				swal("제목", "제목을 입력해주세요.", "error").then(function(result) {
-	    					$("#content #user_title").focus();
+	    					$("#content #qna_title").focus();
 	    				});
 	    				return;
 	    			}else if(hasText.length < 4) {
 	    				swal("", "제목은 4글자 이상 입력해주세요.", "warning").then(function(result) {
-	    					$("#content #user_title").focus();
+	    					$("#content #qna_title").focus();
 	    				});
 	    				return;
 	    			}else {
-	    				var hasContent = $("#content #user_content").val();
+	    				var hasContent = $("#content #qna_content").val();
 	    				if(!hasContent) {
 	    					swal("내용", "내용을 입력해주세요.", "error").then(function(result) {
-	    						$("#content #user_content").focus();
+	    						$("#content #qna_content").focus();
 	    					});
 	    					return;
 	    				}else if(hasContent.length < 10) {
 		    				swal("", "내용은 10글자 이상 입력해주세요.", "warning").then(function(result) {
-		    					$("#content #user_title").focus();
+		    					$("#content #qna_title").focus();
 		    				});
 		    				return;
 	    				}
 	    			}
 	    			
-	    			swal("문의가 수정되었습니다.", "" ,"success").then(function(result) {
-			        	window.location = 'main_myQna.jsp';
-				    });
+	    			swal("문의가 수정되었습니다.", "" ,"success");
 	    		});
 	    	
 			

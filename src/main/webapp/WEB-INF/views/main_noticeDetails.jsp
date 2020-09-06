@@ -49,31 +49,22 @@
         </div>
 		<!-- 내용영역 -->
     <div id="content">
-			<form name="notice_form" method="post" id="notice_form">
-    		<fieldset>
-    		<div id="notice_list">
+    		<div id="myNotice">
     			<div id="notice">
 		            <div class="notice_top clearfix">
-						<div class="notice_title pull-left"><strong>[필독]</strong> 등급 관련 안내</div>
+						<div class="notice_title pull-left">${output.notice_title}</div>
 					</div>
 					<div class="notice_ndc clearfix">
-						<span class="notice_name pull-left" title="작성자">CS-5팀 </span>				
-						<span class="notice_date pull-left" title="작성일">2020-08-01</span>
-						<span class="notice_count pull-left" title="조회수"><strong>조회</strong> 5555</span>
+						<span class="qna_name pull-left" title=작성자">${output.user_name}</span>				
+						<span class="notice_date pull-left" title="작성일">${output.notice_reg_date}</span>
+						<span class="notice_count pull-left" title="조회수"><strong>조회</strong> ${output.notice_hit}</span>
 					</div>			
 				</div>
 				<div id="notice_content">
-				[실버] - 총 금액 50만원 이상
-				<br />
-				[골드] - 총 금액 100만원 이상
-				<br />
-				[다이아] - 총 금액 150만원 이상
-				<br />
-				[퍼플로즈] - 총 금액 200만원 이상
+				   ${output.notice_content}
 				</div>
 			</div>
-    		</fieldset>
-    		</form>
+ 
     		<div class="show_list clearfix">
 				<button type="button" class="show btn btn-light pull-right" onclick="location.href='${pageContext.request.contextPath}/main_noticeList.do'">목록</button>
 			</div>

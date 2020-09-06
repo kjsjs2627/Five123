@@ -18,7 +18,7 @@
 /* 제목 영역 qna*/
 #qna {
 	width: 100%;
-	padding: 20px 30px;
+	padding: 20px;
 	background-color: #FFCB74;
 	border-bottom: 2px solid #07031A;
 }
@@ -33,7 +33,7 @@
 
 /* 제목 글씨 */
 .qna_title {
-	width: 82%;
+	width: 85%;
 	height: 34px;
 	line-height: 34px;
 	font-weight: bold;

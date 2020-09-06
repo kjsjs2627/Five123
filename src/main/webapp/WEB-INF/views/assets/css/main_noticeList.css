@@ -6,50 +6,48 @@
     padding-bottom: 10px;
 }
 
-/* 공지사항 목록 div */
+/* 조회 없다 null */
+#null {
+	width: 100%;
+	height: 250px;
+	line-height: 250px;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* notice게시판 전체 영역 */
 #notice {
 	width: 100%;
-}
-
-/* 공지사항 목록 영역 지정 */
-#ntc {
-	width: 100%;
-}
-
-/* 공지사항 ul */
-#ntc_list {
-	width: 100%;
-	border-top: 2px solid #ccc;
-	border-bottom: 2px solid #ccc;
-}
-
-/* 공지사항 li */
-.notice_list {
-	width: 100%;
-	border-top: 1px solid #ccc;
 	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
 }
 
-.notice_list:nth-child(1) {
-	border-top: none;
+#notice:nth-child(1) {
+	border-top: 2px solid #ccc;
 }
 
-/* qna 제목 */
+
+/* notice 제목 */
 .notice_title {
 	display: block;
 	width: 100%;
-	height: 20px;
-	font-size: 20px;
-	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 10px; 
 	padding: 0 30px;
-	margin-bottom: 15px;
+	font-size: 20px;
 	white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis;    
+}
+
+.notice_title > span > a {
+	color: #07031A;
+	font-weight: bold; 
 }
 
 /* 작성자 , 작성일, 조회수 */
-.nada {
+.name_day_hit {
 	display: block;
 	width: 100%;
 	line-height: 14px;
@@ -67,24 +65,48 @@
 }
 
 /* 작성일 */
-.notice_data {
+.date {
 	display: inline-block;
 	padding: 0 10px;
 	border-right: 1px solid #ccc;
 }
 
 /* 조회수 */
-.notice_count {
+.hit {
 	display: inline-block;
 	padding-left: 10px;
 }
 
-/* 회원 li 마지막 */
-.notice_list li:nth-last-child(1) {
-	border-bottom: 2px solid #ccc;
+
+/* 검색창, 글쓰기 부모 영역*/
+#form {
+	width: 90%;
+	margin: auto;
+	padding: 14px 0;
 }
 
-/* 페이징 버튼 */
-.pagemove{
+/* 검색 form 영역 */
+#search {
+	width: 60%;
+	height: 34px;
+}
+
+
+/* 검색창 크기 */
+.search_text {
+	width: 75%;
+	height: 34px;
+} 
+
+/* 검색버튼 */
+.search {
+	height: 34px;
+	
+}
+
+.p {
+	width: 100%;
+	padding: 10px 40px;
 	text-align: center;
+	border-top: 2px solid #ccc;
 }

@@ -37,7 +37,6 @@
 	</style>
 </head>
 <body>
-<!-- reset 안먹힘  -->
    <div class="container">
 		<!-- 헤더 영역-->
 		<%@ include file = "assets/inc/header.jsp" %>
@@ -49,34 +48,43 @@
         </div>
 		<!-- 내용영역 -->
     <div id="content">
-			<form name="qna_form" method="post" id="qna_form">
-    		<fieldset>
     		<div id="myQna">
     			<div id="qna">
 		            <div class="qna_top clearfix">
-						<div class="qna_title pull-left"><strong>[필독]</strong> 상품 관련 FAQ 안내</div>
+						<div class="qna_title pull-left">${output.qna_title}</div>
+						<a href="${pageContext.request.contextPath}/main_myQnaUpdate.do?qna_no=${output.qna_no}" class="btn btn-danger">수정</a>
 					</div>
 					<div class="qna_ndc clearfix">
-						<span class="qna_name pull-left" title="작성자">CS-5팀 </span>				
-						<span class="qna_date pull-left" title="작성일">2020-08-01</span>
-						<span class="qna_count pull-left" title="조회수"><strong>조회</strong> 5555</span>
+						<span class="qna_name pull-left" title="작성자">${output.user_name}</span>			
+						<span class="qna_date pull-left" title="작성일">${output.qna_reg_date}</span>
+						<span class="qna_count pull-left" title="조회수"><strong>조회</strong>${output.qna_hit}</span>
 					</div>			
 				</div>
 				<div id="qna_content">
-				   <strong>// 상품 관련 자주 문의주시는 사항을 정리하여 드립니다.</strong>
-				<br />
-				1. 이염관련
-				<br />
-				2. 데님 주머니 워싱관련
-				<br />
-				3. 잡사
-				<br />
-				4. 니트 원사교체 매듭	
+				   ${output.qna_content}
 				</div>
 			</div>
-    		</fieldset>
-    		</form>
- 
+ 			<div id="reply">
+ 			<%-- <form id="reply-form" name="reply-form" method="post" action="${pageContext.request.contextPath}/main_qnareply_ok.do">
+    				<div id="reply">
+    					<label for="qna_reply"></label>
+    					<input type="text" id="qna_reply" name="qna_reply" placeholder="답변을 달아주세요." />
+    					<input type="hidden" name="qna_reg_date" id="qna_reply_reg_date">
+    					<button type="submit" class="q_reply btn btn-warning">답변하기</button>
+    				</div>
+    		</form>		
+    				<div id="comment">
+    					<ul class="comment clearfix">
+    						<li class="comment_reply pull-left">
+    						<span class="teay pull-left">
+    							<span class="team pull-left">${user_name}</span>
+    							<span class="day pull-left">${output.qna_reply_reg_date}</span>
+    						</span>
+    							<div class="reply_comment pull-left">${output.qna_reply}</div>
+    						</li>
+    					</ul>
+    				</div> --%>
+ 			</div>
     		<div class="show_list clearfix">
 				<button type="button" class="show btn btn-light pull-right" onclick="location.href='${pageContext.request.contextPath}/main_qnaList.do'">목록</button>
 			</div>

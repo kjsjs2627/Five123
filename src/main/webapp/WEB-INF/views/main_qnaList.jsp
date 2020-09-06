@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -43,30 +46,120 @@
          	<div class="title pull-left">Q&amp;A</div>   
         </div>
 	<!-- 내용영역 -->
-		<div id="content">
-			<div id="qna">
-				<div id="qna_notice">
-					<ul id="qna_notice_list">
-				   </ul>
-			    </div>
-			    <div id="qna_list">
-					<ul id="member_qna">
-				   </ul>
-				</div>
-			</div>
+		<div id="content">		
+			<div>
+				<c:choose>
+				<%-- 조회결과가 없는 경우 --%>
+				<c:when test="${output == null || fn:length(output) == 0}">
+					<div id="null">
+						<span>[ ${keyword} ] 검색 결과가 없습니다.</span>
+					</div>
+				</c:when>
+				<%-- 조회결과가 있는 경우 --%>
+				<c:otherwise>
+					<%-- 조회 결과에 따른 반복 처리 --%>
+					<c:forEach var="item" items="${output}" varStatus="status">
+						<%-- 출력을 위해 준비한 학과이름과 위치 --%>
+						<c:set var="qna_title"    value="${item.qna_title}" />
+						<c:set var="qna_content"  value="${item.qna_content}" />
+						<c:set var="qna_hit"      value="${item.qna_hit}" />
+						<c:set var="qna_reg_date" value="${item.qna_reg_date}" />
+						<c:set var="user_name" value="${item.user_name}" />
 						
-			<nav class="pagemove">
-				<ul class="pagination" id="paging">
-
-				</ul>
-		    </nav>
-		    <!-- 검색폼  -->
-         	<form method="get" id="search" class="clearfix" >
-         		<label for="keyword"></label>
-        		<input type="search" name="keyword" id="keyword" class="search_text pull-left" placeholder="  검색어 입력" >
-        		<button type="submit" class="search btn btn-warning pull-left">검색</button>
-        	</form>
-        		<button class="write btn btn-warning pull-right" onclick="location.href='${pageContext.request.contextPath}/main_myQnaWrite.do'">글쓰기</button>        	
+						
+						<%--검색어가 있다면? --%>
+						<c:if test="${keyword != ''}">
+							<%-- 검색어에 <mark> 태그를 적용하여 형관펜 효과 준비 --%>
+							<c:set var="mark" value="<mark>${keyword}</mark>" />
+							<%-- 출력을 위해 준비한 제목과 작성자에서 검색어와 일치하는 단어를 형관펜 효과로 변경 --%>
+							<c:set var="qna_title" value="${fn:replace(qna_title, keyword, mark)}" />
+							<c:set var="user_name" value="${fn:replace(user_name, keyword, mark)}" />
+						</c:if>
+						
+						<%-- 상세페이지로 이동하기 위한 URL --%>
+						<c:url value="/main_qnaDetails.do" var="viewUrl">
+							<c:param name="qna_no" value="${item.qna_no}" />
+						</c:url>
+						
+						<div id="qna">
+							<div class="qna_title">
+								<span><a href="${viewUrl}">${qna_title}</a></span>
+							</div>
+							<div class="name_day_hit clearfix">
+								<span class="qna_name pull-left">${user_name}</span>
+								<span class="date pull-left">${qna_reg_date}</span>
+								<span class="hit pull-left">조회 ${qna_hit}</span>
+							</div>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+	</div>
+											
+	<!-- 페이지 번호 구현 -->
+	<%-- 이전 그룹에 대한 링크 --%>
+	<div class="p">
+	<c:choose>
+		<%-- 이전 그룹으로 이동 가능하다면? --%>
+		<c:when test="${pageData.prevPage > 0}">
+			<%-- 이동할 URL 생성 --%>
+			<c:url value="/main_qnaList.do" var="prevPageUrl">
+				<c:param name="page" value="${pageData.prevPage}" />
+				<c:param name="keyword" value="${keyword}" />
+			</c:url>
+			<a href="${prevPageUrl}">[이전]</a>
+			</c:when>
+			<c:otherwise>
+				[이전]
+			</c:otherwise>
+	</c:choose>
+	
+	<%-- 페이지 번호 (시작 페이지부터 끝 페이지까지 반복) --%>
+	<c:forEach var="i" begin="${pageData.startPage}" end="${pageData.endPage}" varStatus="status">
+		<%-- 이동할 url 생성 --%>
+		<c:url value="main_qnaList.do" var="pageUrl">
+			<c:param name="page" value="${i}" />
+			<c:param name="keyword" value="${keyword}" />
+		</c:url>
+		
+		<%-- 페이지 번호 출력 --%>
+		<c:choose>
+			<%-- 현재 머물고 있는 페이지 번호를 출력할 경우 링크 적용 안함  --%>
+			<c:when test="${pageData.nowPage == i}">
+				<strong>[${i}]</strong>
+			</c:when>
+			<%-- 나머지 페이지의 경우 링크 적용함 --%>
+			<c:otherwise>
+				<a href="${pageUrl}">[${i}]</a>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+	
+	<%-- 다음 그룹에 대한 링크 --%>
+	<c:choose>
+		<%-- 다음 그룹으로 이동 가능하다면? --%>
+		<c:when test="${pageData.nextPage > 0}">
+			<%-- 이동할 URL 생성 --%>
+			<c:url value="/main_qnaList.do" var="nextPageUrl">
+				<c:param name="page" value="${pageData.nextPage}" />
+				<c:param name="keyword" value="${keyword}" />
+			</c:url>
+			<a href="${nextPageUrl}">[다음]</a>
+		</c:when>
+		<c:otherwise>
+			[다음]
+		</c:otherwise>
+	</c:choose>
+	</div>
+			    <!-- 검색폼  -->
+		    <div id="form" class="clearfix">
+         		<form method="get" id="search" class="pull-left" >
+         			<label for="keyword"></label>
+        			<input type="search" name="keyword" id="keyword" class="search_text pull-left" placeholder="  검색어 입력" value="${keyword}">
+        			<button type="submit" class="search btn btn-warning pull-left">검색</button>
+        		</form>
+        		<a class="write pull-right" href="${pageContext.request.contextPath}/main_myQnaWrite.do">글쓰기</a>
+        	</div>     	
         </div>
 		<!-- 하단 영역 -->
 		<%@ include file = "assets/inc/footer.jsp" %>
@@ -77,56 +170,7 @@
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/menu.js"></script>
 	<script src="assets/js/scroll.js"></script>
-	<script src="assets/js/pagination.js"></script>
-	<script type="text/javascript">
-	$(function() {
-			paging(totalData, dataPerPage, pageCount, 1);
-			$.getJSON('assets/api/qnalist.json', function(data) {
-				var html = '';
-				var json = data.item;
-				$.each(json, function(index, entry) {
-					html += '<li class="qna_notice">';
-					html += '<a href="${pageContext.request.contextPath}/main_qnaDetails.do">';
-					html += '<span class="qna_title">';
-					html += '<strong class="dog">' + entry.dog + '</strong>';        
-					html +=  entry.title + '</span>';
-					html += '<span class="nada clearfix">';
-					html += '<span class="qna_name pull-left" title="작성자">' + entry.name + '</span>';
-					html += '<span class="qna_data pull-left" title="작성일">' + entry.date+ '</span>';
-					html += '<span class="qna_count pull-left">' + entry.count + '</span>';
-					html += '</span>';
-					html += '</a>';
-					html += '</li>';
-				});
-				var $imageContainer = $("#qna_notice_list");
-
-				$imageContainer.append(html);
-			});
-		});
-		
-	$(function() {
-		paging(totalData, dataPerPage, pageCount, 1);
-		$.getJSON('assets/api/qnanoticelist.json', function(data) {
-			var html = '';
-			var json = data.item;
-			$.each(json, function(index, entry) {
-				html += '<li>';
-				html += '<a href="${pageContext.request.contextPath}/main_myQna.do">';
-				html += '<span class="qna_title">' + entry.title + '</span>';
-				html += '<span class="nada clearfix">';
-				html += '<span class="qna_name pull-left" title="작성자">' + entry.name + '</span>';
-				html += '<span class="qna_data pull-left" title="작성일">' + entry.date+ '</span>';
-				html += '<span class="qna_count pull-left">' + entry.count + '</span>';
-				html += '</span>';
-				html += '</a>';
-				html += '</li>';
-			});
-			var $imageContainer = $("#member_qna");
-
-			$imageContainer.append(html);
-		});
-	});
-	</script>
+	
 </body>
 
 </html>
